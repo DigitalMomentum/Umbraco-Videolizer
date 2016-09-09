@@ -12,7 +12,7 @@ namespace Videolizer {
     public class VideoPickerPropertyEditorValueConverter : PropertyValueConverterBase {
 
         public override bool IsConverter(PublishedPropertyType propertyType) {
-            return propertyType.PropertyEditorAlias.Equals("DigitalMomentum.VideolizerVideo");
+            return propertyType.PropertyEditorAlias.Equals("DigitalMomentum.Videolizer");
         }
 
         public override object ConvertDataToSource(PublishedPropertyType propertyType, object source, bool preview) {

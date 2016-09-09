@@ -1,0 +1,11 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using Videolizer
+@{
+    Layout = "Master.cshtml";
+}
+@{
+    @(Model.Content.GetPropertyValue<VideolizerVideo>("videolizer").GetSimpleEmbed("600", "300"))
+    //@(Model.Content.GetPropertyValue<VideolizerVideo>("videolizer").id)
+}
+
+@*@CurrentPage.GetGridHtml("content", "fanoe")*@
