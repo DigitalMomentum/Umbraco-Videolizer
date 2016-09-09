@@ -5,6 +5,8 @@ A simple Datatype for pasting in Youtube / Vimeo URLs and embeding the appropria
 
 ## Installation
 Install the package and a new datatype called 'Videolizer' will be added
+Also avaliable via NuGet: 
+```Install-Package DigitalMomentum.Videolizer```
 
 ## Features
 The Property editor has a single textbox for pasting in a website link to
