@@ -1,7 +1,7 @@
 # Umbraco7-Videolizer
 By David Sheiles
 
-A simple Datatype for pasting in Youtube / Vimeo URLs and embeding them into your site
+A simple Datatype for pasting in Youtube / Vimeo URLs and embeding the appropriate iFrame  into your site
 
 ## Installation
 Install the package and a new datatype called 'Videolizer' will be added
