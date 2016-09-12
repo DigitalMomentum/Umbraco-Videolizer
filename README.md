@@ -23,8 +23,7 @@ editors can paste in the video URLs.
 There are two ways to use the values from the property editor in the views.
 
 ```
-@(Model.Content.GetPropertyValue<VideolizerVideo>
-    ("video").GetSimpleEmbed("600", "300"))
+@(Model.Content.GetPropertyValue<VideolizerVideo>("video").GetSimpleEmbed("600", "300"))
 ```
 
 or like this
