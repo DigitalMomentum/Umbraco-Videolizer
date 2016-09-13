@@ -23,13 +23,20 @@ namespace Videolizer {
             try {
                 var obj = JsonConvert.DeserializeObject<VideolizerVideo>(sourceString);
 
-                if (obj != null)
+                if (obj != null) {
                     return obj;
-
+                }
                 return new VideolizerVideo();
 
             } catch (Exception ex) {
-                return new VideolizerVideo();
+                try {
+                    //Not a Videolizer Object. Maybe its just a URL string and we can convert it?
+                    VideolizerVideo newVideo = new VideolizerVideo(sourceString);
+                    return newVideo;
+                } catch {
+                    return new VideolizerVideo();
+                }
+                
             }
 
         }

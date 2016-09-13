@@ -17,7 +17,6 @@
                 }
                 if ($scope.model.value == null) {
                     var vidId = vimeoVidId($scope.vidUrl); //Try Vimeo
-                    console.log(vidId)
                     if (vidId != false) {
                         $scope.model.value = {
                             url: $scope.vidUrl,
@@ -73,7 +72,18 @@
 
         function vimeoVidId(url) {
             var p = /^(?:https?:\/\/)?(?:www\.|player\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|video\/|)(\d+)(?:$|\/|\?)?$/;
-            return (url.match(p)) ? RegExp.$3 : false;
+            if (url.match(p)) {
+                return RegExp.$3
+            }
+
+            var p = /^(?:https?:\/\/)?(www\.|player\.)?vimeo.com\/(\d+)\/(.+)/;
+            if (url.match(p)) {
+                
+                return RegExp.$2
+            }
+            console.log(RegExp);
+            return false;
+
         }
 
     });

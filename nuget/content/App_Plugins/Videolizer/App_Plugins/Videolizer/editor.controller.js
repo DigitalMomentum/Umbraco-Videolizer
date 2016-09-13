@@ -1,12 +1,7 @@
 ﻿angular.module("umbraco")
     .controller("DigitalMomentum.Videolizer",
     function ($scope) {
-        function activate() {
-            if ($scope.model.value != null) {
-                $scope.vidUrl = $scope.model.value.url;
-            }
-        }
-        activate();
+        
 
         $scope.checkVideoUrl = function () {
             $scope.model.value = null;
@@ -44,6 +39,24 @@
             }
            
         }
+
+        function activate() {
+            if ($scope.model.value != null) {
+                if (typeof $scope.model.value.url != "undefined") {
+                    $scope.vidUrl = $scope.model.value.url;
+                } else {
+                    //Doesn't seem to be our usual object. 
+                    //Lets try to see if it was a Textbox in a previous life!
+                    if (typeof $scope.model.value == "string") {
+                        //could be a url stored as a plain string. Lets give it a go!
+                        $scope.vidUrl = $scope.model.value;
+                        $scope.checkVideoUrl();
+                    }
+                }
+            }
+        }
+        activate();
+
 
 
         /**

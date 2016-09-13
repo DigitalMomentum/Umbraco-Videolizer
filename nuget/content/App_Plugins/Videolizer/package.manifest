@@ -5,7 +5,7 @@
             /*this must be a unique alias*/
             alias: "DigitalMomentum.Videolizer",
             /*the name*/
-            name: "Umbraco Video Picker for YouTube and Vimeo",
+            name: "Videolizer Video Picker",
             /*the HTML file we will load for the editor*/
             editor: {
                 view: "~/App_Plugins/Videolizer/editor.html"

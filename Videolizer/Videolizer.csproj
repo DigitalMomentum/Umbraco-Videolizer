@@ -335,12 +335,12 @@
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>XCOPY "$(SolutionDir)Videolizer\*.html"  "$(SolutionDir)Videolizer.web\App_Plugins\Videolizer\" /y /S
+    <PostBuildEvent>XCOPY "$(SolutionDir)Videolizer\*.html"  "$(SolutionDir)Videolizer.web\" /y /S
  
 
-XCOPY "$(SolutionDir)Videolizer\*.js"  "$(SolutionDir)Videolizer.web\App_Plugins\Videolizer\" /y /S
+XCOPY "$(SolutionDir)Videolizer\*.js"  "$(SolutionDir)Videolizer.web\" /y /S
 
-XCOPY "$(SolutionDir)Videolizer\*.manifest"  "$(SolutionDir)Videolizer.web\App_Plugins\Videolizer\" /y /S
+XCOPY "$(SolutionDir)Videolizer\*.manifest"  "$(SolutionDir)Videolizer.web\" /y /S
 
 
 XCOPY "$(SolutionDir)Videolizer.web\App_Plugins\Videolizer"  "$(SolutionDir)nuget\content\App_Plugins\Videolizer" /y /S</PostBuildEvent>

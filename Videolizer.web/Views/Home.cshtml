@@ -5,7 +5,8 @@
 }
 @{
     @(Model.Content.GetPropertyValue<VideolizerVideo>("videolizer").GetSimpleEmbed("600", "300"))
-    //@(Model.Content.GetPropertyValue<VideolizerVideo>("videolizer").id)
+    
+    @(Model.Content.GetPropertyValue<VideolizerVideo>("videoString").GetSimpleEmbed("600", "300"))
 }
 
 @*@CurrentPage.GetGridHtml("content", "fanoe")*@
