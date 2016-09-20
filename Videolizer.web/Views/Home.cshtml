@@ -4,9 +4,10 @@
     Layout = "Master.cshtml";
 }
 @{
-    @(Model.Content.GetPropertyValue<VideolizerVideo>("videolizer").GetSimpleEmbed("600", "300"))
+    @(Model.Content.GetPropertyValue<VideolizerVideo>("youTube").GetSimpleEmbed("600", "300"))
     
-    @(Model.Content.GetPropertyValue<VideolizerVideo>("videoString").GetSimpleEmbed("600", "300"))
-}
+    @(Model.Content.GetPropertyValue<VideolizerVideo>("vimeo").GetSimpleEmbed("600", "300"))
 
-@*@CurrentPage.GetGridHtml("content", "fanoe")*@
+
+
+}

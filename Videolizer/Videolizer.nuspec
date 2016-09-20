@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>$id$</id>
+        <version>$version$</version>
+        <title>$title$</title>
+        <authors>$author$</authors>
+        <owners>$author$</owners>
+        <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+        <projectUrl>https://github.com/DigitalMomentum/Umbraco7-Videolizer</projectUrl>
+        <iconUrl>http://digitalmomentum.com.au/images/Videolizer/Videolizer.png</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>$description$</description>
+        <copyright>Copyright ©  2016</copyright>
+      <tags>Umbraco YouTube Vimeo Video</tags>
+        <dependencies>
+            <dependency id="UmbracoCms.Core" version="7.5.3" />
+        </dependencies>
+    </metadata>
+</package>
