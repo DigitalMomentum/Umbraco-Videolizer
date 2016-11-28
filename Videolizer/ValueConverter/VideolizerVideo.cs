@@ -68,6 +68,15 @@ namespace Videolizer {
 
 
         /// <summary>
+        /// Checks to see if the object has a video to display
+        /// </summary>
+        /// <returns>true if there is a video URL</returns>
+        public bool HasVideo() {
+            return !string.IsNullOrEmpty(url);
+        }
+
+
+        /// <summary>
         /// Returns the HTML for the Video Embed in the form of an iFrame
         /// </summary>
         /// <param name="width">Width of the Video (px or %)</param>
