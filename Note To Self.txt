@@ -1,0 +1,24 @@
+Can get OEmbed settings from /config/EmbeddedMedia.config
+
+You can get oEmbed Json info from https://www.youtube.com/oembed?url=http%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DC0_1g5FVYAc&format=json
+OR
+https://vimeo.com/api/oembed.xml?url=https://vimeo.com/201699985&format=json
+
+Google Has a youtube search API https://developers.google.com/youtube/v3/docs/search/list
+where you can do somthing like 
+https://www.googleapis.com/youtube/v3/search?part=snippet&q=chicken&key=AIzaSyDGhx1DtIgDl5ITSm0xfmqPAAHSAlI2KeU
+
+to search for youtube videos on chickens
+
+
+VIMEO SEARCH
+You need to register for a key - https://developer.vimeo.com/apps
+
+and then you can
+https://api.vimeo.com/videos?query=chicken&access_token=b0c5b94787775dd8f4cbe414f2d6a499
+
+or get my videos
+https://api.vimeo.com/me/videos?access_token=b0c5b94787775dd8f4cbe414f2d6a499
+OR serch for my videos with keyword "brian" - https://api.vimeo.com/me/videos?query=brian&access_token=b0c5b94787775dd8f4cbe414f2d6a499
+
+Docs - https://developer.vimeo.com/api/endpoints/videos

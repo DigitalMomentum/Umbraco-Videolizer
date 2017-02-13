@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{97CABB9D-E977-461B-A9CB-53902E5EE33B}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		Note To Self.txt = Note To Self.txt
 		README.md = README.md
 		Videolizer_Package.zip = Videolizer_Package.zip
 	EndProjectSection

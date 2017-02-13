@@ -14,7 +14,7 @@
         <copyright>Copyright ©  2016</copyright>
       <tags>Umbraco YouTube Vimeo Video</tags>
         <dependencies>
-            <dependency id="UmbracoCms.Core" version="7.5.3" />
+            <!--<dependency id="UmbracoCms.Core" version="7.5.3" />-->
         </dependencies>
     </metadata>
 </package>
