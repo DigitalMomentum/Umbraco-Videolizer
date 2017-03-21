@@ -9,12 +9,32 @@
             /*the HTML file we will load for the editor*/
             editor: {
                 view: "~/App_Plugins/Videolizer/editor.html"
-            }
+            },
+			prevalues: {
+    fields: [
+        {
+            label: "YouTube API Key",
+            description: "Go to https://console.developers.google.com/apis/credentials to obtain a key",
+            key: "ytApi",
+            view: "textstring"
+        },
+        {
+            label: "YouTube Channel ID",
+            description: "If you would like to restrict the search to a particular channel, enter the channel ID here. Leave blank to search all of YouTube",
+            key: "ytChannelId",
+            view: "textstring"
+        }
+    ]
+}
         }
     ],
 
     //array of files we want to inject into the application on app_start
     javascript: [
-        '~/App_Plugins/Videolizer/editor.controller.js'
-    ]
+        '~/App_Plugins/Videolizer/editor.controller.js',
+        '~/App_Plugins/Videolizer/search.dialog.js'
+    ],
+	css: [
+		'~/App_Plugins/Videolizer/videolizer.css',
+	]
 }
