@@ -1,23 +1,33 @@
 ﻿<div ng-controller="DigitalMomentum.Videolizer.Search">
-	<form name="dialogForm" ng-submit="submit(model)">
+	<form name="dialogForm">
 		<umb-panel>
 		<div style="overflow:auto">
 			<umb-pane>
-				<umb-control-group label="Name">
-					<input type="text" name="searchTerm" class="searchTerm" ng-model="model.searchTerm" required />
+			
+					<input type="text" name="searchTerm" class="searchTerm" ng-model="model.searchTerm" required placeholder="Search Term" />
 					<button type="button" class="btn btn-primary" ng-disabled="!dialogForm.$valid" ng-click="search()">
 						<i class="icon-search"></i>
 					</button>
-				</umb-control-group>
+					<div style="margin-top:5px;">
+						<label style="width:50%;float:left;" ng-show="model.ytApi">
+							<input type="radio" ng-model="model.searchType" value="ytChannel" /> YouTube Channel
+						</label>
+						<label style="width:50%;float:left;" ng-show="model.ytApi && model.ytChannelId">
+							<input type="radio" ng-model="model.searchType" value="ytAll" /> YouTube General
+						</label>
+					</div>
+				
 			</umb-pane>
 			<umb-pane style="position: absolute;top: 85px;bottom: 50px;overflow: auto;right: 0px;left: 0;">
-				<div ng-repeat="video in results" class="clearfix">
+				<div ng-repeat="video in results" class="clearfix" style="width:185px;float:left;height:185px; margin-right:5px;overflow-y:hidden">
 					<!--<img src="{{video.snippet.thumbnails.default.url}}" />-->
-					<h4><a ng-click="selectVideo(video)" title="Select Video">{{video.snippet.title}}</a></h4>
-					<iframe width="250" height="150"
-							src="https://www.youtube.com/embed/{{video.id.videoId}}?controls=1"></iframe>
-					
-					<p>{{video.snippet.description}}</p>
+					<!--<h4></h4>-->
+					<iframe width="100%" height="104"src="https://www.youtube.com/embed/{{video.id.videoId}}?controls=1"></iframe>
+					<div>
+						<a href="#" ng-click="selectVideo(video)" title="Select Video">{{video.snippet.title}}</a>
+
+					<!--<p>{{video.snippet.description}}</p>-->
+					</div>
 
 			
 				</div>
