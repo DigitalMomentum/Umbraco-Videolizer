@@ -14,14 +14,19 @@
     fields: [
         {
             label: "YouTube API Key",
-            description: "Go to https://console.developers.google.com/apis/credentials to obtain a key",
+            description: "[optional] To Enable YouTube searches, go to https://console.developers.google.com/apis/credentials to obtain a key",
             key: "ytApi",
             view: "textstring"
         },
         {
             label: "YouTube Channel ID",
-            description: "If you would like to restrict the search to a particular channel, enter the channel ID here. Leave blank to search all of YouTube",
+            description: "[optional] If you would like to restrict the search to a particular channel, enter the channel ID here. Leave blank to search all of YouTube by default",
             key: "ytChannelId",
+            view: "textstring"
+        }, {
+            label: "Vimeo Acess Token",
+            description: "[optional] To enable Vimeo searches, go to https://developer.vimeo.com/apps to obtain a key",
+            key: "vimeoApi",
             view: "textstring"
         }
     ]

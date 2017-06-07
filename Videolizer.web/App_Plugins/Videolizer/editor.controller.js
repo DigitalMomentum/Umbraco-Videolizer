@@ -48,17 +48,13 @@
 				// pass in data used in dialog
 				dialogData: {
 					ytApi: $scope.model.config.ytApi,
-					ytChannelId: $scope.model.config.ytChannelId
-					//name: "Dave",
-					//email: "dave@dave.com"
+					ytChannelId: $scope.model.config.ytChannelId,
+					vimeoApi: $scope.model.config.vimeoApi
 				},
 				// function called when dialog is closed
 				callback: function (value) {
-					//if (value != null && value != '') {
-					console.log(value);
 					$scope.model.value = value;
 					$scope.vidUrl = value.url;
-					
 				}
 			});
 		}
