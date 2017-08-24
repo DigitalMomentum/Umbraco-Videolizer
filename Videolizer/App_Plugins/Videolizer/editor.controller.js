@@ -49,7 +49,8 @@
 				dialogData: {
 					ytApi: $scope.model.config.ytApi,
 					ytChannelId: $scope.model.config.ytChannelId,
-					vimeoApi: $scope.model.config.vimeoApi
+					vimeoApi: $scope.model.config.vimeoApi,
+					defaultSearchType: $scope.model.config.defaultSearchType
 				},
 				// function called when dialog is closed
 				callback: function (value) {

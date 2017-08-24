@@ -28,7 +28,13 @@
             description: "[optional] To enable Vimeo searches, go to https://developer.vimeo.com/apps to obtain a key",
             key: "vimeoApi",
             view: "textstring"
-        }
+        } ,
+		{
+						label: "Default Search Method",
+						description: "Select which type of search you would like to default to",
+						key: "defaultSearchType",
+						view: "~/App_Plugins/Videolizer/propertyeditors/defaultSearchType.html"
+					}
     ]
 }
         }

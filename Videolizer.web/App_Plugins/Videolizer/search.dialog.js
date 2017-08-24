@@ -3,12 +3,13 @@ angular.module('umbraco')
 .controller('DigitalMomentum.Videolizer.Search',
 		function ($http, $scope) {
 			$scope.hideLabel = "true"; //Hides the modal Dialog label at the top of the page
-
+		
 	$scope.model = {
 		searchTerm: "",
 		ytApi: $scope.dialogData.ytApi,
 		ytChannelId: $scope.dialogData.ytChannelId,
 		vimeoApi: $scope.dialogData.vimeoApi,
+		searchType: $scope.dialogData.defaultSearchType
 	}
 
 	$scope.results = {
@@ -20,17 +21,17 @@ angular.module('umbraco')
 		$scope.search(); //Run defaut search to get list of latest videos
 
 		//Select the appropriate Default Radio
-		if ($scope.model.ytApi) {
-			if ($scope.model.ytChannelId) {
-				$scope.searchType = "ytChannel";
-			} else {
-				$scope.searchType = "ytAll";
-			}
+		//if ($scope.model.ytApi) {
+		//	if ($scope.model.ytChannelId) {
+		//		$scope.searchType = "ytChannel";
+		//	} else {
+		//		$scope.searchType = "ytAll";
+		//	}
 			
-		}
+		//}
 	}
 
-	function SearchYouTube(searchTerm) {
+	function searchYouTube(searchTerm) {
 		var ApiUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&key=' + $scope.dialogData.ytApi
 		var hasASearch = false;
 
@@ -72,13 +73,19 @@ angular.module('umbraco')
 
 	}
 
+	function searchVimeo(searchTerm) {
+		
+	}
+
 	$scope.search = function () {
 		console.log($scope.model.searchType)
 		var hasASearch = false;
 		var searchTerm = $scope.model.searchTerm;
 		if ($scope.model.searchType == "ytChannel" || $scope.model.searchType == "ytAll") {
-			SearchYouTube();
+			searchYouTube(searchTerm);
 			return;
+		} else {
+
 		}
 
 		//var ApiUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&key=' + $scope.dialogData.ytApi

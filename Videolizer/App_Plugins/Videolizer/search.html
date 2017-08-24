@@ -9,7 +9,20 @@
 						<i class="icon-search"></i>
 					</button>
 					<div style="margin-top:5px;">
-						<label style="width:50%;float:left;" ng-show="model.ytApi">
+						<select ng-model="model.searchType">
+						
+							<optgroup  label="YouTube" ng-show="model.ytApi">
+								<option value="ytChannel" ng-show="model.ytApi">YouTube: My Videos</option>
+								<option value="ytAll" ng-show="model.ytApi && model.ytChannelId">YouTube: Public Videos</option>
+							</optgroup>
+							<optgroup label="Vimeo" ng-show="model.vimeoApi">
+								<option value="vimeoChannel" ng-show="model.vimeoApi">Vimeo: My Videos</option>
+								<option value="vimeoAll" ng-show="model.vimeoApi">Vimeo: public Videos</option>
+							</optgroup>
+						</select>
+					
+
+						<!--<label style="width:50%;float:left;" ng-show="model.ytApi">
 							<input type="radio" ng-model="model.searchType" value="ytChannel" /> YouTube - My Videos
 						</label>
 						<label style="width:50%;float:left;" ng-show="model.vimeoApi">
@@ -17,11 +30,11 @@
 						</label>
 
 						<label style="width:50%;float:left;" ng-show="model.ytApi && model.ytChannelId">
-							<input type="radio" ng-model="model.searchType" value="ytAll" /> YouTube - General Videos
+							<input type="radio" ng-model="model.searchType" value="ytAll" /> YouTube - public Videos
 						</label>
 						<label style="width:50%;float:left;" ng-show="model.vimeoApi">
-							<input type="radio" ng-model="model.searchType" value="vimeoAll" /> Vimeo - General Videos
-						</label>
+							<input type="radio" ng-model="model.searchType" value="vimeoAll" /> Vimeo - public Videos
+						</label>-->
 					</div>
 				
 			</umb-pane>

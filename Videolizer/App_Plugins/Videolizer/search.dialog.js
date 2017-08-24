@@ -3,12 +3,13 @@ angular.module('umbraco')
 .controller('DigitalMomentum.Videolizer.Search',
 		function ($http, $scope) {
 			$scope.hideLabel = "true"; //Hides the modal Dialog label at the top of the page
-
+		
 	$scope.model = {
 		searchTerm: "",
 		ytApi: $scope.dialogData.ytApi,
 		ytChannelId: $scope.dialogData.ytChannelId,
 		vimeoApi: $scope.dialogData.vimeoApi,
+		searchType: $scope.dialogData.defaultSearchType
 	}
 
 	$scope.results = {
@@ -20,14 +21,14 @@ angular.module('umbraco')
 		$scope.search(); //Run defaut search to get list of latest videos
 
 		//Select the appropriate Default Radio
-		if ($scope.model.ytApi) {
-			if ($scope.model.ytChannelId) {
-				$scope.searchType = "ytChannel";
-			} else {
-				$scope.searchType = "ytAll";
-			}
+		//if ($scope.model.ytApi) {
+		//	if ($scope.model.ytChannelId) {
+		//		$scope.searchType = "ytChannel";
+		//	} else {
+		//		$scope.searchType = "ytAll";
+		//	}
 			
-		}
+		//}
 	}
 
 	function searchYouTube(searchTerm) {
@@ -81,7 +82,7 @@ angular.module('umbraco')
 		var hasASearch = false;
 		var searchTerm = $scope.model.searchTerm;
 		if ($scope.model.searchType == "ytChannel" || $scope.model.searchType == "ytAll") {
-			searchYouTube();
+			searchYouTube(searchTerm);
 			return;
 		} else {
 

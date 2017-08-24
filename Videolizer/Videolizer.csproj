@@ -280,6 +280,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Plugins\Videolizer\propertyeditors\defaultSearchType.html" />
     <Content Include="App_Plugins\Videolizer\search.dialog.js" />
     <Content Include="App_Plugins\Videolizer\search.html" />
     <Content Include="App_Plugins\Videolizer\videolizer.css" />
