@@ -1,3 +1,32 @@
 ﻿.searchTerm{
 margin-bottom:0 !important;
 }
+
+div[ng-click]{
+	cursor:pointer;
+}
+
+.videoSearchResults {
+	position: absolute;
+	top: 85px;
+	bottom: 50px;
+	overflow: auto;
+	right: 0px;
+	left: 0;
+}
+	.videoSearchResults .vimeoThumbnail {
+		width: 185px;
+		float: left;
+		height: 185px;
+		margin-right: 5px;
+		overflow-y: hidden
+	}
+	.videoSearchResults .vimeoThumbnail iframe {
+		width: 185px;
+		height:104px;
+	}
+
+.videoSearchResults .title{
+	text-decoration:underline;
+}
+

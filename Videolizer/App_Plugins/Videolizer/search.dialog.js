@@ -74,83 +74,89 @@ angular.module('umbraco')
 	}
 
 	function searchVimeo(searchTerm) {
-		
+		var ApiUrl = 'https://api.vimeo.com/';
+		if ($scope.model.searchType == "vimeoChannel"){
+			//Get from my channel
+			ApiUrl += "me/";
+			hasASearch = true; //Auto load my videos
+		}
+		ApiUrl += "videos?per_page=8&access_token=" + $scope.dialogData.vimeoApi;
+
+
+		var req = {
+			method: 'GET',
+			url: ApiUrl,
+			headers: {
+				'Content-Type': "json"
+			},
+			//data: { test: 'test' }
+		}
+
+		if (searchTerm) {
+			req.url += '&query=' + searchTerm;
+			hasASearch = true;
+		}
+
+
+
+		$http(req).then(function successCallback(response) {
+			// this callback will be called asynchronously
+			// when the response is available
+			console.log(response);
+
+			var regExp = /\/(\d+)($|\/)/;
+
+			angular.forEach(response.data.data, function (video, key) {
+				var match = video.uri.match(regExp);
+				if (match) {
+					video.kind = "Vimeo";
+					video.id = match[1];
+				}
+			});
+
+
+
+
+			$scope.results.vimeo = response.data.data;
+		}, function errorCallback(response) {
+			// called asynchronously if an error occurs
+			// or server returns response with an error status.
+		});
 	}
 
 	$scope.search = function () {
 		console.log($scope.model.searchType)
+		$scope.results.yt = [];
+		$scope.results.vimeo = [];
 		var hasASearch = false;
 		var searchTerm = $scope.model.searchTerm;
 		if ($scope.model.searchType == "ytChannel" || $scope.model.searchType == "ytAll") {
 			searchYouTube(searchTerm);
 			return;
 		} else {
-
+			searchVimeo(searchTerm);
+			return;
 		}
-
-		//var ApiUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&key=' + $scope.dialogData.ytApi
-		//if (searchFlavour == "vimeo"){
-		//	if ($scope.model.searchType == "vimeoChannel") {
-		//		ApiUrl = 'https://api.vimeo.com/me/videos';
-		//		hasASearch = true;
-		//	} else {
-		//		ApiUrl = 'https://api.vimeo.com/videos';
-		//	}
-		//	ApiUrl += '?access_token=' + $scope.dialogData.vimeoApi;
-		//}
-		
-			
-
-		//var req = {
-		//	method: 'GET',
-		//	url: ApiUrl,
-		//	headers: {
-		//		'Content-Type': "json"
-		//	},
-		//	//data: { test: 'test' }
-		//}
-		//if (searchTerm != "") {
-		//	if (searchFlavour == "yt") {
-		//		req.url += '&q=' + searchTerm;
-		//	} else {
-		//		req.url += '&query=' + searchTerm;
-		//	}
-		//	hasASearch = true;
-		//}
-
-
-		//if ($scope.model.searchType == "ytChannel") {
-		//	req.url += "&channelId=" + $scope.model.ytChannelId
-		//	if (searchTerm == "") {
-		//		//We are getting the latest from our channel
-		//		req.url += "&order=date";
-		//	}
-		//	hasASearch = true;
-		//} 
-
-		//$http(req).then(function successCallback(response) {
-		//	// this callback will be called asynchronously
-		//	// when the response is available
-		//	//console.log(response);
-		//	$scope.results.yt = response.data.items;
-		//}, function errorCallback(response) {
-		//	// called asynchronously if an error occurs
-		//	// or server returns response with an error status.
-		//});
 	}
 
 
 	$scope.selectVideo = function (video) {
-		//console.log(video);
-		var vidId = video.id.videoId;
-		$scope.submit(
-		{
-				url: "https://www.youtube.com/watch?v=" + vidId,
-				id: vidId,
-				embedUrl: "https://www.youtube.com/embed/" + vidId,
-				type: "YouTube"
-			}
-		);
+		console.log(video);
+		var videoInfo = {};
+		if (video.kind == "Vimeo") {
+			videoInfo.id = video.id;
+			videoInfo.type = "Vimeo";
+			videoInfo.url = "https://vimeo.com/" + video.id;
+			videoInfo.embedUrl = "https://player.vimeo.com/video/" + video.id;
+		} else {
+			//YouTube
+			videoInfo.id = video.id.videoId;
+			videoInfo.type = "YouTube";
+			videoInfo.url = "https://www.youtube.com/watch?v=" + video.id.videoId;
+			videoInfo.embedUrl = "https://www.youtube.com/embed/" + video.id.videoId;
+		}
+		console.log(videoInfo);
+		$scope.submit(videoInfo);
 	}
 
 

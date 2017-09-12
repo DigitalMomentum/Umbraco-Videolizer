@@ -20,36 +20,30 @@
 								<option value="vimeoAll" ng-show="model.vimeoApi">Vimeo: public Videos</option>
 							</optgroup>
 						</select>
-					
+			
 
-						<!--<label style="width:50%;float:left;" ng-show="model.ytApi">
-							<input type="radio" ng-model="model.searchType" value="ytChannel" /> YouTube - My Videos
-						</label>
-						<label style="width:50%;float:left;" ng-show="model.vimeoApi">
-							<input type="radio" ng-model="model.searchType" value="vimeoChannel" /> Vimeo - My Videos
-						</label>
-
-						<label style="width:50%;float:left;" ng-show="model.ytApi && model.ytChannelId">
-							<input type="radio" ng-model="model.searchType" value="ytAll" /> YouTube - public Videos
-						</label>
-						<label style="width:50%;float:left;" ng-show="model.vimeoApi">
-							<input type="radio" ng-model="model.searchType" value="vimeoAll" /> Vimeo - public Videos
-						</label>-->
 					</div>
 				
 			</umb-pane>
-			<umb-pane style="position: absolute;top: 85px;bottom: 50px;overflow: auto;right: 0px;left: 0;">
-				<div ng-repeat="video in results.yt" class="clearfix" style="width:185px;float:left;height:185px; margin-right:5px;overflow-y:hidden">
-					<!--<img src="{{video.snippet.thumbnails.default.url}}" />-->
-					<!--<h4></h4>-->
+			<umb-pane class="videoSearchResults">
+				<div ng-repeat="video in results.yt" class="clearfix ytThumbnail" style="width:185px;float:left;height:185px; margin-right:5px;overflow-y:hidden">
 					<iframe width="100%" height="104"src="https://www.youtube.com/embed/{{video.id.videoId}}?controls=1"></iframe>
-					<div>
-						<a href="#" ng-click="selectVideo(video)" title="Select Video">{{video.snippet.title}}</a>
+					<div ng-click="selectVideo(video)" class="title">
+						{{video.snippet.title}}
 
 					<!--<p>{{video.snippet.description}}</p>-->
 					</div>
 
 			
+				</div>
+				<div ng-repeat="video in results.vimeo" class="clearfix vimeoThumbnail" style="width:185px;float:left;height:185px; margin-right:5px;overflow-y:hidden">
+						<span ng-bind-html-unsafe="video.embed.html"></span>
+
+					<div ng-click="selectVideo(video)" class="title">
+						{{video.name}}
+					</div>
+
+
 				</div>
 			</umb-pane>
 			</div>
@@ -59,9 +53,7 @@
 						<a class="btn btn-link" ng-click="close()">
 							<localize key="cancel" />
 						</a>
-						<!--<button type="submit" class="btn btn-primary" ng-disabled="!dialogForm.$valid">
-					<localize key="buttons_save">Save</localize>
-				</button>-->
+					
 					</div>
 				</div>
 </umb-panel>
