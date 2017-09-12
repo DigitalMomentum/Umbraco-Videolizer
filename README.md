@@ -1,19 +1,48 @@
 # Umbraco7-Videolizer
-By David Sheiles
+By David Sheiles - [Digital Momentum](http://www.digitalmomentum.com.au)
 
-A simple Datatype for pasting in Youtube / Vimeo URLs and embeding the appropriate iFrame  into your site
+An Umbraco Data Type that allows you to search and pick from YouTube and Vimeo videos. 
 
-## Installation
+It can also be configured to search and pick from your own YouTube/Vimeo video feeds.
+
+
+## Features
+- Supports both YouTube and Vimeo Videos
+- Add videos by pasting the VideoURL
+- Seach your YouTube Channel OR Vimeo feed to select your videos
+- Easy embedding into the templates OR access to properties to customise the video yourself
+- Video Preview for the content editors
+- Strongly Typed models for Models Builder
+- Works with nested content
+
+
+### Installation
 Install the package and a new datatype called 'Videolizer' will be added
+
 Also avaliable via NuGet: 
 ```Install-Package DigitalMomentum.Videolizer```
 
-## Features
-The Property editor has a single textbox for pasting in a website link to
-either a YouTube or Vimeo video and extracts the video ID and displays a preview.
+You can then add the new Data Type to your DocTypes and your ready to go. You may want to configure the DocType to enable searching
 
-In the view, you have access to the Video ID, Service (Youtube/Vimeo), Raw URL, the embed URL
-and a function to generate the Embed Code
+### Configuration
+Without any configuration, Content Editors will be able to copy/paste of urls directly into the Property Editor, however extra steps are nessesary to enable searches
+
+#### YouTube Setup
+- First you will need to create a free API Key from https://console.developers.google.com/apis/credentials  
+  - Click "Dashboard" and then "Enable APIS and Services"
+  - Select "YouTube Data API" and then click "Enable" 
+  - Click Credentials in the menu and then "Create Credentials" -> "API Key"
+  - Copy The Key for the next Step
+- Back i the Umbraco Back Office, Open up the DataType under Developer -> DataTypes -> Videolizer
+- Paste Your YouTube API Key in to the box.
+
+To Enable Searching your Channel (rather than a public search), you will need to supply your YouTube Channel ID.
+
+- Log Into your YouTube Account
+- Click Your Profile Image and then "My Channel"
+- Copy the part of the URL that looks like UCwCDfuhoUHOZJPtDDMS1aCA (between the "https://www.youtube.com/channel/" and the "?"). This is your Channel ID
+- Paste your channel ID into the YouTube Channel ID in the DataType 
+
 
 ## How to use
 
