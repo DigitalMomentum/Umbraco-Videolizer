@@ -1,7 +1,8 @@
 ﻿<div ng-controller="DigitalMomentum.Videolizer.Search">
 	<form name="dialogForm">
 		<umb-panel>
-		<div style="overflow:auto">
+			
+		<div style="overflow:auto" ng-show="model.ytApi || model.vimeoApi">
 			<umb-pane>
 			
 					<input type="text" name="searchTerm" class="searchTerm" ng-model="model.searchTerm" required placeholder="Search Term" />
