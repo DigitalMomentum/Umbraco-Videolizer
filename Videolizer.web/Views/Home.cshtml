@@ -10,4 +10,19 @@
 
     @(Model.Content.GetPropertyValue<VideolizerVideo>("vimeo").HasVideo())
 
+
+
+
+	var items = Model.Content.GetPropertyValue<IEnumerable<IPublishedContent>>("repeatingVideos");
+
+	foreach (var item in items)
+	{
+	<div>
+		<h3>@item.GetPropertyValue("title")</h3>
+		@(item.GetPropertyValue<VideolizerVideo>("video").GetSimpleEmbed("600", "300"))
+	</div>
+	}
+
+
+
 }

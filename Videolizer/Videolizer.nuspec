@@ -3,14 +3,14 @@
     <metadata>
         <id>$id$</id>
         <version>$version$</version>
-        <title>$title$</title>
-        <authors>$author$</authors>
-        <owners>$author$</owners>
+        <title>Videolizer for Umbraco</title>
+        <authors>David Sheiles - Digital Momentum</authors>
+        <owners>David Sheiles - Digital Momentum</owners>
         <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
         <projectUrl>https://github.com/DigitalMomentum/Umbraco7-Videolizer</projectUrl>
         <iconUrl>http://digitalmomentum.com.au/images/Videolizer/Videolizer.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>$description$</description>
+        <description>An Umbraco 7.3+ Datatype for searching Youtube / Vimeo videos to insert and simple embedding videos into your site</description>
         <copyright>Copyright ©  2016</copyright>
       <tags>Umbraco YouTube Vimeo Video</tags>
         <dependencies>
