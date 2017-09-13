@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Videolizer", "Videolizer\Videolizer.csproj", "{AFDC1138-4AFA-472B-B7C4-3FAB9CAB95E5}"
 EndProject
@@ -14,6 +14,22 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Videolizer.web", "Videolizer.web\Videolizer.web.csproj", "{D838DC47-16D0-46B1-BDED-811236662314}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Screenshots", "Screenshots", "{E9FC155A-D2B7-4991-881D-06396F751694}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V1.0", "V1.0", "{2E2FC7F7-F91D-4224-801A-6F89C87850BC}"
+	ProjectSection(SolutionItems) = preProject
+		Screenshots\V1.0\Logo.png = Screenshots\V1.0\Logo.png
+		Screenshots\V1.0\Vimeo.PNG = Screenshots\V1.0\Vimeo.PNG
+		Screenshots\V1.0\Youtube.PNG = Screenshots\V1.0\Youtube.PNG
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V2.0", "V2.0", "{3A316159-ADF2-484B-BBF7-AF2B3040541B}"
+	ProjectSection(SolutionItems) = preProject
+		Screenshots\V2.0\Property Editor.PNG = Screenshots\V2.0\Property Editor.PNG
+		Screenshots\V2.0\Search Videos.PNG = Screenshots\V2.0\Search Videos.PNG
+		Screenshots\V2.0\Settings.PNG = Screenshots\V2.0\Settings.PNG
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,5 +48,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E9FC155A-D2B7-4991-881D-06396F751694} = {97CABB9D-E977-461B-A9CB-53902E5EE33B}
+		{2E2FC7F7-F91D-4224-801A-6F89C87850BC} = {E9FC155A-D2B7-4991-881D-06396F751694}
+		{3A316159-ADF2-484B-BBF7-AF2B3040541B} = {E9FC155A-D2B7-4991-881D-06396F751694}
 	EndGlobalSection
 EndGlobal

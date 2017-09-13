@@ -8,7 +8,7 @@ div[ng-click]{
 
 .videoSearchResults {
 	position: absolute;
-	top: 85px;
+	top: 185px;
 	bottom: 50px;
 	overflow: auto;
 	right: 0px;
