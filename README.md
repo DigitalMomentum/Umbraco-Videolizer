@@ -27,21 +27,32 @@ You can then add the new Data Type to your DocTypes and your ready to go. You ma
 ### Configuration
 Without any configuration, Content Editors will be able to copy/paste of urls directly into the Property Editor, however extra steps are nessesary to enable searches
 
-#### YouTube Setup
+#### YouTube Configuration
 - First you will need to create a free API Key from https://console.developers.google.com/apis/credentials  
   - Click "Dashboard" and then "Enable APIS and Services"
-  - Select "YouTube Data API" and then click "Enable" 
-  - Click Credentials in the menu and then "Create Credentials" -> "API Key"
+  - Select *YouTube Data API* and then click *Enable*
+  - Click Credentials in the menu and then *Create Credentials* -> *API Key*
   - Copy The Key for the next Step
-- Back i the Umbraco Back Office, Open up the DataType under Developer -> DataTypes -> Videolizer
+- Back in the Umbraco Back Office, Open up the DataType under Developer -> DataTypes -> Videolizer
 - Paste Your YouTube API Key in to the box.
 
 To Enable Searching your Channel (rather than a public search), you will need to supply your YouTube Channel ID.
 
 - Log Into your YouTube Account
-- Click Your Profile Image and then "My Channel"
+- Click your profile image and then "My Channel"
 - Copy the part of the URL that looks like UCwCDfuhoUHOZJPtDDMS1aCA (between the "https://www.youtube.com/channel/" and the "?"). This is your Channel ID
 - Paste your channel ID into the YouTube Channel ID in the DataType 
+
+#### Vimeo Configuration
+- Login to your vimeo account
+- Then you will need to create a free API Key from https://developer.vimeo.com/apps
+  - Click Create App
+  - Enter a name and description for the App and the URL of your live website. Click *Create App*
+  - Once created, click the *Authentication* tab
+  - Click *Generate Token* at the bottom of the page
+  - Copy the new token for the next step
+- Back in the Umbraco Back Office, Open up the DataType under Developer -> DataTypes -> Videolizer
+- Paste Your Token into the Vimeo Access Token box.
 
 
 ## How to use
