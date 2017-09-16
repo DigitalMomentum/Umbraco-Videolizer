@@ -127,7 +127,7 @@ namespace Videolizer{
 		/// <param name="styles">Styles to add to the iframe</param>
 		/// <returns>Iframe Embed to play the video</returns>
 		public HtmlString GetSimpleEmbed(string width, string height, string cssClasses, string styles) {
-			if (EmbedUrl == null) {
+			if (EmbedUrl == null || !HasVideo()) {
 				return new HtmlString("");
 			}
 			string classStr = "";
