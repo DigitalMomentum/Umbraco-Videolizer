@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Videolizer.Core</id>
+    <version>2.0.0</version>
+    <title>Videolizer.Core</title>
+    <authors>David Sheiles - Digital Momentum</authors>
+    <owners>David Sheiles - Digital Momentum</owners>
+    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/DigitalMomentum/Umbraco7-Videolizer</projectUrl>
+    <iconUrl>http://digitalmomentum.com.au/images/Videolizer/Videolizer.png</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>A Utility to extract the Video ID and other metadata from a given YouTube / Vimeo URL. This is also the core DLL to be used by Umbraco Visualizer which contains the Model and Property Value Converter</description>
+    <copyright>Copyright ©  2017</copyright>
+    <tags>Umbraco YouTube Vimeo Video</tags>
+    <dependencies>
+      <!--<dependency id="UmbracoCms.Core" version="7.5.3" />-->
+    </dependencies>
+    <releaseNotes></releaseNotes>
+  </metadata>
+	<files>
+		<file src="bin\Release\Videolizer.Core.dll" target="lib\net451\Videolizer.Core.dll" />
+	</files>
+</package>

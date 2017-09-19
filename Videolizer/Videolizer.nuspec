@@ -9,12 +9,12 @@
     <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
     <projectUrl>https://github.com/DigitalMomentum/Umbraco7-Videolizer</projectUrl>
     <iconUrl>http://digitalmomentum.com.au/images/Videolizer/Videolizer.png</iconUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>An Umbraco 7.3+ Datatype for searching Youtube / Vimeo videos to insert and simple embedding videos into your site</description>
     <copyright>Copyright ©  2016</copyright>
     <tags>Umbraco YouTube Vimeo Video</tags>
     <dependencies>
-      <!--<dependency id="UmbracoCms.Core" version="7.5.3" />-->
+      <dependency id="Videolizer.Core" version="2.0.0" />
     </dependencies>
     <releaseNotes>Add the ability to search YouTube/Vimeo and seach your own channel</releaseNotes>
   </metadata>
