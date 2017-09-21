@@ -71,6 +71,8 @@ There are two ways to use the values from the property editor in the views.
 or like this
 
 ```
-@{ var video = Model.Content.GetPropertyValue<VideolizerVideo>("video"); }
-<iframe width="100%" height="281" src="@video.embedUrl" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+@{ var video = Model.Content.GetPropertyValue<VideolizerVideo>("video"); 
+if(video.HasVideo())
+	<iframe width="100%" height="281" src="@video.EmbedUrl" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+}
  ```
