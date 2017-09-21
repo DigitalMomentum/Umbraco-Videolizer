@@ -39,8 +39,10 @@ angular.module('umbraco')
 			method: 'GET',
 			url: ApiUrl,
 			headers: {
-				'Content-Type': "json"
+				'Content-Type': "json",
+				
 			},
+			umbIgnoreErrors:true
 			//data: { test: 'test' }
 		}
 
@@ -87,8 +89,10 @@ angular.module('umbraco')
 			method: 'GET',
 			url: ApiUrl,
 			headers: {
-				'Content-Type': "json"
+				'Content-Type': "json",
+				
 			},
+			umbIgnoreErrors: true
 			//data: { test: 'test' }
 		}
 
