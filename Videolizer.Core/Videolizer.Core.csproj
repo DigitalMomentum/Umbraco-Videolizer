@@ -222,7 +222,7 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-    <Content Include="Videolizer.nuspec">
+    <Content Include="Videolizer.Core.nuspec">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
