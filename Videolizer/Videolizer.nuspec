@@ -14,7 +14,7 @@
     <copyright>Copyright ©  2016</copyright>
     <tags>Umbraco YouTube Vimeo Video</tags>
     <dependencies>
-      <dependency id="Videolizer.Core" version="2.0.0" />
+      <dependency id="Videolizer.Core" version="2.0.0-CI" />
     </dependencies>
     <releaseNotes>Add the ability to search YouTube/Vimeo and seach your own channel</releaseNotes>
   </metadata>
