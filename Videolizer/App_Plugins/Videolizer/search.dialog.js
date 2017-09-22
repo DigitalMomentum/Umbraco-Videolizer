@@ -1,9 +1,9 @@
 ﻿
 angular.module('umbraco')
 .controller('DigitalMomentum.Videolizer.Search',
-		function ($http, $scope) {
+	function ($http, $scope, notificationsService) {
 			$scope.hideLabel = "true"; //Hides the modal Dialog label at the top of the page
-		
+			$scope.errorStr = null;
 	$scope.model = {
 		searchTerm: "",
 		ytApi: $scope.dialogData.ytApi,
@@ -71,6 +71,8 @@ angular.module('umbraco')
 		}, function errorCallback(response) {
 			// called asynchronously if an error occurs
 			// or server returns response with an error status.
+			console.log("err", response);
+			notificationsService.error("YouTube Search Error", response.data.error.errors[0].reason);
 		});
 
 	}
@@ -125,6 +127,9 @@ angular.module('umbraco')
 		}, function errorCallback(response) {
 			// called asynchronously if an error occurs
 			// or server returns response with an error status.
+			console.log("err", response);
+			notificationsService.error("Vimeo Search Error", response.data.error);
+	
 		});
 	}
 
