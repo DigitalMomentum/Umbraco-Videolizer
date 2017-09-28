@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
-    <id>Videolizer</id>
+    <id>DigitalMomentum.Videolizer</id>
     <version>2.0.0</version>
     <title>Videolizer for Umbraco</title>
     <authors>David Sheiles - Digital Momentum</authors>
     <owners>David Sheiles - Digital Momentum</owners>
     <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
     <projectUrl>https://github.com/DigitalMomentum/Umbraco7-Videolizer</projectUrl>
-    <iconUrl>http://digitalmomentum.com.au/images/Videolizer/Videolizer.png</iconUrl>
+    <iconUrl>http://www.digitalmomentum.com.au/images/Videolizer/Videolizer.png</iconUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>An Umbraco 7.3+ Datatype for searching Youtube / Vimeo videos to insert and simple embedding videos into your site</description>
     <copyright>Copyright ©  2016</copyright>
     <tags>Umbraco YouTube Vimeo Video</tags>
     <dependencies>
-      <dependency id="Videolizer.Core" version="2.0.0-CI" />
+      <dependency id="DigitalMomentum.Videolizer.Core" version="2.0.0-CI" />
     </dependencies>
     <releaseNotes>Add the ability to search YouTube/Vimeo and seach your own channel</releaseNotes>
   </metadata>
