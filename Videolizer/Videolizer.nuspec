@@ -27,6 +27,6 @@
 		<file src="App_Plugins\Videolizer\search.html" target="content\App_Plugins\Videolizer\search.html" />
 		<file src="App_Plugins\Videolizer\videolizer.css" target="content\App_Plugins\Videolizer\videolizer.css" />
 		<file src="bin\Videolizer.dll" target="lib\net451\Videolizer.dll" />
-		<file src="bin\Videolizer.XML" target="lib\net451\Videolizer.XML" />
+		<!--<file src="bin\Videolizer.XML" target="lib\net451\Videolizer.XML" />-->
 	</files>
 </package>
