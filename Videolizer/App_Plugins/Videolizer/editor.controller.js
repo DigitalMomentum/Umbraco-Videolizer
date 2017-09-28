@@ -77,8 +77,10 @@
 				}
 			}
 
-			if ($scope.model.config.ytApi != "") {
+			if ($scope.model.config.ytApi != "" || $scope.model.config.vimeoApi != ""  ) {
 				$scope.hasSearchFunction = true;
+			} else {
+				$scope.hasSearchFunction = false;
 			}
         }
         activate();
