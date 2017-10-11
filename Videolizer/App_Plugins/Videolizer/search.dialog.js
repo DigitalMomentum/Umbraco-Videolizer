@@ -1,23 +1,32 @@
 ﻿
 angular.module('umbraco')
 .controller('DigitalMomentum.Videolizer.Search',
-	function ($http, $scope, notificationsService) {
+	function ($http, $scope, notificationsService, vimeoApi) {
 			$scope.hideLabel = "true"; //Hides the modal Dialog label at the top of the page
 			$scope.errorStr = null;
 	$scope.model = {
 		searchTerm: "",
 		ytApi: $scope.dialogData.ytApi,
 		ytChannelId: $scope.dialogData.ytChannelId,
-		vimeoApi: $scope.dialogData.vimeoApi,
+		vimeoClientId: $scope.dialogData.vimeoClientId,
+		vimeoClientSecret: $scope.dialogData.vimeoClientSecret,
+		vimeoUserId: $scope.dialogData.vimeoUserId,
 		searchType: $scope.dialogData.defaultSearchType
-	}
+			}
 
+	console.log($scope.model)
+
+	
 	$scope.results = {
 		yt: [],
 		vimeo: []
 	}
 
 	function init() {
+
+		vimeoApi.init($scope.model.vimeoClientId, $scope.model.vimeoClientSecret , $scope.model.vimeoUserId);
+
+
 		$scope.search(); //Run defaut search to get list of latest videos
 
 		//Select the appropriate Default Radio
@@ -77,61 +86,7 @@ angular.module('umbraco')
 
 	}
 
-	function searchVimeo(searchTerm) {
-		var ApiUrl = 'https://api.vimeo.com/';
-		if ($scope.model.searchType == "vimeoChannel"){
-			//Get from my channel
-			ApiUrl += "me/";
-			hasASearch = true; //Auto load my videos
-		}
-		ApiUrl += "videos?per_page=8&access_token=" + $scope.dialogData.vimeoApi;
 
-
-		var req = {
-			method: 'GET',
-			url: ApiUrl,
-			headers: {
-				'Content-Type': "json",
-				
-			},
-			umbIgnoreErrors: true //Tell Umbraco to ignore the errors - http://issues.umbraco.org/issue/U4-5588
-			//data: { test: 'test' }
-		}
-
-		if (searchTerm) {
-			req.url += '&query=' + searchTerm;
-			hasASearch = true;
-		}
-
-
-
-		$http(req).then(function successCallback(response) {
-			// this callback will be called asynchronously
-			// when the response is available
-			console.log(response);
-
-			var regExp = /\/(\d+)($|\/)/;
-
-			angular.forEach(response.data.data, function (video, key) {
-				var match = video.uri.match(regExp);
-				if (match) {
-					video.kind = "Vimeo";
-					video.id = match[1];
-				}
-			});
-
-
-
-
-			$scope.results.vimeo = response.data.data;
-		}, function errorCallback(response) {
-			// called asynchronously if an error occurs
-			// or server returns response with an error status.
-			console.log("err", response);
-			notificationsService.error("Vimeo Search Error", response.data.error);
-	
-		});
-	}
 
 	$scope.search = function () {
 		console.log($scope.model.searchType)
@@ -143,7 +98,9 @@ angular.module('umbraco')
 			searchYouTube(searchTerm);
 			return;
 		} else {
-			searchVimeo(searchTerm);
+			vimeoApi.search(searchTerm, $scope.model.searchType, function (data) {
+				$scope.results.vimeo = data;
+			});
 			return;
 		}
 	}
@@ -174,6 +131,15 @@ angular.module('umbraco')
 
 
 	init();
+
+
+
+
+
+	//Temp Code
+
+	
+	
 
 	
 });

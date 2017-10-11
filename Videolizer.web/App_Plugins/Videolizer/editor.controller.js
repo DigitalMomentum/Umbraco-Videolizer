@@ -41,7 +41,7 @@
 
 
 		$scope.openSearchWindow = function () {
-			
+			console.log($scope.model.config.vimeoClientId, $scope.model.config.vimeoClientSecret)
 			dialogService.open({
 				// set the location of the view
 				template: "/App_Plugins/Videolizer/search.html",
@@ -49,7 +49,9 @@
 				dialogData: {
 					ytApi: $scope.model.config.ytApi,
 					ytChannelId: $scope.model.config.ytChannelId,
-					vimeoApi: $scope.model.config.vimeoApi,
+					vimeoClientId: $scope.model.config.vimeoClientId,
+					vimeoClientSecret: $scope.model.config.vimeoClientSecret,
+					vimeoUserId: $scope.model.config.vimeoUserId,
 					defaultSearchType: $scope.model.config.defaultSearchType
 				},
 				// function called when dialog is closed
@@ -77,10 +79,10 @@
 				}
 			}
 
-			if ($scope.model.config.ytApi != "" || $scope.model.config.vimeoApi != ""  ) {
-				$scope.hasSearchFunction = true;
-			} else {
+			if ((typeof ($scope.model.config.ytApi) === "undefined" || $scope.model.config.ytApi == "") && (typeof ($scope.model.config.vimeoClientId) === "undefined" || $scope.model.config.vimeoClientId == "" || typeof ($scope.model.config.vimeoClientSecret) === "undefined" || $scope.model.config.vimeoClientSecret == "" ) ) {
 				$scope.hasSearchFunction = false;
+			} else {
+				$scope.hasSearchFunction = true;
 			}
         }
         activate();

@@ -244,6 +244,7 @@
     <Content Include="App_Plugins\Videolizer\search.html" />
     <Content Include="App_Plugins\Videolizer\videolizer.css" />
     <Content Include="App_Plugins\Videolizer\package.manifest" />
+    <Content Include="App_Plugins\Videolizer\Services\vimeo.api.service.js" />
     <Content Include="Videolizer.nuspec">
       <SubType>Designer</SubType>
     </Content>

@@ -17,9 +17,9 @@
 								<option value="ytChannel" ng-show="model.ytApi">YouTube: My Videos</option>
 								<option value="ytAll" ng-show="model.ytApi && model.ytChannelId">YouTube: Public Videos</option>
 							</optgroup>
-							<optgroup label="Vimeo" ng-show="model.vimeoApi">
-								<option value="vimeoChannel" ng-show="model.vimeoApi">Vimeo: My Videos</option>
-								<option value="vimeoAll" ng-show="model.vimeoApi">Vimeo: public Videos</option>
+							<optgroup label="Vimeo" ng-show="model.vimeoClientId && model.vimeoClientSecret">
+								<option value="vimeoChannel" ng-show="model.vimeoClientId && model.vimeoClientSecret && model.vimeoUserId">Vimeo: My Videos</option>
+								<option value="vimeoAll" ng-show="model.vimeoClientId && model.vimeoClientSecret ">Vimeo: public Videos</option>
 							</optgroup>
 						</select>
 			

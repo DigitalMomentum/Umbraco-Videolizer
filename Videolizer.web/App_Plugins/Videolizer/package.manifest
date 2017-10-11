@@ -23,10 +23,20 @@
             description: "[optional] If you would like to restrict the search to a particular channel, enter the channel ID here. Leave blank to search all of YouTube by default",
             key: "ytChannelId",
             view: "textstring"
-        }, {
-            label: "Vimeo Acess Token",
-            description: "[optional] To enable Vimeo searches, go to https://developer.vimeo.com/apps to obtain a key",
-            key: "vimeoApi",
+        },{
+            label: "Vimeo Client ID",
+            description: "[optional] To enable Vimeo searches, go to https://developer.vimeo.com/apps to create an app to obtain a client ID and a client Secret.",
+            key: "vimeoClientId",
+            view: "textstring"
+        } , {
+            label: "Vimeo Client Secret",
+            description: "[optional] To enable Vimeo searches, go to https://developer.vimeo.com/apps to create an app to obtain a client ID and a client Secret.",
+            key: "vimeoClientSecret",
+            view: "textstring"
+        } ,{
+            label: "Vimeo User ID",
+            description: "[optional] To enable seraching your Vimeo account, obtain your user ID from https://vimeo.com/settings/account",
+            key: "vimeoUserId",
             view: "textstring"
         } ,
 		{
@@ -43,7 +53,8 @@
     //array of files we want to inject into the application on app_start
     javascript: [
         '~/App_Plugins/Videolizer/editor.controller.js',
-        '~/App_Plugins/Videolizer/search.dialog.js'
+        '~/App_Plugins/Videolizer/search.dialog.js',
+        '~/App_Plugins/Videolizer/Services/vimeo.api.service.js'
     ],
 	css: [
 		'~/App_Plugins/Videolizer/videolizer.css',
