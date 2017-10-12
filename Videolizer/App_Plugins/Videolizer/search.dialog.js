@@ -12,7 +12,8 @@ angular.module('umbraco')
 		vimeoClientSecret: $scope.dialogData.vimeoClientSecret,
 		vimeoUserId: $scope.dialogData.vimeoUserId,
 		searchType: $scope.dialogData.defaultSearchType
-			}
+			}'
+				'
 
 	console.log($scope.model)
 
@@ -41,6 +42,7 @@ angular.module('umbraco')
 	}
 
 	function searchYouTube(searchTerm) {
+		
 		var ApiUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&key=' + $scope.dialogData.ytApi
 		var hasASearch = false;
 
@@ -81,7 +83,9 @@ angular.module('umbraco')
 			// called asynchronously if an error occurs
 			// or server returns response with an error status.
 			console.log("err", response);
+			$scope.errorStr = "<strong>" + response.data.error.errors[0].reason + "</strong>" + " " + response.data.error.errors[0].message
 			notificationsService.error("YouTube Search Error", response.data.error.errors[0].reason);
+
 		});
 
 	}
@@ -89,6 +93,7 @@ angular.module('umbraco')
 
 
 	$scope.search = function () {
+		$scope.errorStr = null;
 		console.log($scope.model.searchType)
 		$scope.results.yt = [];
 		$scope.results.vimeo = [];
