@@ -12,8 +12,7 @@ angular.module('umbraco')
 		vimeoClientSecret: $scope.dialogData.vimeoClientSecret,
 		vimeoUserId: $scope.dialogData.vimeoUserId,
 		searchType: $scope.dialogData.defaultSearchType
-			}'
-				'
+			}
 
 	console.log($scope.model)
 
