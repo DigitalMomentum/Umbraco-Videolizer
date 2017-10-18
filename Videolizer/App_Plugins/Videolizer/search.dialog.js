@@ -82,13 +82,19 @@ angular.module('umbraco')
 			// called asynchronously if an error occurs
 			// or server returns response with an error status.
 			console.log("err", response);
-			$scope.errorStr = "<strong>" + response.data.error.errors[0].reason + "</strong>" + " " + response.data.error.errors[0].message
+			ShowError(response.data.error.errors[0].reason, response.data.error.errors[0].message)
 			notificationsService.error("YouTube Search Error", response.data.error.errors[0].reason);
 
 		});
 
 	}
 
+	function ShowError(title, msg) {
+		$scope.errorStr = {
+			title: title,
+			message: msg
+		}
+	}
 
 
 	$scope.search = function () {
