@@ -81,3 +81,22 @@ if(video.HasVideo())
 	<iframe width="100%" height="281" src="@video.EmbedUrl" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 }
  ```
+
+
+## Contributing to Videolizer
+We'd love your help and feedback. You can help in a couple of ways:
+
+### Bugs, features and suggestions
+The easiest way for you to help us out is by submitting bugs via github issue so that we can improve the plugin for everyone.
+
+### Pull Requests
+Better still... you can help us solve issues by submitting pull requests for bug fixes and new features.
+
+You can get up and running with the project in visual studio. There are 3 main parts to this project:
+ - *Videolizer*: This is the umbraco plugin portion of the project which mainly deals with the propery editor files and functionality unique to Umbraco
+ - *Videolizer.Core*: We split out the business logic of the plugin, so that you can utilize some of the features in .net projects outside of Umbraco
+ - *VideoLizer.Web*: This is a simple umbraco install to test the plugin updates. Building the solution will copy all the nessesary files videolizer files
+ into the VideoLizer.Web project. I have included the SQL Compact database, so that you simply need to run the project to get started. 
+The backoffice username is **admin** and password is **password**
+
+Contact us if your stuck in getting setup.
