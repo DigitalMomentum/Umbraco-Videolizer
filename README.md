@@ -44,16 +44,21 @@ To Enable Searching your Channel (rather than a public search), you will need to
 - Paste your channel ID into the YouTube Channel ID in the DataType 
 
 #### Vimeo Configuration
+
+This plugin allows you to search both public video and videos in your library that are publlic. 
+*Note: Videolizer does not currently support searching protected video files*
 - Login to your vimeo account
 - Then you will need to create a free API Key from https://developer.vimeo.com/apps
   - Click Create App
   - Enter a name and description for the App and the URL of your live website. Click *Create App*
   - Once created, click the *Authentication* tab
-  - Click *Generate Token* at the bottom of the page
-  - Copy the new token for the next step
+  - Here you will find your Client Identifier and Client Secret for the next step
 - Back in the Umbraco Back Office, Open up the DataType under Developer -> DataTypes -> Videolizer
-- Paste Your Token into the Vimeo Access Token box.
-
+  - Paste Your Client Identifier and Client Secret into the settings for Videolizer.
+- If you would like to search within only your videos you will need to get your User ID  
+  - Go to https://vimeo.com/settings/account/general amd look for the User ID that is shown on he page
+  - Past it in as the Vimeo User ID field and this will allow you to search public videos under your account
+ 
 
 ## How to use
 
