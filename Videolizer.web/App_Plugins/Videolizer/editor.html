@@ -1,6 +1,6 @@
 ﻿<div ng-controller="DigitalMomentum.Videolizer">
     <input id="videoURL" ng-model="vidUrl" type="text" class="umb-editor umb-textstring textstring" placeholder="Video URL"  ng-change="checkVideoUrl()" /> <button ng-click="checkVideoUrl()" type="button" class="btn btn-primary" title="Load Video"><i class="icon-movie-alt"></i></button> <button ng-click="openSearchWindow()" type="button" ng-show="hasSearchFunction" class="btn btn-primary" title="Search for Video"><i class="icon-search"></i></button>
     <div><small>Video Type: {{model.value.type}}</small></div>
-	{{model.value.embedUrl}}
-    <iframe ng-show="model.value.embedUrl" src="{{model.value.embedUrl}}" width="300" height="169" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+    <iframe ng-show="model.value.embedUrl != null" src="{{model.value.embedUrl}}" width="300" height="169" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 </div>
