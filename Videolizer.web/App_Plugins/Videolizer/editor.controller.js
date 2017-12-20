@@ -103,13 +103,14 @@
 
         function vimeoVidId(url) {
             var p = /^(?:https?:\/\/)?(?:www\.|player\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|video\/|)(\d+)(?:$|\/|\?)?$/;
-            if (url.match(p)) {
+			if (url.match(p)) {
+				console.log(RegExp.$1);
                 return RegExp.$3
             }
 
             var p = /^(?:https?:\/\/)?(www\.|player\.)?vimeo.com\/(\d+)\/(.+)/;
             if (url.match(p)) {
-                
+				console.log(RegExp);
                 return RegExp.$2
             }
             console.log(RegExp);
