@@ -54,9 +54,21 @@
     javascript: [
         '~/App_Plugins/Videolizer/editor.controller.js',
         '~/App_Plugins/Videolizer/search.dialog.js',
-        '~/App_Plugins/Videolizer/Services/vimeo.api.service.js'
+        '~/App_Plugins/Videolizer/Services/vimeo.api.service.js',
+        '~/App_Plugins/Videolizer/grid/editor.controller.js',
     ],
 	css: [
 		'~/App_Plugins/Videolizer/videolizer.css',
-	]
+	],
+
+	  "gridEditors": 
+    [
+        {
+            "name": "Video",
+            "alias": "videolizer",
+            "view": "/App_Plugins/videolizer/grid/editor.html",
+            "render": "videolizer",
+            "icon": "icon-movie-alt"
+        }
+    ]
 }

@@ -34,7 +34,8 @@
                         embedUrl: null,
                         type: "Unknown"
                     }
-                }
+				}
+				console.log("mode", $scope.model.value)
             }
            
 		}

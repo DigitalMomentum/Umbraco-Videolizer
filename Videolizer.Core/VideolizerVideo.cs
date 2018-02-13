@@ -20,6 +20,21 @@ namespace Videolizer{
 
 		public VideolizerVideo() { }
 
+		public VideolizerVideo(string VideoId, VideoTypes type) {
+		 switch(type){
+				case VideoTypes.YouTube:
+					this.Id = VideoId;
+					this.Type = VideoTypes.YouTube;
+					this.EmbedUrl = "https://www.youtube.com/embed/" + VideoId;
+					break;
+				case VideoTypes.Vimeo:
+					this.Id = VideoId;
+					this.Type = VideoTypes.Vimeo;
+					this.EmbedUrl = "//player.vimeo.com/video/" + VideoId;
+					break;
+		 }
+		}
+
 		/// <summary>
 		/// Initialises the object with a given Video URL
 		/// </summary>
@@ -35,7 +50,7 @@ namespace Videolizer{
 			} else {
 				vidId = Vimeo.GetVideoId(VideoUrl);
 				if (vidId != null) {
-					//Its a Youtube Clip.
+					//Its a Vimeo Clip.
 					this.Id = vidId;
 					this.Type = VideoTypes.Vimeo;
 					this.EmbedUrl = "//player.vimeo.com/video/" + vidId;
