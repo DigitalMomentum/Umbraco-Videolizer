@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.15
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Videolizer", "Videolizer\Videolizer.csproj", "{AFDC1138-4AFA-472B-B7C4-3FAB9CAB95E5}"
 EndProject
@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 		Note To Self.txt = Note To Self.txt
+		NuGet.Config = NuGet.Config
 		README.md = README.md
 		Videolizer_Package.zip = Videolizer_Package.zip
 	EndProjectSection
