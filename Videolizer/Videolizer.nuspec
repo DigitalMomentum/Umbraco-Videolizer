@@ -20,13 +20,16 @@
   </metadata>
 	<files>
 		<file src="App_Plugins\Videolizer\propertyeditors\defaultSearchType.html" target="content\App_Plugins\Videolizer\propertyeditors\defaultSearchType.html" />
-		<file src="App_Plugins\Videolizer\editor.controller.js" target="content\App_Plugins\Videolizer\editor.controller.js" />
-		<file src="App_Plugins\Videolizer\editor.html" target="content\App_Plugins\Videolizer\editor.html" />
+		<file src="App_Plugins\Videolizer\dataType\editor.controller.js" target="content\App_Plugins\Videolizer\dataType\editor.controller.js" />
+		<file src="App_Plugins\Videolizer\dataType\editor.html" target="content\App_Plugins\Videolizer\dataType\editor.html" />
 		<file src="App_Plugins\Videolizer\package.manifest" target="content\App_Plugins\Videolizer\package.manifest" />
 		<file src="App_Plugins\Videolizer\search.dialog.js" target="content\App_Plugins\Videolizer\search.dialog.js" />
 		<file src="App_Plugins\Videolizer\Services\vimeo.api.service.js" target="content\App_Plugins\Videolizer\Services\vimeo.api.service.js" />
 		<file src="App_Plugins\Videolizer\search.html" target="content\App_Plugins\Videolizer\search.html" />
 		<file src="App_Plugins\Videolizer\videolizer.css" target="content\App_Plugins\Videolizer\videolizer.css" />
+		<file src="App_Plugins\Videolizer\grid\editor.controller.js" target="content\App_Plugins\Videolizer\grid\editor.controller.js" />
+		<file src="App_Plugins\Videolizer\grid\editor.html" target="content\App_Plugins\Videolizer\grid\editor.html" />
+
 		<file src="bin\Videolizer.dll" target="lib\net451\Videolizer.dll" />
 		<!--<file src="bin\Videolizer.XML" target="lib\net451\Videolizer.XML" />-->
 	</files>
