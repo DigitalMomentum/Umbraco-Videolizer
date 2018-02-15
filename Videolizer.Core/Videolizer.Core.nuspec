@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>DigitalMomentum.Videolizer.Core</id>
-    <version>2.0.0</version>
+    <version>2.1.0</version>
     <title>Videolizer.Core</title>
     <authors>David Sheiles - Digital Momentum</authors>
     <owners>David Sheiles - Digital Momentum</owners>
@@ -16,7 +16,9 @@
     <dependencies>
       <!--<dependency id="UmbracoCms.Core" version="7.5.3" />-->
     </dependencies>
-    <releaseNotes></releaseNotes>
+    <releaseNotes>
+		Bug fixes and Code re-organisation
+	</releaseNotes>
   </metadata>
 	<files>
 		<file src="bin\Release\Videolizer.Core.dll" target="lib\net451\Videolizer.Core.dll" />
