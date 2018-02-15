@@ -8,15 +8,15 @@
 
 
 		this.init = function (ClientId, ClientSecret, UserId) {
-			console.log("UserId", UserId)
+			//console.log("UserId", UserId)
 			clientId = ClientId;
 			clientSecret = ClientSecret;
 			userId = UserId;
-			console.log(clientId)
+			//console.log(clientId)
 		}
 
 		this.GetAuthToken = function (callback) {
-			console.log(clientId)
+			//console.log(clientId)
 			if (authToken != null) {
 				return callback(authToken); 
 			}
@@ -34,7 +34,7 @@
 			}
 
 			$http(req).then(function successCallback(response) {
-				console.log(response)
+				//console.log(response)
 				authToken = response.data.access_token;
 				return callback(authToken);
 			});
@@ -79,7 +79,7 @@
 				$http(req).then(function successCallback(response) {
 					// this callback will be called asynchronously
 					// when the response is available
-					console.log(response);
+					//console.log(response);
 
 					var regExp = /\/(\d+)($|\/)/;
 

@@ -46,14 +46,14 @@
 						EmbedConfig: defaultEmbedConfig
                     }
 				}
-				console.log("model", $scope.control.value)
+				//console.log("model", $scope.control.value)
             }
            
 		}
 
 
 		$scope.openSearchWindow = function () {
-			console.log($scope.model.config.vimeoClientId, $scope.model.config.vimeoClientSecret)
+			//console.log($scope.model.config.vimeoClientId, $scope.model.config.vimeoClientSecret)
 			dialogService.open({
 				// set the location of the view
 				template: "/App_Plugins/Videolizer/search.html",
@@ -132,7 +132,7 @@
                 
                 return RegExp.$2
             }
-            console.log(RegExp);
+            //console.log(RegExp);
             return false;
 
         }

@@ -64,7 +64,7 @@
 	  "gridEditors": 
     [
         {
-            "name": "Video",
+            "name": "YouTube/Vimeo",
             "alias": "videolizer",
             "view": "/App_Plugins/videolizer/grid/editor.html",
             "render": "videolizer",
