@@ -31,6 +31,7 @@
 		<file src="App_Plugins\Videolizer\videolizer.css" target="content\App_Plugins\Videolizer\videolizer.css" />
 		<file src="App_Plugins\Videolizer\grid\editor.controller.js" target="content\App_Plugins\Videolizer\grid\editor.controller.js" />
 		<file src="App_Plugins\Videolizer\grid\editor.html" target="content\App_Plugins\Videolizer\grid\editor.html" />
+		<file src="Views\Partials\Grid\Editors\Videolizer.cshtml" target="content\Views\Partials\Grid\Editors\Videolizer.cshtml" />
 
 		<file src="bin\Videolizer.dll" target="lib\net451\Videolizer.dll" />
 		<!--<file src="bin\Videolizer.XML" target="lib\net451\Videolizer.XML" />-->
