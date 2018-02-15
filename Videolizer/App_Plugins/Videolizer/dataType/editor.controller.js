@@ -1,52 +1,41 @@
 ﻿angular.module("umbraco")
-    .controller("DigitalMomentum.Videolizer.GridEditor",
+    .controller("DigitalMomentum.Videolizer",
 	function ($scope, dialogService) {
 		$scope.hasSearchFunction = false;
 
-		var defaultEmbedConfig = {
-			Portrait: true,
-			Title: true,
-			Byline: true,
-			StartAt: 0,
-			Controls:true
-		}
-
         $scope.checkVideoUrl = function () {
-			$scope.control.value = null;
-            if ($scope.vidUrl != "") {
+            $scope.model.value = null;
+            if ($scope.vidUrl !== "") {
                 var vidId = ytVidId($scope.vidUrl); //Try Youtube
-                if (vidId != false) {
-					$scope.control.value = {
+                if (vidId !== false) {
+                    $scope.model.value = {
                         url: $scope.vidUrl,
                         id: vidId,
                         embedUrl: "https://www.youtube.com/embed/" + vidId,
-						type: "YouTube",
-						EmbedConfig: defaultEmbedConfig
+                        type: "YouTube"
                     }
                 }
-				if ($scope.control.value == null) {
-                    var vidId = vimeoVidId($scope.vidUrl); //Try Vimeo
-                    if (vidId != false) {
-						$scope.control.value = {
+                if ($scope.model.value === null) {
+                    vidId = vimeoVidId($scope.vidUrl); //Try Vimeo
+                    if (vidId !== false) {
+                        $scope.model.value = {
                             url: $scope.vidUrl,
                             id: vidId,
                             embedUrl: "//player.vimeo.com/video/" + vidId,
-							type: "Vimeo",
-							EmbedConfig: defaultEmbedConfig
+                            type: "Vimeo"
                         }
                     }
                 }
 
-				if ($scope.control.value == null) {
-					$scope.control.value = {
+                if ($scope.model.value === null) {
+                    $scope.model.value = {
                         url: $scope.vidUrl,
                         id: null,
                         embedUrl: null,
-						type: "Unknown",
-						EmbedConfig: defaultEmbedConfig
+                        type: "Unknown"
                     }
 				}
-				console.log("model", $scope.control.value)
+				console.log("mode", $scope.model.value)
             }
            
 		}
@@ -68,7 +57,7 @@
 				},
 				// function called when dialog is closed
 				callback: function (value) {
-					$scope.control.value = value;
+					$scope.model.value = value;
 					$scope.vidUrl = value.url;
 				}
 			});
@@ -77,33 +66,25 @@
 
 
         function activate() {
-			if ($scope.control.value != null) {
-				if (typeof $scope.control.value.url != "undefined") {
-					$scope.vidUrl = $scope.control.value.url;
-					
+			if ($scope.model.value != null) {
+				if (typeof $scope.model.value.url != "undefined") {
+					$scope.vidUrl = $scope.model.value.url;
 				} else {
 					//Doesn't seem to be our usual object. 
 					//Lets try to see if it was a Textbox in a previous life!
-					if (typeof $scope.control.value == "string") {
+					if (typeof $scope.model.value == "string") {
 						//could be a url stored as a plain string. Lets give it a go!
-						$scope.vidUrl = $scope.control.value;
+						$scope.vidUrl = $scope.model.value;
 						$scope.checkVideoUrl();
 					}
 				}
-
-				if (typeof $scope.control.value.EmbedConfig == "undefined") {
-					//Backwards compatibility - Handles existing pages created before the property was added
-					$scope.control.value.EmbedConfig = {};
-				}
-
-				if ((typeof ($scope.model.config.ytApi) === "undefined" || $scope.model.config.ytApi == "") && (typeof ($scope.model.config.vimeoClientId) === "undefined" || $scope.model.config.vimeoClientId == "" || typeof ($scope.model.config.vimeoClientSecret) === "undefined" || $scope.model.config.vimeoClientSecret == "")) {
-					$scope.hasSearchFunction = false;
-				} else {
-					$scope.hasSearchFunction = true;
-				}
 			}
 
-			
+			if ((typeof ($scope.model.config.ytApi) === "undefined" || $scope.model.config.ytApi == "") && (typeof ($scope.model.config.vimeoClientId) === "undefined" || $scope.model.config.vimeoClientId == "" || typeof ($scope.model.config.vimeoClientSecret) === "undefined" || $scope.model.config.vimeoClientSecret == "" ) ) {
+				$scope.hasSearchFunction = false;
+			} else {
+				$scope.hasSearchFunction = true;
+			}
         }
         activate();
 

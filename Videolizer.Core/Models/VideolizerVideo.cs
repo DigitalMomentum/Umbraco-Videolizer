@@ -3,22 +3,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
+using Videolizer.Core;
+using Videolizer.Core.Utils;
 
-namespace Videolizer {
+namespace Videolizer{
 	public class VideolizerVideo {
 		public enum VideoTypes {
 			Unknown,
 			YouTube,
 			Vimeo
 		}
-		// public static readonly Regex VimeoVideoRegex = new Regex(@"vimeo\.com/(?:.*#|.*/videos/)?([0-9]+)", RegexOptions.IgnoreCase | RegexOptions.Multiline);
-		// public static readonly Regex YoutubeVideoRegex = new Regex(@"youtu(?:\.be|be\.com)/(?:(.*)v(/|=)|(.*/)?)([a-zA-Z0-9-_]+)", RegexOptions.IgnoreCase);
-		public static readonly Regex VimeoVideoRegex = new Regex(@"(?:https?:\/\/)?(?:www\.|player\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|video\/|)(\d+)(?:$|\/|\?)?$", RegexOptions.IgnoreCase | RegexOptions.Multiline);
-		public static readonly Regex VimeoAlternateVideoRegex = new Regex(@"(?:https?:\/\/)?(www\.|player\.)?vimeo.com\/(\d+)\/(.+)", RegexOptions.IgnoreCase | RegexOptions.Multiline);
-		public static readonly Regex YoutubeVideoRegex = new Regex(@"(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$", RegexOptions.IgnoreCase);
+
+		//public static readonly Regex VimeoVideoRegex = new Regex(@"(?:https?:\/\/)?(?:www\.|player\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|video\/|)(\d+)(?:$|\/|\?)?$", RegexOptions.IgnoreCase | RegexOptions.Multiline);
+		//public static readonly Regex VimeoAlternateVideoRegex = new Regex(@"(?:https?:\/\/)?(www\.|player\.)?vimeo.com\/(\d+)\/(.+)", RegexOptions.IgnoreCase | RegexOptions.Multiline);
+		//public static readonly Regex YoutubeVideoRegex = new Regex(@"(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$", RegexOptions.IgnoreCase);
 
 
 		public VideolizerVideo() { }
+
+		public VideolizerVideo(string VideoId, VideoTypes type) {
+		 switch(type){
+				case VideoTypes.YouTube:
+					this.Id = VideoId;
+					this.Type = VideoTypes.YouTube;
+					this.EmbedUrl = "https://www.youtube.com/embed/" + VideoId;
+					break;
+				case VideoTypes.Vimeo:
+					this.Id = VideoId;
+					this.Type = VideoTypes.Vimeo;
+					this.EmbedUrl = "//player.vimeo.com/video/" + VideoId;
+					break;
+		 }
+		}
 
 		/// <summary>
 		/// Initialises the object with a given Video URL
@@ -26,16 +42,16 @@ namespace Videolizer {
 		/// <param name="VideoUrl">The URL to a Youtube or Vimeo Video</param>
 		public VideolizerVideo(string VideoUrl) {
 			this.Url = VideoUrl;
-			string vidId = YouTubeVidId(VideoUrl);
+			string vidId = YouTube.GetVideoId(VideoUrl);
 			if (vidId != null) {
 				//Its a Youtube Clip.
 				this.Id = vidId;
 				this.Type = VideoTypes.YouTube;
 				this.EmbedUrl = "https://www.youtube.com/embed/" + vidId;
 			} else {
-				vidId = VimeoVidId(VideoUrl);
+				vidId = Vimeo.GetVideoId(VideoUrl);
 				if (vidId != null) {
-					//Its a Youtube Clip.
+					//Its a Vimeo Clip.
 					this.Id = vidId;
 					this.Type = VideoTypes.Vimeo;
 					this.EmbedUrl = "//player.vimeo.com/video/" + vidId;
@@ -97,15 +113,21 @@ namespace Videolizer {
 		}
 
 
+		public string GetEmbedUrl(bool autoPlay = false, bool loop = false, bool showAvitar = true, bool showTitle = true, bool showByLine = false, bool showSugestedVideos = false, bool showPlayerControls = true) {
+			return this.EmbedUrl;
+		}
+
+
+
 		/// <summary>
 		/// Returns the HTML for the Video Embed in the form of an iFrame
 		/// </summary>
 		/// <param name="width">Width of the Video (px or %)</param>
 		/// <param name="height">Height of the Video (px or %)</param>
 		/// <returns>Iframe Embed to play the video</returns>
-		public HtmlString GetSimpleEmbed(string width, string height) {
-			return GetSimpleEmbed(width, height, null, null);
-		}
+		//public HtmlString GetSimpleEmbed(string width, string height, VideolizerEmbedSettings embedSettings, string cssClasses = null, string styles = null) {
+		//	return GetSimpleEmbed(width, height, null, null);
+		//}
 
 		/// <summary>
 		/// Returns the HTML for the Video Embed in the form of an iFrame
@@ -114,9 +136,9 @@ namespace Videolizer {
 		/// <param name="height">Height of the Video (px or %)</param>
 		/// <param name="cssClasses">CSS Clases to add to the iframe</param>
 		/// <returns>Iframe Embed to play the video</returns>
-		public HtmlString GetSimpleEmbed(string width, string height, string cssClasses) {
-			return GetSimpleEmbed(width, height, cssClasses, null);
-		}
+		//public HtmlString GetSimpleEmbed(string width, string height, string cssClasses) {
+		//	return GetSimpleEmbed(width, height, cssClasses, null);
+		//}
 
 		/// <summary>
 		/// Returns the HTML for the Video Embed in the form of an iFrame
@@ -125,11 +147,19 @@ namespace Videolizer {
 		/// <param name="height">Height of the Video (px or %)</param>
 		/// <param name="cssClasses">CSS Clases to add to the iframe</param>
 		/// <param name="styles">Styles to add to the iframe</param>
-		/// <returns>Iframe Embed to play the video</returns>
-		public HtmlString GetSimpleEmbed(string width, string height, string cssClasses, string styles) {
-			if (EmbedUrl == null) {
+		/// <returns>Iframe Embed to play the video or Empty string if no video</returns>
+		public HtmlString GetSimpleEmbed(string width, string height, VideolizerEmbedSettings embedSettings = null, string cssClasses = null, string styles = null) {
+			if (EmbedUrl == null || !HasVideo()) {
 				return new HtmlString("");
 			}
+
+			string embedUrl = EmbedUrl;
+
+			if(embedSettings != null){
+				embedUrl += "?" + embedSettings.GetEmbedQueryString(Type, Id);
+			}
+
+
 			string classStr = "";
 			if (cssClasses != null) {
 				classStr = string.Format(" class=\"{0}\"", cssClasses);
@@ -142,7 +172,7 @@ namespace Videolizer {
 				"<iframe width=\"{0}\" height=\"{1}\" src=\"{2}\"{3}{4} frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>",
 					width,
 					height,
-					EmbedUrl,
+					embedUrl,
 					classStr,
 					styleStr
 				));
@@ -150,45 +180,45 @@ namespace Videolizer {
 
 
 
-		/// <summary>
-		/// Gets the Video ID from a Youtube URL
-		/// </summary>
-		/// <param name="url">URL to the video</param>
-		/// <returns>Video ID or Null</returns>
-		public string YouTubeVidId(string url) {
-			Match vidMatch = YoutubeVideoRegex.Match(url);
-			if (vidMatch.Success) {
-				return vidMatch.Groups[1].Value;
-			}
-			return null;
-		}
+		///// <summary>
+		///// Gets the Video ID from a Youtube URL
+		///// </summary>
+		///// <param name="url">URL to the video</param>
+		///// <returns>Video ID or Null</returns>
+		//public string YouTubeVidId(string url) {
+		//	Match vidMatch = YoutubeVideoRegex.Match(url);
+		//	if (vidMatch.Success) {
+		//		return vidMatch.Groups[1].Value;
+		//	}
+		//	return null;
+		//}
 
-		[Obsolete("Sorry! Use YouTubeVidId Instead")]
+		[Obsolete("Sorry! Use Videolizer.Core.Utils.YouTube.YouTubeVidId Instead")]
 		public string ytVidId(string url) {
-			return YouTubeVidId(url);
+			return YouTube.GetVideoId(url);
 		}
 
 
-		/// <summary>
-		/// Gets the Video ID from a Vimeo URL
-		/// </summary>
-		/// <param name="url">URL to the video</param>
-		/// <returns>Video ID or Null</returns>
-		public string VimeoVidId(string url) {
-			Match vidMatch = VimeoVideoRegex.Match(url);
-			if (vidMatch.Success) {
-				return vidMatch.Groups[3].Value;
-			}
-			vidMatch = VimeoAlternateVideoRegex.Match(url);
-			if (vidMatch.Success) {
-				return vidMatch.Groups[2].Value;
-			}
-			return null;
-		}
+		///// <summary>
+		///// Gets the Video ID from a Vimeo URL
+		///// </summary>
+		///// <param name="url">URL to the video</param>
+		///// <returns>Video ID or Null</returns>
+		//public string VimeoVidId(string url) {
+		//	Match vidMatch = VimeoVideoRegex.Match(url);
+		//	if (vidMatch.Success) {
+		//		return vidMatch.Groups[3].Value;
+		//	}
+		//	vidMatch = VimeoAlternateVideoRegex.Match(url);
+		//	if (vidMatch.Success) {
+		//		return vidMatch.Groups[2].Value;
+		//	}
+		//	return null;
+		//}
 
-		[Obsolete("Sorry! Use VimeoVidId Instead")]
+		[Obsolete("Sorry! Use Videolizer.Core.Utils.Vimeo.VimeoVidId Instead")]
 		public string vimeoVidId(string url) {
-			return VimeoVidId(url);
+			return Vimeo.GetVideoId(url);
 		}
 	}
 }

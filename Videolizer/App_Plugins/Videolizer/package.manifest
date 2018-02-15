@@ -8,7 +8,7 @@
             name: "Videolizer Video Picker",
             /*the HTML file we will load for the editor*/
             editor: {
-                view: "~/App_Plugins/Videolizer/editor.html"
+                view: "~/App_Plugins/Videolizer/dataType/editor.html"
             },
 			prevalues: {
     fields: [
@@ -52,7 +52,7 @@
 
     //array of files we want to inject into the application on app_start
     javascript: [
-        '~/App_Plugins/Videolizer/editor.controller.js',
+        '~/App_Plugins/Videolizer/dataType/editor.controller.js',
         '~/App_Plugins/Videolizer/search.dialog.js',
         '~/App_Plugins/Videolizer/Services/vimeo.api.service.js',
         '~/App_Plugins/Videolizer/grid/editor.controller.js',

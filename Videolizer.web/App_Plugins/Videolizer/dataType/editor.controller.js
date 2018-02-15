@@ -5,9 +5,9 @@
 
         $scope.checkVideoUrl = function () {
             $scope.model.value = null;
-            if ($scope.vidUrl != "") {
+            if ($scope.vidUrl !== "") {
                 var vidId = ytVidId($scope.vidUrl); //Try Youtube
-                if (vidId != false) {
+                if (vidId !== false) {
                     $scope.model.value = {
                         url: $scope.vidUrl,
                         id: vidId,
@@ -15,9 +15,9 @@
                         type: "YouTube"
                     }
                 }
-                if ($scope.model.value == null) {
-                    var vidId = vimeoVidId($scope.vidUrl); //Try Vimeo
-                    if (vidId != false) {
+                if ($scope.model.value === null) {
+                    vidId = vimeoVidId($scope.vidUrl); //Try Vimeo
+                    if (vidId !== false) {
                         $scope.model.value = {
                             url: $scope.vidUrl,
                             id: vidId,
@@ -27,7 +27,7 @@
                     }
                 }
 
-                if ($scope.model.value == null) {
+                if ($scope.model.value === null) {
                     $scope.model.value = {
                         url: $scope.vidUrl,
                         id: null,

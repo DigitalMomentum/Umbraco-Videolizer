@@ -3,6 +3,14 @@
 	function ($scope, dialogService) {
 		$scope.hasSearchFunction = false;
 
+		var defaultEmbedConfig = {
+			Portrait: true,
+			Title: true,
+			Byline: true,
+			StartAt: 0,
+			Controls:true
+		}
+
         $scope.checkVideoUrl = function () {
 			$scope.control.value = null;
             if ($scope.vidUrl != "") {
@@ -12,7 +20,8 @@
                         url: $scope.vidUrl,
                         id: vidId,
                         embedUrl: "https://www.youtube.com/embed/" + vidId,
-                        type: "YouTube"
+						type: "YouTube",
+						EmbedConfig: defaultEmbedConfig
                     }
                 }
 				if ($scope.control.value == null) {
@@ -22,7 +31,8 @@
                             url: $scope.vidUrl,
                             id: vidId,
                             embedUrl: "//player.vimeo.com/video/" + vidId,
-                            type: "Vimeo"
+							type: "Vimeo",
+							EmbedConfig: defaultEmbedConfig
                         }
                     }
                 }
@@ -32,7 +42,8 @@
                         url: $scope.vidUrl,
                         id: null,
                         embedUrl: null,
-                        type: "Unknown"
+						type: "Unknown",
+						EmbedConfig: defaultEmbedConfig
                     }
 				}
 				console.log("model", $scope.control.value)
@@ -69,6 +80,7 @@
 			if ($scope.control.value != null) {
 				if (typeof $scope.control.value.url != "undefined") {
 					$scope.vidUrl = $scope.control.value.url;
+					
 				} else {
 					//Doesn't seem to be our usual object. 
 					//Lets try to see if it was a Textbox in a previous life!
@@ -78,13 +90,20 @@
 						$scope.checkVideoUrl();
 					}
 				}
+
+				if (typeof $scope.control.value.EmbedConfig == "undefined") {
+					//Backwards compatibility - Handles existing pages created before the property was added
+					$scope.control.value.EmbedConfig = {};
+				}
+
+				if ((typeof ($scope.model.config.ytApi) === "undefined" || $scope.model.config.ytApi == "") && (typeof ($scope.model.config.vimeoClientId) === "undefined" || $scope.model.config.vimeoClientId == "" || typeof ($scope.model.config.vimeoClientSecret) === "undefined" || $scope.model.config.vimeoClientSecret == "")) {
+					$scope.hasSearchFunction = false;
+				} else {
+					$scope.hasSearchFunction = true;
+				}
 			}
 
-			if ((typeof ($scope.model.config.ytApi) === "undefined" || $scope.model.config.ytApi == "") && (typeof ($scope.model.config.vimeoClientId) === "undefined" || $scope.model.config.vimeoClientId == "" || typeof ($scope.model.config.vimeoClientSecret) === "undefined" || $scope.model.config.vimeoClientSecret == "" ) ) {
-				$scope.hasSearchFunction = false;
-			} else {
-				$scope.hasSearchFunction = true;
-			}
+			
         }
         activate();
 

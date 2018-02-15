@@ -1,14 +1,17 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @using Videolizer
+@using Videolizer.Umbraco
 @{
     Layout = "Master.cshtml";
 }
 @{
-    @(Model.Content.GetPropertyValue<VideolizerVideo>("youTube").GetSimpleEmbed("600", "300"))
-    
-    @(Model.Content.GetPropertyValue<VideolizerVideo>("vimeo").GetSimpleEmbed("600", "300"))
 
-    @(Model.Content.GetPropertyValue<VideolizerVideo>("vimeo").HasVideo())
+
+    @(Model.Content.GetPropertyValue<UmbVideolizerVideo>("youTube").GetSimpleEmbed("600", "300"))
+    
+    @(Model.Content.GetPropertyValue<UmbVideolizerVideo>("vimeo").GetSimpleEmbed("600", "300"))
+
+    @(Model.Content.GetPropertyValue<UmbVideolizerVideo>("vimeo").HasVideo())
 
 
 
@@ -19,7 +22,7 @@
 	{
 	<div>
 		<h3>@item.GetPropertyValue("title")</h3>
-		@(item.GetPropertyValue<VideolizerVideo>("video").GetSimpleEmbed("600", "300"))
+		@(item.GetPropertyValue<UmbVideolizerVideo>("video").GetSimpleEmbed("600", "300"))
 	</div>
 	}
 

@@ -155,6 +155,9 @@
     <Reference Include="SQLCE4Umbraco, Version=1.0.6470.38241, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.7.7.0\lib\net45\SQLCE4Umbraco.dll</HintPath>
     </Reference>
+    <Reference Include="StyleCop, Version=5.0.0.0, Culture=neutral, PublicKeyToken=f904653c63bc2738, processorArchitecture=MSIL">
+      <HintPath>..\packages\StyleCop.5.0.0\lib\net40\StyleCop.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.SqlServerCe, Version=4.0.0.1, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.7.7.0\lib\net45\System.Data.SqlServerCe.dll</HintPath>
@@ -263,13 +266,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Plugins\Videolizer\editor.controller.js" />
-    <Content Include="App_Plugins\Videolizer\editor.html" />
+    <Content Include="App_Plugins\Videolizer\dataType\editor.controller.js" />
+    <Content Include="App_Plugins\Videolizer\dataType\editor.html" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Migrations\Version_1_1_0.cs" />
     <Compile Include="Migrations\MigrationEvents.cs" />
+    <Compile Include="Umbraco\UmbVideolizerVideo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Umbraco\ValueConverter\VideolizerVideoPVC.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Videolizer.Core\Videolizer.Core.csproj">

@@ -136,6 +136,9 @@
     <Reference Include="SQLCE4Umbraco, Version=1.0.6470.38241, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.7.7.0\lib\net45\SQLCE4Umbraco.dll</HintPath>
     </Reference>
+    <Reference Include="StyleCop, Version=5.0.0.0, Culture=neutral, PublicKeyToken=f904653c63bc2738, processorArchitecture=MSIL">
+      <HintPath>..\packages\StyleCop.5.0.0\lib\net40\StyleCop.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SqlServerCe, Version=4.0.0.1, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
@@ -213,11 +216,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\VideolizerEmbedSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\Vimeo.cs" />
     <Compile Include="Utils\YouTube.cs" />
-    <Compile Include="VideolizerVideo.cs" />
-    <Compile Include="Umbraco\ProperyValueConverter\VideolizerVideoPVC.cs" />
+    <Compile Include="Models\VideolizerVideo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

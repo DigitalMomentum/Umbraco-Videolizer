@@ -6,6 +6,36 @@ div[ng-click]{
 	cursor:pointer;
 }
 
+
+
+.vEditor .previewColumn {
+	width: auto;
+	max-width: 640px;
+	float: left;
+	margin: 15px 15px;
+}
+
+.vEditor .infoColumn {
+	width: 100%;
+	min-width: 100px;
+	max-width: 360px;
+	float: left;
+	margin: 15px 15px;
+}
+
+.vEditor .previewVid {
+	width: 100%;
+	max-width: 640px;
+	margin-top: 25px;
+}
+
+.vEditor.datatype .previewColumn {
+	margin-top: 0;
+}
+.vEditor.datatype .infoColumn {
+	margin-top: 0;
+} 
+
 .videoSearchResults {
 	position: absolute;
 	top: 185px;

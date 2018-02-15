@@ -1,24 +1,43 @@
 ﻿@model dynamic
 @using Umbraco.Web.Templates
+@using Newtonsoft.Json;
 
-@{ 
-	Videolizer.VideolizerVideo vid = (Videolizer.VideolizerVideo)Model.value;
+@{
+	
+	Videolizer.Umbraco.UmbVideolizerVideo vid = JsonConvert.DeserializeObject<Videolizer.Umbraco.UmbVideolizerVideo>(Model.value.ToString());
 
 }
-@Model.value
+@*@vid.GetSimpleEmbed("600px", "300px")*@
 
 
-@*@if (Model.editor.config.markup != null) {
-	string markup = Model.editor.config.markup.ToString();
 
-	markup = markup.Replace("#value#", Model.value.ToString());
-	markup = markup.Replace("#style#", Model.editor.config.style.ToString());
+<!-- 16:9 aspect ratio -->
+<div class="embed-responsive embed-responsive-16by9 videolizerWrapper">
+	<iframe class="embed-responsive-item" src="@vid.GetEmbedUrl()" width="600" height="600"></iframe>
+</div>
 
-	<text>
-		@Html.Raw(markup)
-	</text>
-} else {
-	<text>
-		<div style="@Model.editor.config.style">@Model.value</div>
-	</text>
-}*@
+
+@* 
+	NOTE:
+	If using Bootstrap, remove the below styles. I dont like including the below styles, but want responsive videos out of the box for everyone.
+
+	If not using bootstrap, I reccomend moving the below into your stylesheets.
+	
+	Responsive Video courtesy of https://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php 
+*@
+<style>
+	.videolizerWrapper {
+		position: relative;
+		padding-bottom: 56.25%; /* 16:9 */
+		padding-top: 25px;
+		height: 0;
+	}
+
+	.videolizerWrapper iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+</style >
