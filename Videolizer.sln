@@ -9,7 +9,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 		Note To Self.txt = Note To Self.txt
-		NuGet.Config = NuGet.Config
 		README.md = README.md
 		Videolizer_Package.zip = Videolizer_Package.zip
 	EndProjectSection
