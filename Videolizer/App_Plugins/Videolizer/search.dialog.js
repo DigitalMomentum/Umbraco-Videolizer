@@ -14,7 +14,7 @@ angular.module('umbraco')
 		searchType: $scope.dialogData.defaultSearchType
 			}
 
-	console.log($scope.model)
+	//console.log($scope.model)
 
 	
 	$scope.results = {
@@ -99,7 +99,7 @@ angular.module('umbraco')
 
 	$scope.search = function () {
 		$scope.errorStr = null;
-		console.log($scope.model.searchType)
+		//console.log($scope.model.searchType)
 		$scope.results.yt = [];
 		$scope.results.vimeo = [];
 		var hasASearch = false;
@@ -117,7 +117,7 @@ angular.module('umbraco')
 
 
 	$scope.selectVideo = function (video) {
-		console.log(video);
+		//console.log(video);
 		var videoInfo = {};
 		if (video.kind == "Vimeo") {
 			videoInfo.id = video.id;
@@ -131,7 +131,7 @@ angular.module('umbraco')
 			videoInfo.url = "https://www.youtube.com/watch?v=" + video.id.videoId;
 			videoInfo.embedUrl = "https://www.youtube.com/embed/" + video.id.videoId;
 		}
-		console.log(videoInfo);
+		//console.log(videoInfo);
 		$scope.submit(videoInfo);
 	}
 

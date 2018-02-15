@@ -1,23 +1,26 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @using Videolizer
+@using Videolizer.Umbraco
 @{
     Layout = "Master.cshtml";
 }
 @{
-    @(Model.Content.GetPropertyValue<VideolizerVideo>("youTube").GetSimpleEmbed("600", "300"))
-    
-    @(Model.Content.GetPropertyValue<VideolizerVideo>("vimeo").GetSimpleEmbed("600", "300"))
 
-	@(Model.Content.GetPropertyValue<VideolizerVideo>("vimeo").HasVideo())
+
+    @(Model.Content.GetPropertyValue<UmbVideolizerVideo>("youTube").GetSimpleEmbed("600", "300"))
+    
+    @(Model.Content.GetPropertyValue<UmbVideolizerVideo>("vimeo").GetSimpleEmbed("600", "300"))
+
+    @(Model.Content.GetPropertyValue<UmbVideolizerVideo>("vimeo").HasVideo())
 
 	
 
-	<p>Get Timecode Example</p>
+	@*<p>Get Timecode Example</p>
 		//Get the URI from the Video Url Parameter
-		Uri myUri = new Uri(Model.Content.GetPropertyValue<VideolizerVideo>("myVideo").Url);
+		Uri myUri = new Uri(Model.Content.GetPropertyValue<UmbVideolizerVideo>("myVideo").Url);
 		//Parse "t" from the querystring
 		string timecode = HttpUtility.ParseQueryString(myUri.Query).Get("t");
-		@timecode
+		@timecode*@
 	
 
 
@@ -31,7 +34,7 @@
 		{
 	<div>
 		<h3>@item.GetPropertyValue("title")</h3>
-		@(item.GetPropertyValue<VideolizerVideo>("video").GetSimpleEmbed("600", "300"))
+		@(item.GetPropertyValue<UmbVideolizerVideo>("video").GetSimpleEmbed("600", "300"))
 	</div>
 	}
 

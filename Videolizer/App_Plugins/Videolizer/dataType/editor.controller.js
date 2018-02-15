@@ -5,9 +5,9 @@
 
         $scope.checkVideoUrl = function () {
             $scope.model.value = null;
-            if ($scope.vidUrl != "") {
+            if ($scope.vidUrl !== "") {
                 var vidId = ytVidId($scope.vidUrl); //Try Youtube
-                if (vidId != false) {
+                if (vidId !== false) {
                     $scope.model.value = {
                         url: $scope.vidUrl,
                         id: vidId,
@@ -15,9 +15,9 @@
                         type: "YouTube"
                     }
                 }
-                if ($scope.model.value == null) {
-                    var vidId = vimeoVidId($scope.vidUrl); //Try Vimeo
-                    if (vidId != false) {
+                if ($scope.model.value === null) {
+                    vidId = vimeoVidId($scope.vidUrl); //Try Vimeo
+                    if (vidId !== false) {
                         $scope.model.value = {
                             url: $scope.vidUrl,
                             id: vidId,
@@ -27,7 +27,7 @@
                     }
                 }
 
-                if ($scope.model.value == null) {
+                if ($scope.model.value === null) {
                     $scope.model.value = {
                         url: $scope.vidUrl,
                         id: null,
@@ -35,14 +35,14 @@
                         type: "Unknown"
                     }
 				}
-				console.log("mode", $scope.model.value)
+				//console.log("mode", $scope.model.value)
             }
            
 		}
 
 
 		$scope.openSearchWindow = function () {
-			console.log($scope.model.config.vimeoClientId, $scope.model.config.vimeoClientSecret)
+			//console.log($scope.model.config.vimeoClientId, $scope.model.config.vimeoClientSecret)
 			dialogService.open({
 				// set the location of the view
 				template: "/App_Plugins/Videolizer/search.html",
@@ -104,17 +104,16 @@
 
         function vimeoVidId(url) {
             var p = /^(?:https?:\/\/)?(?:www\.|player\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|video\/|)(\d+)(?:$|\/|\?)?$/;
-			if (url.match(p)) {
-				console.log(RegExp.$1);
+            if (url.match(p)) {
                 return RegExp.$3
             }
 
             var p = /^(?:https?:\/\/)?(www\.|player\.)?vimeo.com\/(\d+)\/(.+)/;
             if (url.match(p)) {
-				console.log(RegExp);
+                
                 return RegExp.$2
             }
-            console.log(RegExp);
+            //console.log(RegExp);
             return false;
 
         }
