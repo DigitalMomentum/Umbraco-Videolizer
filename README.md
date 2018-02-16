@@ -66,7 +66,7 @@ This plugin allows you to search both public video and videos in your library th
 You will need to add the Videolizer data type to one or more of your document types so that the
 editors can paste in the video URLs.
 
-### In your Views
+#### In your Views
 There are two ways to use the values from the property editor in the views.
 
 ```
@@ -81,7 +81,28 @@ if(video.HasVideo())
 	<iframe width="100%" height="281" src="@video.EmbedUrl" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 }
  ```
+## Grid Editor
+A YouTube/Vimeo option will now appear as a selection in your grid editor. It will allow youto paste in a URL to Youtube / Vimeo video and 
+it will display a preview video as well as alloing to select options for:
+* Auto Play
+* Loop
+* Show Title (Vimeo Only)
+* Show Byline (Vimeo Only)
+* Start time (YouTube Only)
+* Display Related Videos (YouTube Only)
+* Show/Hide Controls (YouTube Only)
 
+### Rendering in the template
+The new video should appear on the site without any need for code. 
+
+For us to make the vide's responsive by default, we have added some 
+inline styles in the partial view. 
+
+We highly reccomend moving these styles to your stylesheet or using the 
+bootstrap responsive framework. You can find the partial view under `/Views/Partials/Grid/Editors/Videolizer.cshtml`
+
+We didnt like doing this, but want to make the video responsive for 
+the grid layout out of the box.
 
 ## Contributing to Videolizer
 We'd love your help and feedback. You can help in a couple of ways:

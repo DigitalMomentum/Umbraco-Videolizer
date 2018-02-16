@@ -35,7 +35,7 @@ namespace Videolizer {
 		public bool Byline = true;
 
 		/// <summary>
-		/// Skip a given number of seconds into the video
+		/// Skip a given number of seconds into the video [Supports: Youtube Only]
 		/// </summary>
 		public int StartAt = 0;
 
@@ -45,7 +45,7 @@ namespace Videolizer {
 		public bool RelatedVideos = false;
 
 		/// <summary>
-		/// Show/Hide the player controls [Supports: Youtube & Vimeo]
+		/// Show/Hide the player controls [Supports: Youtube only]
 		/// </summary>
 		public bool Controls = true;
 

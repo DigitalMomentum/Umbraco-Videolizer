@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/DigitalMomentum/Umbraco7-Videolizer</projectUrl>
     <iconUrl>http://www.digitalmomentum.com.au/images/Videolizer/Videolizer.png</iconUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <description>An Umbraco 7.3+ Datatype for searching Youtube / Vimeo videos to insert and simple embedding videos into your site</description>
+    <description>An Umbraco 7.3+ Datatype & Grid Editor for searching Youtube / Vimeo videos to insert and simple embedding videos into your site allowing users to configure thier video options</description>
     <copyright>Copyright ©  2016</copyright>
     <tags>Umbraco YouTube Vimeo Video</tags>
     <dependencies>
