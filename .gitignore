@@ -319,3 +319,5 @@ packages
 
 packages
 !packages/repositories.config
+
+!App_Data/packages/**
