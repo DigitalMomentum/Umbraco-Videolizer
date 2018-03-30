@@ -26,7 +26,7 @@ namespace Videolizer{
 				case VideoTypes.YouTube:
 					this.Id = VideoId;
 					this.Type = VideoTypes.YouTube;
-					this.EmbedUrl = "https://www.youtube.com/embed/" + VideoId;
+					this.EmbedUrl = "//www.youtube.com/embed/" + VideoId;
 					break;
 				case VideoTypes.Vimeo:
 					this.Id = VideoId;
@@ -47,7 +47,7 @@ namespace Videolizer{
 				//Its a Youtube Clip.
 				this.Id = vidId;
 				this.Type = VideoTypes.YouTube;
-				this.EmbedUrl = "https://www.youtube.com/embed/" + vidId;
+				this.EmbedUrl = "//www.youtube.com/embed/" + vidId;
 			} else {
 				vidId = Vimeo.GetVideoId(VideoUrl);
 				if (vidId != null) {

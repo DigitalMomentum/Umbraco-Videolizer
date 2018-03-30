@@ -11,7 +11,7 @@
                     $scope.model.value = {
                         url: $scope.vidUrl,
                         id: vidId,
-                        embedUrl: "https://www.youtube.com/embed/" + vidId,
+                        embedUrl: "//www.youtube.com/embed/" + vidId,
                         type: "YouTube"
                     }
                 }
