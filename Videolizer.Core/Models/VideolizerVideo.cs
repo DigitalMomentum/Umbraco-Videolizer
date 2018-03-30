@@ -156,7 +156,7 @@ namespace Videolizer{
 			string embedUrl = EmbedUrl;
 
 			if(embedSettings != null){
-				embedUrl += "?" + embedSettings.GetEmbedQueryString(Type, Id);
+				embedUrl += embedSettings.GetEmbedQueryString(Type, Id);
 			}
 
 
