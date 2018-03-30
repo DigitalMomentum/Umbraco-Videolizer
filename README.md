@@ -19,6 +19,8 @@ It can also be configured to search and pick from your own YouTube/Vimeo video f
 ### Installation
 Install the package and a new datatype called 'Videolizer' will be added
 
+Download the Latest Umbraco package from [here](https://github.com/DigitalMomentum/Umbraco7-Videolizer/releases/) 
+
 Also avaliable via NuGet: 
 ```Install-Package DigitalMomentum.Videolizer```
 
