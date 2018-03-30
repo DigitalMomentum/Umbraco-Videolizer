@@ -1,9 +1,9 @@
-﻿.searchTerm{
-margin-bottom:0 !important;
+﻿.videolizer .searchTerm {
+	margin-bottom: 0 !important;
 }
 
-div[ng-click]{
-	cursor:pointer;
+.videolizer div[ng-click] {
+	cursor: pointer;
 }
 
 

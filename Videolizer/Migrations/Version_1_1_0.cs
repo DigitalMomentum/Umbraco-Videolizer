@@ -27,9 +27,6 @@ namespace Videolizer.Migrations {
                 dataTypeService.Save(VideolizerDataTypeDef);
             }
 
-
-
-
         }
 
         public override void Down() {
