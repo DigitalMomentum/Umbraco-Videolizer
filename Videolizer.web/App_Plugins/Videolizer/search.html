@@ -1,4 +1,4 @@
-﻿<div ng-controller="DigitalMomentum.Videolizer.Search">
+﻿<div ng-controller="DigitalMomentum.Videolizer.Search" class="videolizer">
 	<form name="dialogForm">
 		<umb-panel>
 		<div style="overflow:auto">
@@ -30,7 +30,7 @@
 			<umb-pane class="videoSearchResults">
 				<div ng-if="errorStr" class="alert alert-danger"><strong>{{errorStr.title}}</strong> {{errorStr.message}}</div>
 				<div ng-repeat="video in results.yt" class="clearfix ytThumbnail" style="width:185px;float:left;height:185px; margin-right:5px;overflow-y:hidden">
-					<iframe width="100%" height="104"src="https://www.youtube.com/embed/{{video.id.videoId}}?controls=1"></iframe>
+					<iframe width="100%" height="104"src="//www.youtube.com/embed/{{video.id.videoId}}?controls=1"></iframe>
 					<div ng-click="selectVideo(video)" class="title">
 						{{video.snippet.title}}
 

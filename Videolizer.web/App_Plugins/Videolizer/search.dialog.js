@@ -122,14 +122,14 @@ angular.module('umbraco')
 		if (video.kind == "Vimeo") {
 			videoInfo.id = video.id;
 			videoInfo.type = "Vimeo";
-			videoInfo.url = "https://vimeo.com/" + video.id;
-			videoInfo.embedUrl = "https://player.vimeo.com/video/" + video.id;
+			videoInfo.url = "//vimeo.com/" + video.id;
+			videoInfo.embedUrl = "//player.vimeo.com/video/" + video.id;
 		} else {
 			//YouTube
 			videoInfo.id = video.id.videoId;
 			videoInfo.type = "YouTube";
-			videoInfo.url = "https://www.youtube.com/watch?v=" + video.id.videoId;
-			videoInfo.embedUrl = "https://www.youtube.com/embed/" + video.id.videoId;
+			videoInfo.url = "//www.youtube.com/watch?v=" + video.id.videoId;
+			videoInfo.embedUrl = "//www.youtube.com/embed/" + video.id.videoId;
 		}
 		//console.log(videoInfo);
 		$scope.submit(videoInfo);
