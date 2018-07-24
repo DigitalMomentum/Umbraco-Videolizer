@@ -1,43 +1,6 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
-@using Videolizer
-@using Videolizer.Umbraco
 @{
     Layout = "Master.cshtml";
 }
-@{
 
-
-    @(Model.Content.GetPropertyValue<UmbVideolizerVideo>("youTube").GetSimpleEmbed("600", "300"))
-    
-    @(Model.Content.GetPropertyValue<UmbVideolizerVideo>("vimeo").GetSimpleEmbed("600", "300"))
-
-    @(Model.Content.GetPropertyValue<UmbVideolizerVideo>("vimeo").HasVideo())
-
-	
-
-	@*<p>Get Timecode Example</p>
-		//Get the URI from the Video Url Parameter
-		Uri myUri = new Uri(Model.Content.GetPropertyValue<UmbVideolizerVideo>("myVideo").Url);
-		//Parse "t" from the querystring
-		string timecode = HttpUtility.ParseQueryString(myUri.Query).Get("t");
-		@timecode*@
-	
-
-
-
-
-
-
-		var items = Model.Content.GetPropertyValue<IEnumerable<IPublishedContent>>("repeatingVideos");
-
-		foreach (var item in items)
-		{
-	<div>
-		<h3>@item.GetPropertyValue("title")</h3>
-		@(item.GetPropertyValue<UmbVideolizerVideo>("video").GetSimpleEmbed("600", "300"))
-	</div>
-	}
-
-
-
-}
+@CurrentPage.GetGridHtml("content", "fanoe")
