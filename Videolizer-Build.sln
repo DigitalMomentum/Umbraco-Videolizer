@@ -1,0 +1,69 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Videolizer", "Videolizer\Videolizer.csproj", "{AFDC1138-4AFA-472B-B7C4-3FAB9CAB95E5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{97CABB9D-E977-461B-A9CB-53902E5EE33B}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		Note To Self.txt = Note To Self.txt
+		README.md = README.md
+		Videolizer_Package.zip = Videolizer_Package.zip
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Screenshots", "Screenshots", "{E9FC155A-D2B7-4991-881D-06396F751694}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V1.0", "V1.0", "{2E2FC7F7-F91D-4224-801A-6F89C87850BC}"
+	ProjectSection(SolutionItems) = preProject
+		Screenshots\V1.0\Logo.png = Screenshots\V1.0\Logo.png
+		Screenshots\V1.0\Vimeo.PNG = Screenshots\V1.0\Vimeo.PNG
+		Screenshots\V1.0\Youtube.PNG = Screenshots\V1.0\Youtube.PNG
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V2.0", "V2.0", "{3A316159-ADF2-484B-BBF7-AF2B3040541B}"
+	ProjectSection(SolutionItems) = preProject
+		Screenshots\V2.0\Property Editor.PNG = Screenshots\V2.0\Property Editor.PNG
+		Screenshots\V2.0\Search Videos.PNG = Screenshots\V2.0\Search Videos.PNG
+		Screenshots\V2.0\Settings.PNG = Screenshots\V2.0\Settings.PNG
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Videolizer.Core", "Videolizer.Core\Videolizer.Core.csproj", "{DF17C8D4-F11D-4628-9DF9-397D64EE2919}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V2.1", "V2.1", "{8C6A7745-46D9-4E4D-9DC5-E43C360FD1CC}"
+	ProjectSection(SolutionItems) = preProject
+		Screenshots\V2.1\Grid Property Editor.PNG = Screenshots\V2.1\Grid Property Editor.PNG
+		Screenshots\V2.1\Property Editor.PNG = Screenshots\V2.1\Property Editor.PNG
+		Screenshots\V2.1\Search Videos.PNG = Screenshots\V2.1\Search Videos.PNG
+		Screenshots\V2.1\Settings.PNG = Screenshots\V2.1\Settings.PNG
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AFDC1138-4AFA-472B-B7C4-3FAB9CAB95E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFDC1138-4AFA-472B-B7C4-3FAB9CAB95E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFDC1138-4AFA-472B-B7C4-3FAB9CAB95E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFDC1138-4AFA-472B-B7C4-3FAB9CAB95E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF17C8D4-F11D-4628-9DF9-397D64EE2919}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF17C8D4-F11D-4628-9DF9-397D64EE2919}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF17C8D4-F11D-4628-9DF9-397D64EE2919}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF17C8D4-F11D-4628-9DF9-397D64EE2919}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E9FC155A-D2B7-4991-881D-06396F751694} = {97CABB9D-E977-461B-A9CB-53902E5EE33B}
+		{2E2FC7F7-F91D-4224-801A-6F89C87850BC} = {E9FC155A-D2B7-4991-881D-06396F751694}
+		{3A316159-ADF2-484B-BBF7-AF2B3040541B} = {E9FC155A-D2B7-4991-881D-06396F751694}
+		{8C6A7745-46D9-4E4D-9DC5-E43C360FD1CC} = {E9FC155A-D2B7-4991-881D-06396F751694}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {91E6B766-2A3F-4A96-80BF-77BFCBEFED3D}
+	EndGlobalSection
+EndGlobal
