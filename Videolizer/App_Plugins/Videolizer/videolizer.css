@@ -6,13 +6,20 @@
 	cursor: pointer;
 }
 
-
+.vEditor::after {
+	display: block;
+	content: "";
+	clear: both;
+}
 
 .vEditor .previewColumn {
 	width: auto;
 	max-width: 640px;
-	float: left;
 	margin: 15px 15px;
+}
+
+.vEditor.videolizer .previewColumn {
+	float: left;
 }
 
 .vEditor .infoColumn {
