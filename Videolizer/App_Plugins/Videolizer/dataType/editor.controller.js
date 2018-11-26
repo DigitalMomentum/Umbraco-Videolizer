@@ -80,7 +80,7 @@
 				}
 			}
 
-			if ((typeof ($scope.model.config.ytApi) === "undefined" || $scope.model.config.ytApi == "") && (typeof ($scope.model.config.vimeoClientId) === "undefined" || $scope.model.config.vimeoClientId == "" || typeof ($scope.model.config.vimeoClientSecret) === "undefined" || $scope.model.config.vimeoClientSecret == "" ) ) {
+			if ((typeof ($scope.model.config.ytApi) === "undefined" || $scope.model.config.ytApi.trim() === "") && (typeof ($scope.model.config.vimeoClientId) === "undefined" || $scope.model.config.vimeoClientId.trim() === "" || typeof ($scope.model.config.vimeoClientSecret) === "undefined" || $scope.model.config.vimeoClientSecret.trim() === "" ) ) {
 				$scope.hasSearchFunction = false;
 			} else {
 				$scope.hasSearchFunction = true;
