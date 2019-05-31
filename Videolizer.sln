@@ -1,19 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Videolizer", "Videolizer\Videolizer.csproj", "{AFDC1138-4AFA-472B-B7C4-3FAB9CAB95E5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{97CABB9D-E977-461B-A9CB-53902E5EE33B}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		commands.json = commands.json
+		CopyFilesToWeb.bat = CopyFilesToWeb.bat
 		Note To Self.txt = Note To Self.txt
 		README.md = README.md
 		Videolizer_Package.zip = Videolizer_Package.zip
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Videolizer.web", "Videolizer.web\Videolizer.web.csproj", "{D838DC47-16D0-46B1-BDED-811236662314}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Screenshots", "Screenshots", "{E9FC155A-D2B7-4991-881D-06396F751694}"
 EndProject
@@ -41,6 +41,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V2.1", "V2.1", "{8C6A7745-4
 		Screenshots\V2.1\Settings.PNG = Screenshots\V2.1\Settings.PNG
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umbraco8", "Umbraco8\Umbraco8.csproj", "{47F2BA8B-225E-4413-87B8-523C4F793071}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,14 +53,14 @@ Global
 		{AFDC1138-4AFA-472B-B7C4-3FAB9CAB95E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFDC1138-4AFA-472B-B7C4-3FAB9CAB95E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFDC1138-4AFA-472B-B7C4-3FAB9CAB95E5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D838DC47-16D0-46B1-BDED-811236662314}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D838DC47-16D0-46B1-BDED-811236662314}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D838DC47-16D0-46B1-BDED-811236662314}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D838DC47-16D0-46B1-BDED-811236662314}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DF17C8D4-F11D-4628-9DF9-397D64EE2919}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DF17C8D4-F11D-4628-9DF9-397D64EE2919}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF17C8D4-F11D-4628-9DF9-397D64EE2919}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF17C8D4-F11D-4628-9DF9-397D64EE2919}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47F2BA8B-225E-4413-87B8-523C4F793071}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47F2BA8B-225E-4413-87B8-523C4F793071}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47F2BA8B-225E-4413-87B8-523C4F793071}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47F2BA8B-225E-4413-87B8-523C4F793071}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

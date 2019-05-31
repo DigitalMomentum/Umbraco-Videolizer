@@ -120,6 +120,6 @@ You can get up and running with the project in visual studio. There are 3 main p
  - *Videolizer.Core*: We split out the business logic of the plugin, so that you can utilize some of the features in .net projects outside of Umbraco
  - *VideoLizer.Web*: This is a simple umbraco install to test the plugin updates. Building the solution will copy all the nessesary files videolizer files
  into the VideoLizer.Web project. I have included the SQL Compact database, so that you simply need to run the project to get started. 
-The backoffice username is **admin** and password is **password**
+The backoffice email is **video@videolizer.com** and password is **videolizer**
 
 Contact us if your stuck in getting setup.

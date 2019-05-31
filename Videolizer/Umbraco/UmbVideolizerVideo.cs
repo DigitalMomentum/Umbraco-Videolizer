@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using Videolizer.Core;
 
-namespace Videolizer.Umbraco {
+namespace Videolizer{
 	/// <summary>
 	/// Extends the VideolizerVideo with video settings for DataType and Grid editor Objects
 	/// </summary>

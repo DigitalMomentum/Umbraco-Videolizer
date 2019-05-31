@@ -1,0 +1,74 @@
+﻿{
+    //you can define multiple editors
+    propertyEditors: [
+        {
+            /*this must be a unique alias*/
+            alias: "DigitalMomentum.Videolizer",
+            /*the name*/
+            name: "Videolizer Video Picker",
+            /*the HTML file we will load for the editor*/
+            editor: {
+                view: "~/App_Plugins/Videolizer/dataType/editor.html"
+            },
+			prevalues: {
+    fields: [
+        {
+            label: "YouTube API Key",
+            description: "[optional] To Enable YouTube searches, go to https://console.developers.google.com/apis/credentials to obtain a key",
+            key: "ytApi",
+            view: "textstring"
+        },
+        {
+            label: "YouTube Channel ID",
+            description: "[optional] If you would like to restrict the search to a particular channel, enter the channel ID here. Leave blank to search all of YouTube by default",
+            key: "ytChannelId",
+            view: "textstring"
+        },{
+            label: "Vimeo Client ID",
+            description: "[optional] To enable Vimeo searches, go to https://developer.vimeo.com/apps to create an app to obtain a client ID and a client Secret.",
+            key: "vimeoClientId",
+            view: "textstring"
+        } , {
+            label: "Vimeo Client Secret",
+            description: "[optional] To enable Vimeo searches, go to https://developer.vimeo.com/apps to create an app to obtain a client ID and a client Secret.",
+            key: "vimeoClientSecret",
+            view: "textstring"
+        } ,{
+            label: "Vimeo User ID",
+            description: "[optional] To enable seraching your Vimeo account, obtain your user ID from https://vimeo.com/settings/account",
+            key: "vimeoUserId",
+            view: "textstring"
+        } ,
+		{
+						label: "Default Search Method",
+						description: "Select which type of search you would like to default to",
+						key: "defaultSearchType",
+						view: "~/App_Plugins/Videolizer/propertyeditors/defaultSearchType.html"
+					}
+    ]
+}
+        }
+    ],
+
+    //array of files we want to inject into the application on app_start
+    javascript: [
+        '~/App_Plugins/Videolizer/dataType/editor.controller.js',
+        '~/App_Plugins/Videolizer/search.dialog.js',
+        '~/App_Plugins/Videolizer/Services/vimeo.api.service.js',
+        '~/App_Plugins/Videolizer/grid/editor.controller.js',
+    ],
+	css: [
+		'~/App_Plugins/Videolizer/videolizer.css',
+	],
+
+	  "gridEditors": 
+    [
+        {
+            "name": "YouTube/Vimeo",
+            "alias": "videolizer",
+            "view": "/App_Plugins/videolizer/grid/editor.html",
+            "render": "videolizer",
+            "icon": "icon-movie-alt"
+        }
+    ]
+}

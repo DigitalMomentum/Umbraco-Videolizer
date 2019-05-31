@@ -1,0 +1,41 @@
+﻿<div ng-controller="DigitalMomentum.Videolizer.GridEditor" class="vEditor grid videolizer">
+
+	<div class="previewColumn" ng-cloak>
+		<input ng-model="vidUrl" type="text" class="umb-editor umb-textstring textstring" placeholder="Video URL" ng-change="checkVideoUrl()" style="width:calc(100% - 50px);" /> <button ng-click="checkVideoUrl()" type="button" class="btn btn-primary" title="Load Video"><i class="icon-movie-alt"></i></button> <button ng-click="openSearchWindow()" type="button" ng-show="hasSearchFunction" class="btn btn-primary" title="Search for Video"><i class="icon-search"></i></button>
+		
+
+		<iframe class="previewVid" ng-show="control.value.embedUrl != null" src="{{control.value.embedUrl}}" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+	</div>
+	<div class="infoColumn" ng-show="control.value.embedUrl != null">
+		<h4 style="margin-top:0;">Video Info</h4>
+		<div>Video Type: {{control.value.type}}</div>
+		<h4>Options</h4>
+
+		<label>
+			<input type="checkbox" ng-model="control.value.EmbedConfig.AutoPlay" /> Autoplay
+		</label>
+<label>
+	<input type="checkbox" ng-model="control.value.EmbedConfig.Loop" /> Loop
+</label>
+<label ng-show="control.value.type == 'Vimeo'">
+	<input type="checkbox" ng-model="control.value.EmbedConfig.Portrait" /> Avatar
+</label>
+<label ng-show="control.value.type == 'Vimeo'">
+	<input type="checkbox" ng-model="control.value.EmbedConfig.Title" /> Show Title
+</label>
+<label ng-show="control.value.type == 'Vimeo'">
+	<input type="checkbox" ng-model="control.value.EmbedConfig.Byline" /> Byline
+</label>
+		<label ng-show="control.value.type == 'YouTube'">
+			<input type="checkbox" ng-model="control.value.EmbedConfig.RelatedVideos" /> Related Videos
+		</label>
+		<label ng-show="control.value.type == 'YouTube'">
+			<input type="checkbox" ng-model="control.value.EmbedConfig.Controls" /> Player Controls
+		</label>
+		<br/>
+		<label ng-show="control.value.type == 'YouTube'">
+			Start at <input type="number" ng-model="control.value.EmbedConfig.StartAt" style="max-width:100px;" /> seconds<br />
+		</label>
+	</div>
+
+</div>
