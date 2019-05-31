@@ -14,9 +14,9 @@
                             url: $scope.vidUrl,
                             id: vidId,
                             embedUrl: "https://www.youtube.com/embed/" + vidId,
-                            embedAsTrusted: $sce.trustAsResourceUrl("https://www.youtube.com/embed/" + vidId),
                             type: "YouTube"
                         };
+                        $scope.embedAsTrusted= $sce.trustAsResourceUrl("https://www.youtube.com/embed/" + vidId);
                     }
                     if ($scope.model.value === null) {
                         vidId = vimeoVidId($scope.vidUrl); //Try Vimeo
@@ -25,9 +25,9 @@
                                 url: $scope.vidUrl,
                                 id: vidId,
                                 embedUrl: "https://player.vimeo.com/video/" + vidId,
-                                embedAsTrusted: $sce.trustAsResourceUrl("https://player.vimeo.com/video/" + vidId),
                                 type: "Vimeo"
                             };
+                            $scope.embedAsTrusted= $sce.trustAsResourceUrl("https://player.vimeo.com/video/" + vidId);
                         }
                     }
 
@@ -66,7 +66,10 @@
                         defaultSearchType: $scope.model.config.defaultSearchType
                     },
                     submit: function (model) {
-                        console.log(model)
+                        console.log(model);
+                        $scope.vidUrl = model.url;
+                        //$scope.model.value.embedAsTrusted = $sce.trustAsResourceUrl(model.url);
+
                        $scope.model.value = model;
                         //$scope.vidUrl = model.url;
                         //editorService.close();
@@ -102,13 +105,14 @@
 
 
 
-            function activate() {
+            function onInit() {
+                console.log("activate")
              
 			if ($scope.model.value !== null) {
 				if (typeof $scope.model.value.url !== "undefined") {
                     $scope.vidUrl = $scope.model.value.url;
                     if (typeof $scope.model.value.embedUrl !== 'undefined') {
-                        $scope.model.value.embedAsTrusted = $sce.trustAsResourceUrl($scope.model.value.embedUrl);
+                        $scope.embedAsTrusted = $sce.trustAsResourceUrl($scope.model.value.embedUrl);
                     }
 				} else {
 					//Doesn't seem to be our usual object. 
@@ -128,7 +132,7 @@
 				$scope.hasSearchFunction = true;
 			}
         }
-        activate();
+            onInit();
 
 
 

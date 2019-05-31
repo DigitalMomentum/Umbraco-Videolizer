@@ -1,4 +1,4 @@
-﻿
+
 angular.module('umbraco')
     .controller('DigitalMomentum.Videolizer.Search',
         function ($http, $scope, $sce, notificationsService, vimeoApi) {

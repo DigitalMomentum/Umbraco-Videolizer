@@ -1,4 +1,4 @@
-﻿angular.module('umbraco')
+angular.module('umbraco')
 	.service('vimeoApi', function ($http, notificationsService) {
 		var authToken = null;
 		var clientId = null;
