@@ -40,7 +40,7 @@
 
                     </div>
                     <div ng-repeat="video in results.vimeo" class="clearfix vimeoThumbnail" style="width:185px;float:left;height:185px; margin-right:5px;overflow-y:hidden">
-                        <span ng-bind-html-unsafe="video.embed.html"></span>
+                        <span ng-bind-html="video.embed.trustedHtml"></span>
 
                         <div ng-click="selectVideo(video)" class="title">
                             {{video.name}}

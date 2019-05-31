@@ -30,7 +30,7 @@ angular.module('umbraco')
                 vimeoApi.init($scope.model.dialogData.vimeoClientId, $scope.model.dialogData.vimeoClientSecret, $scope.model.dialogData.vimeoUserId);
 
 
-                $scope.search(); //Run defaut search to get list of latest videos
+                //$scope.search(); //Run defaut search to get list of latest videos
 
                 //Select the appropriate Default Radio
                 //if ($scope.model.ytApi) {
@@ -52,12 +52,11 @@ angular.module('umbraco')
                     method: 'GET',
                     url: ApiUrl,
                     headers: {
-                        'Content-Type': "json",
-
+                        'Content-Type': "json"
                     },
                     umbIgnoreErrors: true //Tell Umbraco to ignore the errors - http://issues.umbraco.org/issue/U4-5588
                     //data: { test: 'test' }
-                }
+                };
 
                 if (searchTerm) {
 
@@ -66,9 +65,9 @@ angular.module('umbraco')
                     hasASearch = true;
                 }
 
-                if ($scope.model.searchType == "ytChannel") {
-                    req.url += "&channelId=" + $scope.model.dialogData.ytChannelId
-                    if (searchTerm == "") {
+                if ($scope.model.searchType === "ytChannel") {
+                    req.url += "&channelId=" + $scope.model.dialogData.ytChannelId;
+                    if (searchTerm === "") {
                         //We are getting the latest from our channel
                         req.url += "&order=date";
                     }
@@ -113,16 +112,20 @@ angular.module('umbraco')
                 $scope.results.vimeo = [];
                 var hasASearch = false;
                 var searchTerm = $scope.model.searchTerm;
-                if ($scope.model.searchType == "ytChannel" || $scope.model.searchType == "ytAll") {
+                if ($scope.model.searchType === "ytChannel" || $scope.model.searchType === "ytAll") {
                     searchYouTube(searchTerm);
                     return;
                 } else {
                     vimeoApi.search(searchTerm, $scope.model.searchType, function (data) {
+                        
+                        angular.forEach(data, function (value, key) {
+                            value.embed.trustedHtml = $sce.trustAsHtml(value.embed.html);
+                        });
                         $scope.results.vimeo = data;
                     });
                     return;
                 }
-            }
+            };
 
 
             $scope.selectVideo = function (video) {
