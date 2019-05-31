@@ -106,7 +106,7 @@
 
 
             function onInit() {
-                console.log("activate")
+             
              
 			if ($scope.model.value !== null) {
 				if (typeof $scope.model.value.url !== "undefined") {

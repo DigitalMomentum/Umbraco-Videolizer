@@ -24,6 +24,7 @@
 
 .vEditor .vToolbar{
     display:flex;
+    position:relative;
 }
 
 .vEditor .vToolbar .btn {
