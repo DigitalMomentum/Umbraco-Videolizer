@@ -299,7 +299,7 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Views\Partials\Grid\Editors\Videolizer.cshtml" />
+    <Content Include="App_Plugins\Videolizer\grid\render.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

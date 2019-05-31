@@ -2,7 +2,7 @@
 
     <div class="previewColumn" ng-cloak>
         <div class="vToolbar">
-            <input ng-model="vidUrl" type="text" class="umb-editor umb-textstring textstring" placeholder="Video URL" ng-change="checkVideoUrl()" style="width:calc(100% - 50px);" /> <button ng-click="checkVideoUrl()" type="button" class="btn btn-primary" title="Load Video"><i class="icon-movie-alt"></i></button> <button ng-click="openSearchWindow()" type="button" ng-show="hasSearchFunction" class="btn btn-primary" title="Search for Video"><i class="icon-search"></i></button>
+            <input ng-model="vidUrl" type="text" class="umb-property-editor umb-textstring textstring" placeholder="Video URL" ng-change="checkVideoUrl()" style="width:calc(100% - 50px);" /> <button ng-click="checkVideoUrl()" type="button" class="btn btn-primary" title="Load Video"><i class="icon-movie-alt"></i></button> <button ng-click="openSearchWindow()" type="button" ng-show="hasSearchFunction" class="btn btn-primary" title="Search for Video"><i class="icon-search"></i></button>
             </div>
 
             <iframe class="previewVid" ng-show="trustedEmbedUrl" ng-src="{{trustedEmbedUrl}}" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>

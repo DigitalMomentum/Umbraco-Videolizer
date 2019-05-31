@@ -444,6 +444,7 @@
     <Content Include="Views\Partials\Grid\Editors\Base.cshtml" />
     <Content Include="Views\Partials\Grid\Bootstrap3.cshtml" />
     <Content Include="Views\Partials\Grid\Bootstrap3-Fluid.cshtml" />
+    <Content Include="Views\home.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -452,6 +453,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Videolizer.Core\Videolizer.Core.csproj">
+      <Project>{df17c8d4-f11d-4628-9df9-397d64ee2919}</Project>
+      <Name>Videolizer.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Videolizer\Videolizer.csproj">
       <Project>{afdc1138-4afa-472b-b7c4-3fab9cab95e5}</Project>
       <Name>Videolizer</Name>

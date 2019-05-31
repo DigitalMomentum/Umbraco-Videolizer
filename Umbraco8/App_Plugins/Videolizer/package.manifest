@@ -66,8 +66,8 @@
         {
             "name": "YouTube/Vimeo",
             "alias": "videolizer",
-            "view": "/App_Plugins/videolizer/grid/editor.html",
-            "render": "videolizer",
+            "view": "~/App_Plugins/videolizer/grid/editor.html",
+            "render": "~/App_Plugins/videolizer/grid/render.cshtml",
             "icon": "icon-movie-alt"
         }
     ]
