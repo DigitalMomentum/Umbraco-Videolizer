@@ -292,7 +292,7 @@
     <Content Include="App_Plugins\Videolizer\search.html" />
     <Content Include="App_Plugins\Videolizer\videolizer.css" />
     <Content Include="App_Plugins\Videolizer\package.manifest" />
-    <Content Include="App_Plugins\Videolizer\Services\vimeo.api.service.js" />
+    <Content Include="App_Plugins\Videolizer\services\vimeo.api.service.js" />
     <Content Include="Videolizer.nuspec">
       <SubType>Designer</SubType>
     </Content>
@@ -323,9 +323,7 @@
       <Name>Videolizer.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Helpers\NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
