@@ -1,4 +1,4 @@
-angular.module("umbraco")
+﻿angular.module("umbraco")
     .controller("DigitalMomentum.Videolizer",
         function ($sce, $scope, editorService) {
 		$scope.hasSearchFunction = false;

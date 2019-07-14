@@ -1,4 +1,4 @@
-{
+﻿{
     //you can define multiple editors
     propertyEditors: [
         {
