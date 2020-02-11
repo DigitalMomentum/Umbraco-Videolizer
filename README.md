@@ -72,14 +72,14 @@ editors can paste in the video URLs.
 There are two ways to use the values from the property editor in the views.
 
 ```
-@(Model.Content.GetPropertyValue<VideolizerVideo>("video").GetSimpleEmbed("600", "300"))
+@(Model.Content.GetPropertyValue<Videolizer.VideolizerVideo>("video").GetSimpleEmbed("600", "300"))
 ```
 
 or like this
 
 ```
-@{ var video = Model.Content.GetPropertyValue<VideolizerVideo>("video"); 
-if(video.HasVideo())
+@{ var video = Model.Content.GetPropertyValue<Videolizer.VideolizerVideo>("video"); 
+if(video.HasVideo()){
 	<iframe width="100%" height="281" src="@video.EmbedUrl" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 }
  ```
