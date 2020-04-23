@@ -2,23 +2,22 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>DigitalMomentum.Videolizer</id>
-    <version>2.1.4</version>
-    <title>Videolizer for Umbraco</title>
+    <version>3.0.0.0-beta</version>
+    <title>Videolizer for Umbraco 7</title>
     <authors>David Sheiles - Digital Momentum</authors>
     <owners>David Sheiles - Digital Momentum</owners>
     <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
     <projectUrl>https://github.com/DigitalMomentum/Umbraco7-Videolizer</projectUrl>
     <iconUrl>http://www.digitalmomentum.com.au/images/Videolizer/Videolizer.png</iconUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <description>An Umbraco 7.3+ Datatype &amp; Grid Editor for searching Youtube / Vimeo videos to insert and simple embedding videos into your site allowing users to configure thier video options</description>
-    <copyright>Copyright ©  2016</copyright>
-    <tags>Umbraco YouTube Vimeo Video</tags>
+    <description>An Umbraco 7.3+ Datatype &amp; Grid Editor for searching Youtube / Vimeo videos (Including private/unlisted Videos) to insert and simple embedding videos into your site allowing users to configure thier video options</description>
+    <copyright>Copyright ©  2020</copyright>
+    <tags>Umbraco Umbraco7 YouTube Vimeo Video OAuth</tags>
     <dependencies>
-      <dependency id="DigitalMomentum.Videolizer.Core" version="2.1.3" />
+      <dependency id="DigitalMomentum.Videolizer.Core" version="3.0.0-beta" />
     </dependencies>
     <releaseNotes>
-		Fix Grid Layout for Umbraco 7.11.1. 
-		Fix Umbraco Deploy bug for Umbraco Cloud.
+		Re-work entire property editor and search function. Adds OAuth Support to allow searching private videos
 	</releaseNotes>
   </metadata>
 	<files>
