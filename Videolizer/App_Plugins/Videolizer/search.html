@@ -1,64 +1,53 @@
 ﻿<div ng-controller="DigitalMomentum.Videolizer.Search" class="videolizer">
-	<form name="dialogForm">
-		<umb-panel>
-		<div style="overflow:auto">
-			
-			<umb-pane>
-				<h3>Video Search</h3>
-				<p>Select a video to insert into the page</p>
-					<input type="text" name="searchTerm" class="searchTerm" ng-model="model.searchTerm" placeholder="Search Term" />
-					<button type="button" class="btn btn-primary" ng-disabled="!dialogForm.$valid" ng-click="search()">
-						<i class="icon-search"></i>
-					</button>
-					<div style="margin-top:5px;">
-						<select ng-model="model.searchType">
-						
-							<optgroup  label="YouTube" ng-show="model.ytApi">
-								<option value="ytChannel" ng-show="model.ytApi && model.ytChannelId">YouTube: My Videos</option>
-								<option value="ytAll" ng-show="model.ytApi">YouTube: Public Videos</option>
-							</optgroup>
-							<optgroup label="Vimeo" ng-show="model.vimeoClientId && model.vimeoClientSecret">
-								<option value="vimeoChannel" ng-show="model.vimeoClientId && model.vimeoClientSecret && model.vimeoUserId">Vimeo: My Videos</option>
-								<option value="vimeoAll" ng-show="model.vimeoClientId && model.vimeoClientSecret ">Vimeo: public Videos</option>
-							</optgroup>
-						</select>
-			
+    <form name="dialogForm">
+        <umb-panel>
+            <div style="overflow:auto">
 
-					</div>
-				
-			</umb-pane>
-			<umb-pane class="videoSearchResults">
-				<div ng-if="errorStr" class="alert alert-danger"><strong>{{errorStr.title}}</strong> {{errorStr.message}}</div>
-				<div ng-repeat="video in results.yt" class="clearfix ytThumbnail" style="width:185px;float:left;height:185px; margin-right:5px;overflow-y:hidden">
-					<iframe width="100%" height="104"src="//www.youtube.com/embed/{{video.id.videoId}}?controls=1"></iframe>
-					<div ng-click="selectVideo(video)" class="title">
-						{{video.snippet.title}}
+                <umb-pane>
+                    <h3>Video Search</h3>
+                    <p>Select a video to insert into the page</p>
 
-					<!--<p>{{video.snippet.description}}</p>-->
-					</div>
-
-			
-				</div>
-				<div ng-repeat="video in results.vimeo" class="clearfix vimeoThumbnail" style="width:185px;float:left;height:185px; margin-right:5px;overflow-y:hidden">
-						<span ng-bind-html-unsafe="video.embed.html"></span>
-
-					<div ng-click="selectVideo(video)" class="title">
-						{{video.name}}
-					</div>
+                    <input type="radio" id="youtube" ng-model="model.searchType.provider" value="YouTube" class="toggl" ng-if="config.youTube.enabled" /><label for="youtube" ng-if="config.youTube.enabled"><i class="fa fa-youtube-square" aria-hidden="true" title="Search YouTube"></i><span class="sr-only">Search YouTube</span></label>
+                    <input type="radio" id="vimeo" ng-model="model.searchType.provider" value="Vimeo" class="toggl" ng-if="config.vimeo.enabled" /><label for="vimeo" ng-if="config.vimeo.enabled"><i class="fa fa-vimeo-square" aria-hidden="true" title="Search Vimeo"></i><span class="sr-only">Search YouTube</span></label>
+                    <input type="text" name="searchTerm" class="searchTerm" ng-model="model.searchTerm" placeholder="Search Term" style="max-width:185px;" />
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons" style="margin:0 8px;" ng-if="showSearchType()">
+                        <button type="button" ng-click="model.searchType.myVideos=true" class="btn" ng-class="{'btn-secondary' : model.searchType.myVideos}" title="Search my Videos"><i class="fa fa-user" aria-hidden="true" style="font-size:20px;"></i><span class="sr-only">Search my Videos</span></button>
+                        <button type="button" ng-click="model.searchType.myVideos=false" class="btn" ng-class="{'btn-secondary' : !model.searchType.myVideos}" title="Search public Videos"><i class="fa fa-globe" aria-hidden="true" style="font-size:20px;"></i><span class="sr-only">Search public Videos</span></button>
+                    </div>
+                    <button type="button" class="btn btn-primary" ng-disabled="!dialogForm.$valid" ng-click="search()">
+                        <i class="icon-search"></i>
+                    </button>
 
 
-				</div>
-			</umb-pane>
-			</div>
-			
-				<div class="umb-panel-footer">
-					<div class="btn-toolbar umb-btn-toolbar pull-right">
-						<a class="btn btn-link" ng-click="close()">
-							<localize key="cancel" />
-						</a>
-					
-					</div>
-				</div>
-</umb-panel>
-	</form>
+                </umb-pane>
+                <umb-pane class="videoSearchResults">
+
+                    <div ng-if="errorStr" class="alert alert-danger"><strong>{{errorStr.title}}</strong> {{errorStr.message}}</div>
+
+
+                    <div ng-repeat="video in results" class="clearfix vimeoThumbnail">
+                        <div ng-click="selectVideo(video)">
+                            <img src="{{video.thumbnails.highQuality}}" title="{{video.description}}" />
+                            <div class="title">
+                                {{video.name}}
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                </umb-pane>
+            </div>
+
+            <div class="umb-panel-footer">
+                <div class="btn-toolbar umb-btn-toolbar pull-right">
+                    <a class="btn btn-link" ng-click="close()">
+                        <localize key="cancel" />
+                    </a>
+
+                </div>
+            </div>
+        </umb-panel>
+    </form>
 </div>

@@ -3,11 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Serialization;
 using Umbraco.Core.Models.PublishedContent;
 using Umbraco.Core.PropertyEditors;
-using Videolizer.Umbraco;
+using Videolizer.Umb;
 
-namespace Videolizer.Umbraco.PropertyValueConverter {
+namespace Videolizer.Umb.PropertyValueConverter {
     [PropertyValueType(typeof(VideolizerVideo))]
     [PropertyValueCache(PropertyCacheValue.All, PropertyCacheLevel.Content)]
     public class VideoPickerPVC : PropertyValueConverterBase {
@@ -23,6 +24,7 @@ namespace Videolizer.Umbraco.PropertyValueConverter {
 
             try {
                 var obj = JsonConvert.DeserializeObject<UmbVideolizerVideo>(sourceString);
+               //var obj = new JavaScriptSerializer().Deserialize<UmbVideolizerVideo>(sourceString);
 
                 if (obj != null) {
                     return obj;

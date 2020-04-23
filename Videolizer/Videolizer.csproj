@@ -254,12 +254,17 @@
   <ItemGroup>
     <Content Include="App_Plugins\Videolizer\grid\editor.controller.js" />
     <Content Include="App_Plugins\Videolizer\grid\editor.html" />
+    <Content Include="App_Plugins\Videolizer\propertyeditors\oAuthPopup.controller.js" />
+    <Content Include="App_Plugins\Videolizer\propertyeditors\vimeoSettings.html" />
+    <Content Include="App_Plugins\Videolizer\propertyeditors\vimeoSettings.controller.js" />
+    <Content Include="App_Plugins\Videolizer\propertyeditors\youTubeSettings.controller.js" />
+    <Content Include="App_Plugins\Videolizer\propertyeditors\youTubeSettings.html" />
     <Content Include="App_Plugins\Videolizer\propertyeditors\defaultSearchType.html" />
     <Content Include="App_Plugins\Videolizer\search.dialog.js" />
     <Content Include="App_Plugins\Videolizer\search.html" />
+    <Content Include="App_Plugins\Videolizer\Services\VideolizerApi.service.js" />
     <Content Include="App_Plugins\Videolizer\videolizer.css" />
     <Content Include="App_Plugins\Videolizer\package.manifest" />
-    <Content Include="App_Plugins\Videolizer\Services\vimeo.api.service.js" />
     <Content Include="Videolizer.nuspec">
       <SubType>Designer</SubType>
     </Content>
@@ -267,6 +272,9 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\Partials\Grid\Editors\Videolizer.cshtml" />
+    <Content Include="App_Plugins\Videolizer\Views\Oauth\YouTube.cshtml" />
+    <Content Include="App_Plugins\Videolizer\Views\Oauth\OAuthCode.cshtml" />
+    <Content Include="App_Plugins\Videolizer\Views\Oauth\Vimeo.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -280,11 +288,19 @@
     <Content Include="App_Plugins\Videolizer\dataType\editor.html" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\SettingsController.cs" />
+    <Compile Include="Events\StartUpHandlers.cs" />
+    <Compile Include="Helpers\SettingsHelper.cs" />
+    <Compile Include="Helpers\YouTubeHelper.cs" />
+    <Compile Include="Migrations\Version_1_2_0.cs" />
     <Compile Include="Migrations\Version_1_1_0.cs" />
     <Compile Include="Migrations\MigrationEvents.cs" />
-    <Compile Include="Umbraco\UmbVideolizerVideo.cs" />
+    <Compile Include="Models\VideolizerSettings.cs" />
+    <Compile Include="Controllers\OauthController.cs" />
+    <Compile Include="Umb\UmbVideolizerVideo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Umbraco\ValueConverter\VideolizerVideoPVC.cs" />
+    <Compile Include="Umb\ValueConverter\VideolizerVideoPVC.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Videolizer.Core\Videolizer.Core.csproj">
@@ -292,9 +308,7 @@
       <Name>Videolizer.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Helpers\NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

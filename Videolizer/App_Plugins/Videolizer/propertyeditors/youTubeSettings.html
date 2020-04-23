@@ -1,0 +1,18 @@
+﻿<div ng-controller="DigitalMomentum.Videolizer.PropertyEditor.YouTubeSettings" class="vEditor videolizer datatype">
+    <p>
+        Status: <span id="status" ng-style="{'color' : status.color }">{{status.message}}</span>
+
+        &nbsp;&nbsp;<button type="button" class="btn" ng-class="{'btn-success' : model.value.isConnected}" ng-click="openSearchWindow()">{{model.value.isConnected ? "Re-Authorise with YouTube" : "Authorise with YouTube"}}</button>
+    </p>
+
+    <div class="form-control">
+        <input type="checkbox" ng-model="model.value.enableSearch" id="enableYT" ng-disabled="!model.value.isConnected" /> <label for="enableYT">Enable YouTube Search</label>
+    </div>
+    <div class="form-control">
+        <input type="checkbox" ng-model="model.value.searchPublicVideos" id="publicSearch" ng-disabled="!model.value.isConnected || !model.value.enableSearch" /> <label for="publicSearch">Search public videos</label>
+    </div>
+    <div class="form-control">
+        <input type="checkbox" ng-model="model.value.searchMyVideos" id="privateSearch" ng-disabled="!model.value.isConnected || !model.value.enableSearch" /> <label for="privateSearch">Search your videos</label>
+    </div>
+
+</div>

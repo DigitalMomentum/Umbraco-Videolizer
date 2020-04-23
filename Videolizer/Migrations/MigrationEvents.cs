@@ -28,7 +28,7 @@ namespace Videolizer.Migrations {
             if (latestMigration != null)
                 currentVersion = latestMigration.Version;
 
-            var targetVersion = new SemVersion(1, 0, 0);
+            var targetVersion = new SemVersion(1, 2, 0);
             if (targetVersion == currentVersion)
                 return;
 

@@ -317,6 +317,7 @@ packages
 *.dll
 *.hash
 
+App_Data/**
 packages
 !packages/repositories.config
 

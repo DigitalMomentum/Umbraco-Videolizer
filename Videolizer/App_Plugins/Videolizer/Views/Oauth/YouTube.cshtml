@@ -1,0 +1,90 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = null;
+
+    string clientID = ViewData["clientId"]?.ToString();
+    string clientSecret = ViewData["clientSecret"]?.ToString();
+}
+
+<div ng-controller="DigitalMomentum.Videolizer.oAuthPopup" class="videolizer">
+
+    <div style="max-width:900px;margin:auto; padding:0 40px;" id="step1">
+        <form action="/umbraco/backoffice/Plugins/Videolizer/Controllers/Oauth/InitYT" method="post" target="_blank">
+            <h1>YouTube Authorisation</h1>
+            <p>
+                Before proceeding, you will need to setup an OAuth App to allow to connect to your account.<br />
+                Sounds scary, but I'll walk you through it.
+            </p>
+
+            <ol>
+                <li>Open the <a href="https://console.developers.google.com/apis/credentials" target="_blank">Credentials page</a> in the API Console.</li>
+                <li>
+                    Click "Create Credentials" -> "OAuth Client ID"
+
+                    <dl class="row">
+                        <dt class="col-sm-3">Application Type:</dt>
+                        <dd class="col-sm-9"><i>Web Application</i></dd>
+                        <dt class="col-sm-3">Name:</dt>
+                        <dd class="col-sm-9"><i>Name it anything</i></dd>
+                        <dt class="col-sm-3">Authorised redirect URI:</dt>
+                        <dd class="col-sm-9" style="overflow-wrap: break-word;">Add <i><span class="domainName"></span>/umbraco/backoffice/Plugins/Videolizer/Controllers/Oauth/YouTubeCode</i></dd>
+                    </dl>
+                    Click <strong>Create</strong>
+                </li>
+                <li>You will get a popup with the client ID and client secret. Copy / paste each of them below</li>
+                <li>
+                    Enter your Client ID here: <input type="text" name="clientId" placeholder="YouTube Client ID" value="@clientID" style="width:100%" />
+                </li>
+                <li>
+                    Enter your Client Secret here: <input type="text" name="clientSecret" placeholder="YouTube Client Secret" value="@clientSecret" style="width:100%" />
+                </li>
+            </ol>
+            <button type="submit" class="btn btn-success" id="requestPermissionBtn">Request Permission</button>
+
+
+
+        </form>
+    </div>
+
+    <div style="margin:auto; padding:0 40px;display:none;" id="step2">
+        <h1>Next Steps...</h1>
+        <p>Once you have authenticated in the popup window, click finalise below.</p>
+        <p>
+            <button type="button" class="btn btn-success" ng-click="submit()">Finalise</button>
+        </p>
+
+
+
+    </div>
+
+    <script>
+        var domainNameObj = document.getElementsByClassName("domainName");
+        var domain = window.location.origin;
+        for (var i = 0; i < domainNameObj.length; i++) {
+            domainNameObj[i].innerHTML = domain;
+        }
+
+
+        setTimeout(function () {
+            $("#requestPermissionBtn").click(function () {
+
+                setTimeout(function () {
+
+                    $("#step1").hide();
+                    $("#step2").show();
+                }, 1000);
+            })
+        }, 1000);
+
+    </script>
+
+    <style>
+        a {
+            text-decoration: underline;
+        }
+
+        li {
+            margin-bottom: 15px;
+        }
+    </style>
+</div>

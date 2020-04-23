@@ -1,0 +1,18 @@
+﻿<div ng-controller="DigitalMomentum.Videolizer.PropertyEditor.VimeoSettings" class="vEditor videolizer datatype">
+    <p>
+        Status: <span id="status" ng-style="{'color' : status.color }">{{status.message}}</span> &nbsp;&nbsp;
+
+        <button type="button" class="btn" ng-class="{'btn-success' : model.value.isConnected}" ng-click="openSearchWindow()">{{model.value.isConnected ? "Re-Authorise with Vimeo" : "Authorise with Vimeo"}}</button>
+    </p>
+
+    <div class="form-control">
+        <input type="checkbox" ng-model="model.value.enableSearch" id="enableVimeo" ng-disabled="!model.value.isConnected" /> <label for="enableVimeo">Enable Vimeo Search</label>
+    </div>
+    <div class="form-control">
+        <input type="checkbox" ng-model="model.value.searchPublicVideos" id="publicVimeoSearch" ng-disabled="!model.value.isConnected || !model.value.enableSearch" /> <label for="publicVimeoSearch">Search public videos</label>
+    </div>
+    <div class="form-control">
+        <input type="checkbox" ng-model="model.value.searchMyVideos" id="privateVimeoSearch" ng-disabled="!model.value.isConnected || !model.value.enableSearch" /> <label for="privateVimeoSearch">Search your videos</label>
+    </div>
+
+</div>

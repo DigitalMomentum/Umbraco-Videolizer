@@ -6,6 +6,54 @@
 	cursor: pointer;
 }
 
+.videolizer .fa {
+	font-size: 33px;
+	vertical-align: middle;
+}
+
+
+.videolizer .fa-youtube-square {
+	color: #FF0000;
+}
+
+.videolizer .fa-vimeo-square {
+	color: #4EBBFF;
+}
+
+
+.videolizer .btn {
+	font-size:13px;
+	padding: 3px 10px;
+}
+
+.videolizer .btn-secondary {
+	background-color: #2e8aea;
+	border-color: #2e8aea;
+	color:#FFF;
+}
+
+.videolizer input[type="radio"].toggl {
+	display: none;
+}
+
+	.videolizer input[type="radio"].toggl + label {
+		opacity: 0.3;
+	}
+
+	.videolizer input[type="radio"].toggl:checked + label {
+		opacity: 1;
+	}
+
+.videolizer input[type="radio"]#youtube:checked + label {
+	
+}
+
+.videolizer input[type="radio"]#vimeo:checked + label {
+	color: #4EBBFF;
+}
+
+
+
 .vEditor::after {
 	display: block;
 	content: "";
@@ -14,8 +62,11 @@
 
 .vEditor .previewColumn {
 	width: auto;
-	max-width: 640px;
+	max-width: 500px;
 	margin: 15px 15px;
+}
+.vEditor .videolizerUrl {
+	width: calc(100% - 92px);
 }
 
 .vEditor.videolizer .previewColumn {
@@ -25,14 +76,14 @@
 .vEditor .infoColumn {
 	width: 100%;
 	min-width: 100px;
-	max-width: 360px;
+	max-width: 500px;
 	float: left;
 	margin: 15px 15px;
 }
 
 .vEditor .previewVid {
 	width: 100%;
-	max-width: 640px;
+	max-width: 500px;
 	margin-top: 25px;
 }
 
@@ -66,4 +117,17 @@
 .videoSearchResults .title{
 	text-decoration:underline;
 }
+
+
+.videolizer .sr-only {
+	position: absolute;
+	left: -10000px;
+	width: 1px;
+	height: 1px;
+	top: auto;
+	overflow: hidden;
+}
+
+
+
 

@@ -1,10 +1,10 @@
 ﻿@model dynamic
 @using Umbraco.Web.Templates
-@using Newtonsoft.Json;
+@using System.Web.Script.Serialization;
 
 @{
-	
-	Videolizer.Umbraco.UmbVideolizerVideo vid = JsonConvert.DeserializeObject<Videolizer.Umbraco.UmbVideolizerVideo>(Model.value.ToString());
+
+    Videolizer.Umb.UmbVideolizerVideo vid = new JavaScriptSerializer().Deserialize<Videolizer.Umb.UmbVideolizerVideo>(Model.value.ToString());
 
 }
 @*@vid.GetSimpleEmbed("600px", "300px")*@

@@ -1,0 +1,89 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+    @{
+    Layout = null;
+
+    string clientID = ViewData["clientId"]?.ToString();
+    string clientSecret = ViewData["clientSecret"]?.ToString();
+}
+
+@*<!DOCTYPE html>
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title></title>
+        <link href="/umbraco/assets/css/umbraco.css" rel="stylesheet" />
+    </head>
+    <body>*@
+<div ng-controller="DigitalMomentum.Videolizer.oAuthPopup" class="videolizer">
+    <div style="max-width:700px;margin:auto; padding:0 40px;" id="step1">
+        <form action="/umbraco/backoffice/Plugins/Videolizer/Controllers/Oauth/InitVimeo" method="post" target="_blank">
+            <h1>Vimeo OAuth</h1>
+            <p>
+                Before proceeding, you will need to setup an OAuth App to allow to connect to your account.
+            </p>
+
+            <ol>
+                <li>Open the <a href="https://developer.vimeo.com/apps" target="_blank"><u>Vimeo Apps page</u></a>.</li>
+                <li>
+                    Click "Create an App" and enter the details.
+
+                    <dl class="row">
+                        <dt class="col-sm-3">App Name:</dt>
+                        <dd class="col-sm-9"><i>Name it anything</i></dd>
+                        <dt class="col-sm-3">App description:</dt>
+                        <dd class="col-sm-9"><i>Application to allow our CMS to access our Vimeo Videos</i></dd>
+                        <dt class="col-sm-3">Will people besides you be able to access your app:</dt>
+                        <dd class="col-sm-9"><i>No</i></dd>
+                    </dl>
+                    Click <strong>Create App</strong>
+                </li>
+
+                <li  style="overflow-wrap: break-word;">
+                    Add "<span class="domainName"></span>/umbraco/backoffice/Plugins/Videolizer/Controllers/Oauth/VimeoCode" as a "Callback URL"
+                </li>
+                <li>
+                    Enter your Client identifier here: <input type="text" name="clientId" placeholder="Vimeo Client Identifier" value="@clientID" style="width:100%" />
+                </li>
+                <li>
+                    Enter your Client Secret here: <input type="text" name="clientSecret" placeholder="Vimeo Client Secret" value="@clientSecret" style="width:100%" />
+                </li>
+
+            </ol>
+            <button type="submit" class="btn btn-success" id="requestPermissionBtn">Request Permission</button>
+
+        </form>
+    </div>
+
+    <div style="margin:auto; padding:0 40px;display:none;" id="step2">
+        <h1>Next Steps...</h1>
+        <p>Once you have authenticated in the popup window, click finalise below.</p>
+        <p>
+            <button type="button" class="btn btn-success" ng-click="submit()">Finalise</button>
+        </p>
+
+
+
+    </div>
+
+    <script>
+        var domainNameObj = document.getElementsByClassName("domainName");
+        var domain = window.location.origin;
+        for (var i = 0; i < domainNameObj.length; i++) {
+            domainNameObj[i].innerHTML = domain;
+        }
+
+        setTimeout(function () {
+            $("#requestPermissionBtn").click(function () {
+                console.log("done")
+                setTimeout(function () {
+
+                    $("#step1").hide();
+                    $("#step2").show();
+                }, 1000);
+            })
+        }, 1000);
+    </script>
+</div>
+@*</body>
+    </html>*@

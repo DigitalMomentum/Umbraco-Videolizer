@@ -1,4 +1,5 @@
 ﻿{
+
     //you can define multiple editors
     propertyEditors: [
         {
@@ -8,43 +9,40 @@
             name: "Videolizer Video Picker",
             /*the HTML file we will load for the editor*/
             editor: {
-                view: "~/App_Plugins/Videolizer/dataType/editor.html"
+                view: "~/App_Plugins/Videolizer/dataType/editor.html",
+                valueType: "JSON"
             },
 			prevalues: {
     fields: [
-        {
-            label: "YouTube API Key",
-            description: "[optional] To Enable YouTube searches, go to https://console.developers.google.com/apis/credentials to obtain a key",
-            key: "ytApi",
-            view: "textstring"
+
+    {
+            label: "Enable direct URL Entry",
+            description: "Allow users to paste a youtube or Vimeo link directly into the editor",
+            key: "enableUrl",
+            view: "boolean"
         },
-        {
-            label: "YouTube Channel ID",
-            description: "[optional] If you would like to restrict the search to a particular channel, enter the channel ID here. Leave blank to search all of YouTube by default",
-            key: "ytChannelId",
-            view: "textstring"
-        },{
-            label: "Vimeo Client ID",
-            description: "[optional] To enable Vimeo searches, go to https://developer.vimeo.com/apps to create an app to obtain a client ID and a client Secret.",
-            key: "vimeoClientId",
-            view: "textstring"
-        } , {
-            label: "Vimeo Client Secret",
-            description: "[optional] To enable Vimeo searches, go to https://developer.vimeo.com/apps to create an app to obtain a client ID and a client Secret.",
-            key: "vimeoClientSecret",
-            view: "textstring"
-        } ,{
-            label: "Vimeo User ID",
-            description: "[optional] To enable seraching your Vimeo account, obtain your user ID from https://vimeo.com/settings/account",
-            key: "vimeoUserId",
-            view: "textstring"
-        } ,
-		{
-						label: "Default Search Method",
-						description: "Select which type of search you would like to default to",
-						key: "defaultSearchType",
-						view: "~/App_Plugins/Videolizer/propertyeditors/defaultSearchType.html"
-					}
+    {
+						label: "Youtube",
+						description: "Settings for youtube searches",
+						key: "youTubeSettings",
+						view: "~/App_Plugins/Videolizer/propertyeditors/youtubeSettings.html"
+					},
+    {
+						label: "Vimeo",
+						description: "Settings for vimeo searches",
+						key: "vimeoSettings",
+						view: "~/App_Plugins/Videolizer/propertyeditors/vimeoSettings.html"
+					},
+    {
+						label: "Default Provider",
+						description: "Which Video platform should be selected by default for the search?",
+						key: "defaultProvider",
+						view: "~/App_Plugins/Videolizer/propertyeditors/defaultSearchType.html",
+                        
+                       
+					},
+
+		
     ]
 }
         }
@@ -54,8 +52,11 @@
     javascript: [
         '~/App_Plugins/Videolizer/dataType/editor.controller.js',
         '~/App_Plugins/Videolizer/search.dialog.js',
-        '~/App_Plugins/Videolizer/Services/vimeo.api.service.js',
+        '~/App_Plugins/Videolizer/Services/videolizerapi.service.js',
         '~/App_Plugins/Videolizer/grid/editor.controller.js',
+        '~/App_Plugins/Videolizer/propertyeditors/youtubeSettings.controller.js',
+        '~/App_Plugins/Videolizer/propertyeditors/vimeoSettings.controller.js',
+        '~/App_Plugins/Videolizer/propertyeditors/oAuthPopup.controller.js',
     ],
 	css: [
 		'~/App_Plugins/Videolizer/videolizer.css',
@@ -70,5 +71,8 @@
             "render": "videolizer",
             "icon": "icon-movie-alt"
         }
-    ]
+    ],
+
+
+
 }
