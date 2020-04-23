@@ -8,9 +8,13 @@ angular.module('umbraco')
             }
 
             function init() {
+                console.log($scope.model.value)
                 if ($scope.model.value == null) {
                     $scope.model.value = {
-                        isConnected: false
+                        isConnected: false,
+                        enableSearch: true,
+                        searchPublicVideos: true,
+                        searchMyVideos: true
                     }
                 }
                 $scope.CheckServiceStatus();
@@ -33,7 +37,7 @@ angular.module('umbraco')
 
                 $http(req).then(function successCallback(response) {
 
-                    
+
                     $scope.model.value.isConnected = (response.data === "Connected");
                     $scope.status = {
                         message: response.data,

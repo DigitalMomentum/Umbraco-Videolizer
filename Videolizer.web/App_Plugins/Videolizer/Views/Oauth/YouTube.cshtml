@@ -6,15 +6,6 @@
     string clientSecret = ViewData["clientSecret"]?.ToString();
 }
 
-@*<!DOCTYPE html>
-
-    <html>
-    <head>
-        <meta name="viewport" content="width=device-width" />
-        <title></title>
-        <link href="/umbraco/assets/css/umbraco.css" rel="stylesheet" />
-    </head>
-    <body>*@
 <div ng-controller="DigitalMomentum.Videolizer.oAuthPopup" class="videolizer">
 
     <div style="max-width:900px;margin:auto; padding:0 40px;" id="step1">
@@ -76,7 +67,7 @@
 
         setTimeout(function () {
             $("#requestPermissionBtn").click(function () {
-                console.log("done")
+
                 setTimeout(function () {
 
                     $("#step1").hide();
@@ -97,5 +88,3 @@
         }
     </style>
 </div>
-@*</body>
-    </html>*@

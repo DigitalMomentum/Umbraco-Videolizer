@@ -6,10 +6,10 @@
     </p>
 
     <div class="form-control">
-        <input type="checkbox" ng-model="model.value.enableSearch" id="enableYT"  ng-disabled="!model.value.isConnected" /> <label for="enableYT">Enable YouTube Search</label>
+        <input type="checkbox" ng-model="model.value.enableSearch" id="enableYT" ng-disabled="!model.value.isConnected" /> <label for="enableYT">Enable YouTube Search</label>
     </div>
     <div class="form-control">
-        <input type="checkbox" ng-model="model.value.searchPublicVideos" id="publicSearch"  ng-disabled="!model.value.isConnected || !model.value.enableSearch" /> <label for="publicSearch">Search public videos</label>
+        <input type="checkbox" ng-model="model.value.searchPublicVideos" id="publicSearch" ng-disabled="!model.value.isConnected || !model.value.enableSearch" /> <label for="publicSearch">Search public videos</label>
     </div>
     <div class="form-control">
         <input type="checkbox" ng-model="model.value.searchMyVideos" id="privateSearch" ng-disabled="!model.value.isConnected || !model.value.enableSearch" /> <label for="privateSearch">Search your videos</label>

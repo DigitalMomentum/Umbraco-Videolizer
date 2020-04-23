@@ -10,7 +10,10 @@ angular.module('umbraco')
             function init() {
                 if ($scope.model.value == null) {
                     $scope.model.value = {
-                        isConnected: false
+                        isConnected: false,
+                        enableSearch: true,
+                        searchPublicVideos: true,
+                        searchMyVideos: true
                     }
                 }
                 $scope.CheckServiceStatus();

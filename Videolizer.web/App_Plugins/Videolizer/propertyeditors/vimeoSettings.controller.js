@@ -10,7 +10,10 @@ angular.module('umbraco')
             function init() {
                 if ($scope.model.value == null) {
                     $scope.model.value = {
-                        isConnected: false
+                        isConnected: false,
+                        enableSearch: true,
+                        searchPublicVideos: true,
+                        searchMyVideos: true
                     }
                 }
                 $scope.CheckServiceStatus();
@@ -33,7 +36,7 @@ angular.module('umbraco')
 
                 $http(req).then(function successCallback(response) {
 
-                    
+
                     $scope.model.value.isConnected = (response.data === "Connected");
                     $scope.status = {
                         message: response.data,
@@ -50,7 +53,6 @@ angular.module('umbraco')
 
 
             $scope.openSearchWindow = function () {
-                //console.log($scope.model.config.vimeoClientId, $scope.model.config.vimeoClientSecret)
                 dialogService.open({
                     // set the location of the view
                     template: "/umbraco/backoffice/Plugins/Videolizer/Controllers/Oauth/Vimeo",

@@ -13,38 +13,40 @@
                 valueType: "JSON"
             },
 			prevalues: {
-    fields: [
-
-    {
-            label: "Enable direct URL Entry",
-            description: "Allow users to paste a youtube or Vimeo link directly into the editor",
-            key: "enableUrl",
-            view: "boolean"
-        },
-    {
-						label: "Youtube",
-						description: "Settings for youtube searches",
-						key: "youTubeSettings",
-						view: "~/App_Plugins/Videolizer/propertyeditors/youtubeSettings.html"
-					},
-    {
-						label: "Vimeo",
-						description: "Settings for vimeo searches",
-						key: "vimeoSettings",
-						view: "~/App_Plugins/Videolizer/propertyeditors/vimeoSettings.html"
-					},
-    {
-						label: "Default Provider",
-						description: "Which Video platform should be selected by default for the search?",
-						key: "defaultProvider",
-						view: "~/App_Plugins/Videolizer/propertyeditors/defaultSearchType.html",
-                        
-                       
-					},
-
-		
-    ]
-}
+                fields: [
+                    {
+                        label: "Enable direct URL Entry",
+                        description: "Allow users to paste a youtube or Vimeo link directly into the editor",
+                        key: "enableUrl",
+                        view: "boolean"
+                    },
+                    {
+					    label: "Youtube",
+					    description: "Settings for youtube searches",
+					    key: "youTubeSettings",
+					    view: "~/App_Plugins/Videolizer/propertyeditors/youtubeSettings.html"
+				    },
+                    {
+					    label: "Vimeo",
+					    description: "Settings for vimeo searches",
+					    key: "vimeoSettings",
+					    view: "~/App_Plugins/Videolizer/propertyeditors/vimeoSettings.html"
+				    },
+                    {
+					    label: "Default Provider",
+					    description: "Which Video platform should be selected by default for the search?",
+					    key: "defaultProvider",
+					    view: "~/App_Plugins/Videolizer/propertyeditors/defaultSearchType.html",
+				    },
+                ],
+                
+            },
+            defaultConfig: {
+                    enableUrl: "1",
+                     youTubeSettings: { isConnected: false, enableSearch: true, searchPublicVideos: true, searchMyVideos: true },
+                     vimeoSettings:   { isConnected: false, enableSearch: true, searchPublicVideos: true, searchMyVideos: true },
+                    defaultProvider: "ytChannel"
+                }
         }
     ],
 
@@ -58,11 +60,11 @@
         '~/App_Plugins/Videolizer/propertyeditors/vimeoSettings.controller.js',
         '~/App_Plugins/Videolizer/propertyeditors/oAuthPopup.controller.js',
     ],
-	css: [
-		'~/App_Plugins/Videolizer/videolizer.css',
-	],
+    css: [
+	    '~/App_Plugins/Videolizer/videolizer.css',
+    ],
 
-	  "gridEditors": 
+	    "gridEditors": 
     [
         {
             "name": "YouTube/Vimeo",

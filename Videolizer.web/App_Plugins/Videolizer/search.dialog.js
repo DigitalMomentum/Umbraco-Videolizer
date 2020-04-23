@@ -2,7 +2,6 @@
 angular.module('umbraco')
     .controller('DigitalMomentum.Videolizer.Search',
         function ($scope, notificationsService, videolizerApi) {
-            console.log($scope.dialogData.config)
             $scope.hideLabel = "true"; //Hides the modal Dialog label at the top of the page
             $scope.errorStr = null;
             $scope.model = {
@@ -28,7 +27,6 @@ angular.module('umbraco')
                 }else if ($scope.config.vimeo.enabled) {
                     $scope.model.searchType.provider = "Vimeo"
                 }
-                console.log($scope.config.defaultProvider)
                 if ($scope.config.defaultProvider) {
                     if ($scope.config.defaultProvider === "ytChannel" || $scope.config.defaultProvider === "ytAll") {
                         $scope.model.searchType.provider = "YouTube";
@@ -88,7 +86,7 @@ angular.module('umbraco')
                 $scope.results = [];
                 var searchTerm = $scope.model.searchTerm;
                 videolizerApi.search(searchTerm, $scope.model.searchType.provider, isSearchingForMine(), null, 20, function (data) {
-                    console.log(data);
+                    
                     $scope.results = data.items;
                 });
             }
