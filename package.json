@@ -1,0 +1,23 @@
+{
+  "name": "umbraco-videolizer",
+  "version": "1.0.0",
+  "description": "By David Sheiles - [Digital Momentum](http://www.digitalmomentum.com.au)",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DigitalMomentum/Umbraco-Videolizer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DigitalMomentum/Umbraco-Videolizer/issues"
+  },
+  "homepage": "https://github.com/DigitalMomentum/Umbraco-Videolizer#readme"
+}
