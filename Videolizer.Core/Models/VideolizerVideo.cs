@@ -29,13 +29,18 @@ namespace Videolizer
                 case VideoTypes.YouTube:
                     this.Id = VideoId;
                     this.Type = VideoTypes.YouTube;
-                    this.EmbedUrl = "//www.youtube.com/embed/" + VideoId;
+                    this.EmbedUrl = "https://www.youtube.com/embed/" + VideoId;
                     break;
                 case VideoTypes.Vimeo:
                     this.Id = VideoId;
                     this.Type = VideoTypes.Vimeo;
-                    this.EmbedUrl = "//player.vimeo.com/video/" + VideoId;
+                    this.EmbedUrl = "https://player.vimeo.com/video/" + VideoId;
                     break;
+				default:
+					this.Id = null;
+					this.Type = VideoTypes.Unknown;
+					this.Url = null;
+					break;
             }
         }
 
@@ -46,13 +51,15 @@ namespace Videolizer
         public VideolizerVideo(string VideoUrl)
         {
             this.Url = VideoUrl;
+			this.Type = VideoTypes.Unknown;
+
             string vidId = YouTube.GetVideoId(VideoUrl);
             if (vidId != null)
             {
                 //Its a Youtube Clip.
                 this.Id = vidId;
                 this.Type = VideoTypes.YouTube;
-                this.EmbedUrl = "//www.youtube.com/embed/" + vidId;
+                this.EmbedUrl = "https://www.youtube.com/embed/" + vidId;
             }
             else
             {
@@ -62,7 +69,7 @@ namespace Videolizer
                     //Its a Vimeo Clip.
                     this.Id = vidId;
                     this.Type = VideoTypes.Vimeo;
-                    this.EmbedUrl = "//player.vimeo.com/video/" + vidId;
+                    this.EmbedUrl = "https://player.vimeo.com/video/" + vidId;
                 }
             }
         }

@@ -37,8 +37,20 @@ namespace Videolizer.Core.Resources
             Views
         }
 
+		public async Task<dynamic> GetVideoAsDynamic(string id) {
+			return await providerClass.GetVideoAsDynamic(id);
+		}
 
-        public async Task<PagedResults<VideolizerVideo>> List(string query, SortOrder sortOrder = SortOrder.Relevance, int maxResultsPerPage = 50, string page = null)
+		public async Task<VideolizerVideo> GetVideo(string id) {
+			return await providerClass.GetVideoAsDynamic(id);
+		}
+
+		public async Task<T> GetVideo<T>(string id) {
+			return await providerClass.GetVideoAsDynamic(id);
+		}
+
+
+		public async Task<PagedResults<VideolizerVideo>> List(string query, SortOrder sortOrder = SortOrder.Relevance, int maxResultsPerPage = 50, string page = null)
         {
             return await providerClass.List(query, sortOrder, maxResultsPerPage, page);
         }
@@ -73,6 +85,6 @@ namespace Videolizer.Core.Resources
             return await providerClass.ListMineAsDynamic(query, sortOrder, maxResultsPerPage, page, embedable);
         }
 
-       
-    }
+	
+	}
 }

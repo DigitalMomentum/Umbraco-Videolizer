@@ -1,56 +1,63 @@
 ﻿angular.module("umbraco")
     .controller("DigitalMomentum.Videolizer",
-        function ($scope, dialogService) {
+		function ($scope, dialogService, videolizerApi) {
 
-            $scope.localConfig = {
-                searchEnabled: false,
-                youTube: {
-                    enabled: false,
-                    myVideos: false,
-                    publicVideos: false
-                },
-                vimeo: {
-                    enabled: false,
-                    myVideos: false,
-                    publicVideos: false
-                }
-            }
+			$scope.localConfig = {
+				searchEnabled: false,
+				youTube: {
+					enabled: false,
+					myVideos: false,
+					publicVideos: false
+				},
+				vimeo: {
+					enabled: false,
+					myVideos: false,
+					publicVideos: false
+				}
+			};
 
-            $scope.checkVideoUrl = function () {
-                $scope.model.value = null;
-                if ($scope.vidUrl !== "") {
-                    var vidId = ytVidId($scope.vidUrl); //Try Youtube
-                    if (vidId !== false) {
-                        $scope.model.value = {
-                            url: $scope.vidUrl,
-                            id: vidId,
-                            embedUrl: "//www.youtube.com/embed/" + vidId,
-                            type: "YouTube"
-                        }
-                    }
-                    if ($scope.model.value === null) {
-                        vidId = vimeoVidId($scope.vidUrl); //Try Vimeo
-                        if (vidId !== false) {
-                            $scope.model.value = {
-                                url: $scope.vidUrl,
-                                id: vidId,
-                                embedUrl: "//player.vimeo.com/video/" + vidId,
-                                type: "Vimeo"
-                            }
-                        }
-                    }
+			$scope.checkVideoUrl = function () {
+				$scope.model.value = null;
+				
+				if ($scope.vidUrl !== "") {
 
-                    if ($scope.model.value === null) {
-                        $scope.model.value = {
-                            url: $scope.vidUrl,
-                            id: null,
-                            embedUrl: null,
-                            type: "Unknown"
-                        }
-                    }
-                }
+					videolizerApi.GetVideoByUrl($scope.vidUrl, function (data) {
+						$scope.model.value = data.items;
+					});
 
-            }
+
+					//var vidId = ytVidId($scope.vidUrl); //Try Youtube
+					//if (vidId !== false) {
+					//    $scope.model.value = {
+					//        url: $scope.vidUrl,
+					//        id: vidId,
+					//        embedUrl: "//www.youtube.com/embed/" + vidId,
+					//        type: "YouTube"
+					//    }
+					//}
+					//if ($scope.model.value === null) {
+					//    vidId = vimeoVidId($scope.vidUrl); //Try Vimeo
+					//    if (vidId !== false) {
+					//        $scope.model.value = {
+					//            url: $scope.vidUrl,
+					//            id: vidId,
+					//            embedUrl: "//player.vimeo.com/video/" + vidId,
+					//            type: "Vimeo"
+					//        }
+					//    }
+					//}
+
+					//if ($scope.model.value === null) {
+					//    $scope.model.value = {
+					//        url: $scope.vidUrl,
+					//        id: null,
+					//        embedUrl: null,
+					//        type: "Unknown"
+					//    }
+					//}
+				}
+
+			};
 
 
             $scope.openSearchWindow = function () {
@@ -74,12 +81,12 @@
             function init() {
 
                 if ($scope.model.value != null) {
-                    if (typeof $scope.model.value.url != "undefined") {
+                    if (typeof $scope.model.value.url !== "undefined") {
                         $scope.vidUrl = $scope.model.value.url;
                     } else {
                         //Doesn't seem to be our usual object. 
                         //Lets try to see if it was a Textbox in a previous life!
-                        if (typeof $scope.model.value == "string") {
+                        if (typeof $scope.model.value === "string") {
                             //could be a url stored as a plain string. Lets give it a go!
                             $scope.vidUrl = $scope.model.value;
                             $scope.checkVideoUrl();
