@@ -66,7 +66,7 @@ namespace Videolizer.Core.YouTube
                     return new TokenSet()
                     {
                         AccessToken = response.access_token.ToString(),
-                        RefreshToken = response.refresh_token.ToString(),
+                        RefreshToken = response.refresh_token?.ToString(),
                         Expires = DateTime.Now.AddSeconds(long.Parse(response.expires_in.ToString()) - 30)
                     };
                 }

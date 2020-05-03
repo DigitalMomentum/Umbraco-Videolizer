@@ -57,11 +57,9 @@ namespace Videolizer.Controllers {
 			switch (video.Type) {
 				case VideolizerVideo.VideoTypes.YouTube:
 					
-					accessToken = settings.Get(SettingsHelper.SettingTypes.YT_TokenSet).GetValueAsType<TokenSet>();
-
-					accessToken = settings.RefreshYTTokenIfExpired(accessToken);
-
+					accessToken = settings.Get(SettingsHelper.SettingTypes.YT_TokenSet)?.GetValueAsType<TokenSet>();
 					if (accessToken != null) {
+						accessToken = settings.RefreshYTTokenIfExpired(accessToken);
 						Core.YouTube.Resources.Videos videos = new Core.YouTube.Resources.Videos(accessToken);
 
 						var v = await videos.GetVideo(video.Id);
@@ -70,7 +68,7 @@ namespace Videolizer.Controllers {
 					break;
 				case VideolizerVideo.VideoTypes.Vimeo:
 					
-					accessToken = settings.Get(SettingsHelper.SettingTypes.YT_TokenSet).GetValueAsType<TokenSet>();
+					accessToken = settings.Get(SettingsHelper.SettingTypes.Vimeo_TokenSet)?.GetValueAsType<TokenSet>();
 
 					if (accessToken != null) {
 						Core.Vimeo.Resources.Videos videos = new Core.Vimeo.Resources.Videos(accessToken);

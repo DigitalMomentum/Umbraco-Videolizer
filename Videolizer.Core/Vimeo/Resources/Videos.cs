@@ -49,15 +49,16 @@ namespace Videolizer.Core.Vimeo.Resources
 		}
 
 		public async Task<VideolizerVideo> GetVideo(string id) {
-			return await GetVideo<VideolizerVideo>(id);
+			var vid = await GetVideo<Video>(id);
+            return Video.MapToVideolizerVideo(vid);
 		}
 
 		public async Task<T> GetVideo<T>(string id) {
 			var queryparams = new Dictionary<string, string>() {
-				{ "video_id ", id }
+				//{ "video_id ", id }
 			};
 
-			return await Get<T>(resourceType, queryparams);
+			return await Get<T>($"{resourceType}/{id}", queryparams);
 		}
 
 		/// <summary>

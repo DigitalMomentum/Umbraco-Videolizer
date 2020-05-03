@@ -42,10 +42,17 @@ namespace Videolizer.Core.YouTube.Resources {
 
 
 		public async Task<VideolizerVideo> GetVideo(string id) {
-			return await GetVideo<VideolizerVideo>(id, null);
+			return await GetVideo(id, null);
 		}
 		public async Task<VideolizerVideo> GetVideo(string id, List<Parts> parts) {
-			return await GetVideo<VideolizerVideo>(id, parts);
+			var videos = await GetVideo<Core.Models.PagedResults<Video>>(id, parts);
+			if (videos.Items.Any())
+			{
+				return Video.MapToVideolizerVideo(videos.Items.First());
+			}
+
+			return null;
+
 		}
 
 
@@ -59,8 +66,8 @@ namespace Videolizer.Core.YouTube.Resources {
 				{ "part", ConvertPartsToString(parts) }
 			};
 
-
-			return await Get<T>(resourceType, queryparams);
+			//Use "videos" instead of "search"
+			return await Get<T>("videos", queryparams);
 		}
 
 

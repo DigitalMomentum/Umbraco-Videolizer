@@ -1,14 +1,14 @@
 ﻿<div ng-controller="DigitalMomentum.Videolizer" class="vEditor videolizer datatype">
     <div class="previewColumn" ng-cloak>
 
-        <input ng-model="vidUrl" type="text" class="umb-editor umb-textstring textstring videolizerUrl" placeholder="Video URL" ng-change="checkVideoUrl()" ng-if="model.config.enableUrl" /> <button ng-click="checkVideoUrl()" type="button" class="btn btn-primary" title="Load Video" ng-if="model.config.enableUrl"><i class="icon-movie-alt"></i></button> <button ng-click="openSearchWindow()" type="button" ng-show="localConfig.searchEnabled" class="btn btn-primary" title="Search for Video"><i class="icon-search"></i></button>
+        <input ng-model="viewModel.vidUrl" type="text" class="umb-editor umb-textstring textstring videolizerUrl" placeholder="Video URL" ng-change="checkVideoUrl()" ng-if="model.config.enableUrl" /> <button ng-click="checkVideoUrl()" type="button" class="btn btn-primary" title="Load Video" ng-if="model.config.enableUrl"><i class="icon-movie-alt"></i></button> <button ng-click="openSearchWindow()" type="button" ng-show="localConfig.searchEnabled" class="btn btn-primary" title="Search for Video"><i class="icon-search"></i></button>
 
-
-        <iframe class="previewVid" ng-show="model.value.embedUrl != null" src="{{model.value.embedUrl}}" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        <iframe class="previewVid" ng-show="model.value.embedUrl != null" src="{{model.value.embedUrl}}" width="600" height="337" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     </div>
     <div class="infoColumn" ng-show="model.value.embedUrl != null">
         <h4 style="margin-top:0;"><i class="fa fa-{{model.value.type|lowercase}}-square" aria-hidden="true" title="Search YouTube"></i> {{model.value.name}}</h4>
         <div ng-show="model.value.description">{{model.value.description}}</div>
 
     </div>
+
 </div>

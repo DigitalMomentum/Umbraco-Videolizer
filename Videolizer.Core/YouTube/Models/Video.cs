@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Videolizer.Core.Models;
+using Videolizer.Core.YouTube.Converters;
 
 namespace Videolizer.Core.YouTube.Models
 {
@@ -15,10 +16,11 @@ namespace Videolizer.Core.YouTube.Models
                 return $"//www.youtube.com/watch?v={Id}";
             }
         }
+
+        [JsonProperty(PropertyName = "id")]
+        [JsonConverter(typeof(IdJsonConverter))]
         public string Id {
-            get {
-                return ID_Util.GetId();
-            }
+            get; internal set;
         }
 
 
@@ -78,8 +80,13 @@ namespace Videolizer.Core.YouTube.Models
 
         }
 
-        [JsonProperty(PropertyName = "id")]
-        internal YT_ID ID_Util { get; set; }
+        //[JsonProperty(PropertyName = "id")]
+        //internal YT_ID ID_Util { get; set; }
+
+
+        //[JsonProperty(PropertyName = "id")]
+        //[JsonConverter(typeof(IdJsonConverter))]
+        //internal string ID_Util { get; set; }
 
         internal class YT_ID
         {

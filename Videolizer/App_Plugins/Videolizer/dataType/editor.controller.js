@@ -1,7 +1,9 @@
 ﻿angular.module("umbraco")
     .controller("DigitalMomentum.Videolizer",
 		function ($scope, dialogService, videolizerApi) {
-
+            $scope.viewModel = {
+                vidUrl: null
+            };
 			$scope.localConfig = {
 				searchEnabled: false,
 				youTube: {
@@ -16,13 +18,15 @@
 				}
 			};
 
-			$scope.checkVideoUrl = function () {
+            $scope.checkVideoUrl = function () {
+
 				$scope.model.value = null;
 				
-				if ($scope.vidUrl !== "") {
+                if ($scope.viewModel.vidUrl !== "") {
 
-					videolizerApi.GetVideoByUrl($scope.vidUrl, function (data) {
-						$scope.model.value = data.items;
+                    videolizerApi.GetVideoByUrl($scope.viewModel.vidUrl, function (data) {
+                        $scope.model.value = data;
+                        console.log($scope.model.value)
 					});
 
 
@@ -71,7 +75,7 @@
                     // function called when dialog is closed
                     callback: function (value) {
                         $scope.model.value = value;
-                        $scope.vidUrl = value.url;
+                        $scope.viewModel.vidUrl = value.url;
                     }
                 });
             }
@@ -82,13 +86,13 @@
 
                 if ($scope.model.value != null) {
                     if (typeof $scope.model.value.url !== "undefined") {
-                        $scope.vidUrl = $scope.model.value.url;
+                        $scope.viewModel.vidUrl = $scope.model.value.url;
                     } else {
                         //Doesn't seem to be our usual object. 
                         //Lets try to see if it was a Textbox in a previous life!
                         if (typeof $scope.model.value === "string") {
                             //could be a url stored as a plain string. Lets give it a go!
-                            $scope.vidUrl = $scope.model.value;
+                            $scope.viewModel.vidUrl = $scope.model.value;
                             $scope.checkVideoUrl();
                         }
                     }

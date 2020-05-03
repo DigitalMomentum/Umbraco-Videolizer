@@ -196,6 +196,7 @@
     <Compile Include="Vimeo\Resources\ResourceBase.cs" />
     <Compile Include="Vimeo\Resources\Videos.cs" />
     <Compile Include="YouTube\Auth.cs" />
+    <Compile Include="YouTube\Converters\IDJsonConverter.cs" />
     <Compile Include="YouTube\Enums.cs" />
     <Compile Include="YouTube\Models\PagedResults.cs" />
     <Compile Include="YouTube\Models\Thumbnails.cs" />
