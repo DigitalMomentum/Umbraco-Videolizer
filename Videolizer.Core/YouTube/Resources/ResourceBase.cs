@@ -100,7 +100,12 @@ namespace Videolizer.Core.YouTube.Resources
                 }
             }
 
-            using (var client = new WebClient())
+			ServicePointManager.Expect100Continue = true;
+			ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
+			ServicePointManager.ServerCertificateValidationCallback = delegate { return true; }; //Dont know if I need this?
+
+			using (var client = new WebClient())
             {
                 client.Headers.Add(HttpRequestHeader.Authorization, $"Bearer {tokenSet.AccessToken}");
                 try { 

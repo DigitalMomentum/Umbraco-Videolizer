@@ -11,16 +11,21 @@ namespace Videolizer.Core.Resources
     {
 
 
+		Task<dynamic> GetVideoAsDynamic(string id);
 
-        /// <summary>
-        /// Gets a list of Videos
-        /// </summary>
-        /// <param name="query">Search query used to search for videos</param>
-        /// <param name="sortOrder">The sort order of the videos</param>
-        /// <param name="maxResultsPerPage">Maximum results. Also used as items per page</param>
-        /// <param name="page">YOUTUBE: Pass the next/prev token to go through pages. VIMEO: Pass the Page number</param>
-        /// <returns></returns>
-        Task<Core.Models.PagedResults<VideolizerVideo>> List(string query, SortOrder sortOrder = SortOrder.Relevance, int maxResultsPerPage = 50, string page = null);
+		Task<VideolizerVideo> GetVideo(string id);
+
+		Task<T> GetVideo<T>(string id);
+
+		/// <summary>
+		/// Gets a list of Videos
+		/// </summary>
+		/// <param name="query">Search query used to search for videos</param>
+		/// <param name="sortOrder">The sort order of the videos</param>
+		/// <param name="maxResultsPerPage">Maximum results. Also used as items per page</param>
+		/// <param name="page">YOUTUBE: Pass the next/prev token to go through pages. VIMEO: Pass the Page number</param>
+		/// <returns></returns>
+		Task<Core.Models.PagedResults<VideolizerVideo>> List(string query, SortOrder sortOrder = SortOrder.Relevance, int maxResultsPerPage = 50, string page = null);
 
 
         /// <summary>

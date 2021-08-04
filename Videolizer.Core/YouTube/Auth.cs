@@ -47,7 +47,11 @@ namespace Videolizer.Core.YouTube
 
         public TokenSet GetAccessTokenFromAuthCode(string authCode, string redirectUrl)
         {
-            using (var client = new WebClient())
+			ServicePointManager.Expect100Continue = true;
+			ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
+			ServicePointManager.ServerCertificateValidationCallback = delegate { return true; }; //Dont know if I need this?
+			using (var client = new WebClient())
             {
                 var values = new NameValueCollection();
                 values["code"] = authCode;
@@ -66,7 +70,7 @@ namespace Videolizer.Core.YouTube
                     return new TokenSet()
                     {
                         AccessToken = response.access_token.ToString(),
-                        RefreshToken = response.refresh_token.ToString(),
+                        RefreshToken = response.refresh_token?.ToString(),
                         Expires = DateTime.Now.AddSeconds(long.Parse(response.expires_in.ToString()) - 30)
                     };
                 }

@@ -50,10 +50,10 @@ angular.module('umbraco')
                     //return whatever was picked
                     return $scope.model.searchType.myVideos;
                 }
-                if ($scope.model.searchType.provider == "YouTube" && $scope.dialogData.config.youTube.myVideos) {
+                if ($scope.model.searchType.provider === "YouTube" && $scope.dialogData.config.youTube.myVideos) {
                     return true;
                 }
-                if ($scope.model.searchType.provider == "Vimeo" && $scope.dialogData.config.vimeo.myVideos) {
+                if ($scope.model.searchType.provider === "Vimeo" && $scope.dialogData.config.vimeo.myVideos) {
                     return true;
                 }
 
@@ -68,12 +68,12 @@ angular.module('umbraco')
             }
 
             $scope.showSearchType = function(){
-                if ($scope.model.searchType.provider == "YouTube") {
+                if ($scope.model.searchType.provider === "YouTube") {
                     return($scope.dialogData.config.youTube.myVideos && $scope.dialogData.config.youTube.publicVideos )
                 }
 
 
-                if ($scope.model.searchType.provider == "Vimeo") {
+                if ($scope.model.searchType.provider === "Vimeo") {
                     return ($scope.dialogData.config.vimeo.myVideos && $scope.dialogData.config.vimeo.publicVideos)
                 }
 

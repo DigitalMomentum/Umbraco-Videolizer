@@ -43,15 +43,33 @@ namespace Videolizer.Core.Vimeo.Resources
             }
         }
 
-        /// <summary>
-        /// Gets a list of Videos
-        /// </summary>
-        /// <param name="query">Search query used to search for videos</param>
-        /// <param name="sortOrder">The sort order of the videos</param>
-        /// <param name="maxResultsPerPage">Maximum results. Also used as items per page</param>
-        /// <param name="page">Pass the Page number</param>
-        /// <returns></returns>
-        public async Task<dynamic> ListAsDynamic(string query, Core.Resources.Videos.SortOrder sortOrder = Core.Resources.Videos.SortOrder.Relevance, int maxResultsPerPage = 50, string page = null)
+
+		public async Task<dynamic> GetVideoAsDynamic(string id) {
+			return await GetVideo<dynamic>(id);
+		}
+
+		public async Task<VideolizerVideo> GetVideo(string id) {
+			var vid = await GetVideo<Video>(id);
+            return Video.MapToVideolizerVideo(vid);
+		}
+
+		public async Task<T> GetVideo<T>(string id) {
+			var queryparams = new Dictionary<string, string>() {
+				//{ "video_id ", id }
+			};
+
+			return await Get<T>($"{resourceType}/{id}", queryparams);
+		}
+
+		/// <summary>
+		/// Gets a list of Videos
+		/// </summary>
+		/// <param name="query">Search query used to search for videos</param>
+		/// <param name="sortOrder">The sort order of the videos</param>
+		/// <param name="maxResultsPerPage">Maximum results. Also used as items per page</param>
+		/// <param name="page">Pass the Page number</param>
+		/// <returns></returns>
+		public async Task<dynamic> ListAsDynamic(string query, Core.Resources.Videos.SortOrder sortOrder = Core.Resources.Videos.SortOrder.Relevance, int maxResultsPerPage = 50, string page = null)
         {
             return await List<dynamic>(query, sortOrder, maxResultsPerPage, page);
         }
@@ -186,5 +204,7 @@ namespace Videolizer.Core.Vimeo.Resources
 
             return retVal;
         }
-    }
+
+		
+	}
 }
