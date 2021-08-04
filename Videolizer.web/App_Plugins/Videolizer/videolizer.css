@@ -64,6 +64,7 @@
 	width: auto;
 	max-width: 500px;
 	margin: 15px 15px;
+	margin-bottom:5px;
 }
 .vEditor .videolizerUrl {
 	width: calc(100% - 92px);
@@ -84,7 +85,7 @@
 .vEditor .previewVid {
 	width: 100%;
 	max-width: 500px;
-	margin-top: 25px;
+	margin-top: 15px;
 }
 
 .vEditor.datatype .previewColumn {
