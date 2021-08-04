@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>DigitalMomentum.Videolizer</id>
-    <version>3.0.0.2-beta</version>
+    <version>3.0.0.3-beta</version>
     <title>Videolizer for Umbraco 7</title>
     <authors>David Sheiles - Digital Momentum</authors>
     <owners>David Sheiles - Digital Momentum</owners>
@@ -14,7 +14,7 @@
     <copyright>Copyright ©  2020</copyright>
     <tags>Umbraco Umbraco7 YouTube Vimeo Video OAuth</tags>
     <dependencies>
-      <dependency id="DigitalMomentum.Videolizer.Core" version="3.0.0-beta" />
+      <dependency id="DigitalMomentum.Videolizer.Core" version="3.0.0.3-beta" />
     </dependencies>
     <releaseNotes>
 		Re-work entire property editor and search function. Adds OAuth Support to allow searching private videos
