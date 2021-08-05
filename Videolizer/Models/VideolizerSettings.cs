@@ -10,7 +10,7 @@ using static Videolizer.Helpers.SettingsHelper;
 namespace Videolizer.Models
 {
     [TableName("Videolizer_settings")]
-    public class VideolizerSettings
+    internal class VideolizerSettings
     {
 
 

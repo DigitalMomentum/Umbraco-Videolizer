@@ -100,11 +100,11 @@ namespace Videolizer.Helpers
 
         }
 
-        public VideolizerSettings Get(SettingTypes settingType) {
+        internal VideolizerSettings Get(SettingTypes settingType) {
             return db.SingleOrDefault<VideolizerSettings>((int)settingType);
         }
 
-        public VideolizerSettings GetDynamic(SettingTypes settingType) {
+        internal VideolizerSettings GetDynamic(SettingTypes settingType) {
             return db.SingleOrDefault<VideolizerSettings>((int)settingType);
         }
     }

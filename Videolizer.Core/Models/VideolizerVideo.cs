@@ -133,24 +133,37 @@ namespace Videolizer
         }
 
 
-        public string GetEmbedUrl(bool autoPlay = false, bool loop = false, bool showAvitar = true, bool showTitle = true, bool showByLine = false, bool showSugestedVideos = false, bool showPlayerControls = true)
+        public string GetEmbedUrl(bool autoPlay = false, bool loop = false, bool showTitle = true, bool showByLine = false, bool showRelatedVideos = false, bool showPlayerControls = true)
         {
-            return this.EmbedUrl;
-        }
+			VideolizerEmbedSettings embedSettings = new VideolizerEmbedSettings() {
+				AutoPlay = autoPlay,
+				Loop = loop,
+				Byline = showByLine,
+				RelatedVideos = showRelatedVideos,
+				Controls = showPlayerControls,
+				Title = showTitle
+			};
+
+			return GetEmbedUrl(embedSettings);
+		}
+
+		public string GetEmbedUrl(VideolizerEmbedSettings embedSettings) {
+			return this.EmbedUrl + embedSettings.GetEmbedQueryString(this.Type, this.Id);
+		}
 
 
 
 
 
-        /// <summary>
-        /// Returns the HTML for the Video Embed in the form of an iFrame
-        /// </summary>
-        /// <param name="width">Width of the Video (px or %)</param>
-        /// <param name="height">Height of the Video (px or %)</param>
-        /// <param name="cssClasses">CSS Clases to add to the iframe</param>
-        /// <param name="styles">Styles to add to the iframe</param>
-        /// <returns>Iframe Embed to play the video or Empty string if no video</returns>
-        public HtmlString GetSimpleEmbed(string width, string height, VideolizerEmbedSettings embedSettings = null, string cssClasses = null, string styles = null)
+		/// <summary>
+		/// Returns the HTML for the Video Embed in the form of an iFrame
+		/// </summary>
+		/// <param name="width">Width of the Video (px or %)</param>
+		/// <param name="height">Height of the Video (px or %)</param>
+		/// <param name="cssClasses">CSS Clases to add to the iframe</param>
+		/// <param name="styles">Styles to add to the iframe</param>
+		/// <returns>Iframe Embed to play the video or Empty string if no video</returns>
+		public HtmlString GetSimpleEmbed(string width, string height, VideolizerEmbedSettings embedSettings = null, string cssClasses = null, string styles = null)
         {
             if (EmbedUrl == null || !HasVideo())
             {
