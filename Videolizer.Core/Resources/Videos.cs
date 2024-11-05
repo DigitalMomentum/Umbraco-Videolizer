@@ -70,19 +70,19 @@ namespace Videolizer.Core.Resources
             return await providerClass.ListAsDynamic(query, sortOrder, maxResultsPerPage, page);
         }
 
-        public async Task<PagedResults<VideolizerVideo>> ListMine(string query, SortOrder sortOrder = SortOrder.Relevance, int maxResultsPerPage = 50, string page = null, bool embedable = false)
+        public async Task<PagedResults<VideolizerVideo>> ListMine(string query, SortOrder sortOrder = SortOrder.Relevance, int maxResultsPerPage = 50, string page = null, bool embedable = false, VideoMineQueryOptions queryOptions = null)
         {
-            return await providerClass.ListMine(query, sortOrder, maxResultsPerPage, page, embedable);
+            return await providerClass.ListMine(query, sortOrder, maxResultsPerPage, page, embedable, queryOptions);
         }
 
-        public async Task<T> ListMine<T>(string query, SortOrder sortOrder = SortOrder.Relevance, int maxResultsPerPage = 50, string page = null, bool embedable = false)
+        public async Task<T> ListMine<T>(string query, SortOrder sortOrder = SortOrder.Relevance, int maxResultsPerPage = 50, string page = null, bool embedable = false, VideoMineQueryOptions queryOptions = null)
         {
-            return await providerClass.ListMine<T>(query, sortOrder, maxResultsPerPage, page, embedable);
+            return await providerClass.ListMine<T>(query, sortOrder, maxResultsPerPage, page, embedable, queryOptions);
         }
 
-        public async Task<dynamic> ListMineAsDynamic(string query, SortOrder sortOrder = SortOrder.Relevance, int maxResultsPerPage = 50, string page = null, bool embedable = false)
+        public async Task<dynamic> ListMineAsDynamic(string query, SortOrder sortOrder = SortOrder.Relevance, int maxResultsPerPage = 50, string page = null, bool embedable = false, VideoMineQueryOptions queryOptions = null)
         {
-            return await providerClass.ListMineAsDynamic(query, sortOrder, maxResultsPerPage, page, embedable);
+            return await providerClass.ListMineAsDynamic(query, sortOrder, maxResultsPerPage, page, embedable, queryOptions);
         }
 
 	

@@ -160,7 +160,7 @@ namespace Videolizer.Core.YouTube.Resources {
 		/// <param name="page">YOUTUBE: Pass the next/prev token to go through pages. VIMEO: Pass the Page number</param>
 		/// <param name="embedable">true = videos that can be embedded, false = any video</param>
 		/// <returns></returns>
-		public async Task<dynamic> ListMineAsDynamic(string query, Core.Resources.Videos.SortOrder sortOrder = Core.Resources.Videos.SortOrder.Relevance, int maxResultsPerPage = 50, string page = null, bool embedable = false) {
+		public async Task<dynamic> ListMineAsDynamic(string query, Core.Resources.Videos.SortOrder sortOrder = Core.Resources.Videos.SortOrder.Relevance, int maxResultsPerPage = 50, string page = null, bool embedable = false, Core.Models.VideoMineQueryOptions queryOptions = null) {
 			return await ListMine<dynamic>(query, sortOrder, maxResultsPerPage, page, embedable, null);
 		}
 
@@ -176,7 +176,7 @@ namespace Videolizer.Core.YouTube.Resources {
 		/// <param name="page">YOUTUBE: Pass the next/prev token to go through pages. VIMEO: Pass the Page number</param>
 		/// <param name="embedable">true = videos that can be embedded, false = any video</param>
 		/// <returns>Typed class to associate to the returned JSON</returns>
-		public async Task<T> ListMine<T>(string query, Core.Resources.Videos.SortOrder sortOrder = Core.Resources.Videos.SortOrder.Relevance, int maxResultsPerPage = 50, string page = null, bool embedable = false) {
+		public async Task<T> ListMine<T>(string query, Core.Resources.Videos.SortOrder sortOrder = Core.Resources.Videos.SortOrder.Relevance, int maxResultsPerPage = 50, string page = null, bool embedable = false, Core.Models.VideoMineQueryOptions queryOptions = null) {
 			return await ListMine<T>(query, sortOrder, maxResultsPerPage, page, embedable, null);
 		}
 		/// <summary>
@@ -190,7 +190,7 @@ namespace Videolizer.Core.YouTube.Resources {
 		/// <param name="embedable">true = videos that can be embedded, false = any video</param>
 		/// <param name="parts">true = videos that can be embedded, false = any video</param>
 		/// <returns>Typed class to associate to the returned JSON</returns>
-		public async Task<T> ListMine<T>(string query, Core.Resources.Videos.SortOrder sortOrder = Core.Resources.Videos.SortOrder.Relevance, int maxResultsPerPage = 50, string page = null, bool embedable = false, List<Parts> parts = null) {
+		public async Task<T> ListMine<T>(string query, Core.Resources.Videos.SortOrder sortOrder = Core.Resources.Videos.SortOrder.Relevance, int maxResultsPerPage = 50, string page = null, bool embedable = false, List<Parts> parts = null, Core.Models.VideoMineQueryOptions queryOptions = null) {
 			var queryparams = new Dictionary<string, string>() {
 				{ "forMine", "true" },
 				{ "order", SortOrderToString(sortOrder) },
@@ -235,8 +235,8 @@ namespace Videolizer.Core.YouTube.Resources {
 			return retVal;
 		}
 
-		public async Task<Core.Models.PagedResults<VideolizerVideo>> ListMine(string query, SortOrder sortOrder = SortOrder.Relevance, int maxResultsPerPage = 50, string page = null, bool embedable = false) {
-			var videoQuery = await ListMine<PagedResults<Video>>(query, sortOrder, maxResultsPerPage, page, embedable);
+		public async Task<Core.Models.PagedResults<VideolizerVideo>> ListMine(string query, SortOrder sortOrder = SortOrder.Relevance, int maxResultsPerPage = 50, string page = null, bool embedable = false, Core.Models.VideoMineQueryOptions queryOptions = null) {
+			var videoQuery = await ListMine<PagedResults<Video>>(query, sortOrder, maxResultsPerPage, page, embedable, queryOptions);
 
 			Core.Models.PagedResults<VideolizerVideo> retVal = new Core.Models.PagedResults<VideolizerVideo>() {
 				NextPage = videoQuery.NextPage,

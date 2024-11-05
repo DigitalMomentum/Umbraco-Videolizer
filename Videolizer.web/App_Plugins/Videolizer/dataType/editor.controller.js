@@ -14,7 +14,8 @@
 				vimeo: {
 					enabled: false,
 					myVideos: false,
-					publicVideos: false
+                    publicVideos: false,
+                    folderId: ""
 				}
 			};
 
@@ -126,6 +127,8 @@
                         if ($scope.model.config.vimeoSettings.searchMyVideos) {
                             $scope.localConfig.vimeo.myVideos = true;
                         }
+
+                        $scope.localConfig.vimeo.folderId = $scope.model.config.vimeoSettings.folderId;
                     }
                 }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Videolizer.Core.Models;
 using static Videolizer.Core.Resources.Videos;
 
 namespace Videolizer.Core.Resources
@@ -70,7 +71,7 @@ namespace Videolizer.Core.Resources
         /// <param name="page">YOUTUBE: Pass the next/prev token to go through pages. VIMEO: Pass the Page number</param>
         /// <param name="embedable">true = videos that can be embedded, false = any video</param>
         /// <returns>Strongly typed object that matches the returned JSON</returns>
-        Task<Core.Models.PagedResults<VideolizerVideo>> ListMine(string query, SortOrder sortOrder = SortOrder.Relevance, int maxResultsPerPage = 50, string page = null, bool embedable = false);
+        Task<Core.Models.PagedResults<VideolizerVideo>> ListMine(string query, SortOrder sortOrder = SortOrder.Relevance, int maxResultsPerPage = 50, string page = null, bool embedable = false, VideoMineQueryOptions queryOptions = null);
 
         /// <summary>
         /// Gets a list of the current users Videos
@@ -81,7 +82,7 @@ namespace Videolizer.Core.Resources
         /// <param name="page">YOUTUBE: Pass the next/prev token to go through pages. VIMEO: Pass the Page number</param>
         /// <param name="embedable">true = videos that can be embedded, false = any video</param>
         /// <returns></returns>
-        Task<dynamic> ListMineAsDynamic(string query, SortOrder sortOrder = SortOrder.Relevance, int maxResultsPerPage = 50, string page = null, bool embedable = false);
+        Task<dynamic> ListMineAsDynamic(string query, SortOrder sortOrder = SortOrder.Relevance, int maxResultsPerPage = 50, string page = null, bool embedable = false, VideoMineQueryOptions queryOptions = null);
 
         /// <summary>
         /// Gets a list of the current users Videos
@@ -93,6 +94,6 @@ namespace Videolizer.Core.Resources
         /// <param name="page">YOUTUBE: Pass the next/prev token to go through pages. VIMEO: Pass the Page number</param>
         /// <param name="embedable">true = videos that can be embedded, false = any video</param>
         /// <returns>Strongly typed object that matches the returned JSON</returns>
-        Task<T> ListMine<T>(string query, SortOrder sortOrder = SortOrder.Relevance, int maxResultsPerPage = 50, string page = null, bool embedable = false);
+        Task<T> ListMine<T>(string query, SortOrder sortOrder = SortOrder.Relevance, int maxResultsPerPage = 50, string page = null, bool embedable = false, VideoMineQueryOptions queryOptions = null);
     }
 }

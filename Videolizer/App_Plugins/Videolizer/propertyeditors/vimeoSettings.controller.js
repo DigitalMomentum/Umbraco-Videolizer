@@ -13,7 +13,8 @@ angular.module('umbraco')
                         isConnected: false,
                         enableSearch: true,
                         searchPublicVideos: true,
-                        searchMyVideos: true
+                        searchMyVideos: true,
+                        folderId: ""
                     }
                 }
                 $scope.CheckServiceStatus();

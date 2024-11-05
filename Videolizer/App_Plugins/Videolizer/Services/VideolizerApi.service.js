@@ -1,7 +1,7 @@
 ﻿angular.module('umbraco')
     .service('videolizerApi', function ($http, notificationsService) {
 
-        this.search = function (searchTerm, provider, myVideos, channelId, itemsPerPage, callback) {
+        this.search = function (searchTerm, provider, myVideos, channelId, itemsPerPage, folderId, callback) {
 
 
             var ApiUrl = "/Umbraco/BackOffice/Api/Search/Query?providerType=" + provider;
@@ -10,6 +10,7 @@
             ApiUrl += '&query=' + searchTerm;
             ApiUrl += '&myVideos=' + myVideos;
             ApiUrl += '&channelId=' + channelId;
+            ApiUrl += '&folderId=' + folderId;
 
             var req = {
                 method: 'GET',

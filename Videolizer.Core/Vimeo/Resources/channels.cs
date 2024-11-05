@@ -73,7 +73,7 @@ namespace Videolizer.Core.Vimeo.Resources
         /// <returns>Strongly typed object that matches the returned JSON</returns>
         public async Task<T> ListMine<T>()
         {
-            return await Get<T>($"me/resourceType", null);
+            return await Get<T>($"me/{resourceType}", null);
         }
     }
 }

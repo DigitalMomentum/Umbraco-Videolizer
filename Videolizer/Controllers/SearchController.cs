@@ -18,7 +18,7 @@ namespace Videolizer.Controllers {
 
 		///Umbraco/BackOffice/Api/Search/Query
 		[HttpGet]
-		public async Task<PagedResults<VideolizerVideo>> Query(string query, Enums.ProviderType providerType, bool myVideos = false, string channelId = null, int itemsPerPage = 10) {
+		public async Task<PagedResults<VideolizerVideo>> Query(string query, Enums.ProviderType providerType, bool myVideos = false, string channelId = null, int itemsPerPage = 10, long? folderId = null) {
 			SettingsHelper.SettingTypes settingTypes = (providerType == Enums.ProviderType.YouTube) ? SettingsHelper.SettingTypes.YT_TokenSet : SettingsHelper.SettingTypes.Vimeo_TokenSet;
 
 			SettingsHelper settings = new SettingsHelper(ApplicationContext.DatabaseContext.Database);
@@ -36,7 +36,11 @@ namespace Videolizer.Controllers {
 				Core.Resources.Videos.SortOrder sortOrder = (string.IsNullOrEmpty(query)) ? Core.Resources.Videos.SortOrder.Date : Core.Resources.Videos.SortOrder.Relevance;
 
 				if (myVideos) {
-					return await videos.ListMine(query, sortOrder, itemsPerPage);
+
+					return await videos.ListMine(query, sortOrder, itemsPerPage, queryOptions:  new Core.Models.VideoMineQueryOptions()
+					{
+						FolderId = folderId
+                    });
 				} else {
 					return await videos.List(query, sortOrder, itemsPerPage);
 				}

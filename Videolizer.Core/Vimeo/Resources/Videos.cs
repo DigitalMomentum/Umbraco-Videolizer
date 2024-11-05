@@ -122,10 +122,11 @@ namespace Videolizer.Core.Vimeo.Resources
         /// <param name="maxResultsPerPage">Maximum results. Also used as items per page</param>
         /// <param name="page">YOUTUBE: Pass the next/prev token to go through pages. VIMEO: Pass the Page number</param>
         /// <param name="embedable">true = videos that can be embedded, false = any video</param>
+        /// <param name="folderId">Pass the Folder/Project ID to restrict the results to children of the given folder</param>
         /// <returns></returns>
-        public async Task<dynamic> ListMineAsDynamic(string query, Core.Resources.Videos.SortOrder sortOrder = Core.Resources.Videos.SortOrder.Relevance, int maxResultsPerPage = 50, string page = null, bool embedable = false)
+        public async Task<dynamic> ListMineAsDynamic(string query, Core.Resources.Videos.SortOrder sortOrder = Core.Resources.Videos.SortOrder.Relevance, int maxResultsPerPage = 50, string page = null, bool embedable = false, Core.Models.VideoMineQueryOptions queryOptions = null)
         {
-            return await ListMine<dynamic>(query, sortOrder, maxResultsPerPage, page, embedable);
+            return await ListMine<dynamic>(query, sortOrder, maxResultsPerPage, page, embedable, queryOptions);
         }
 
 
@@ -139,7 +140,7 @@ namespace Videolizer.Core.Vimeo.Resources
         /// <param name="page">YOUTUBE: Pass the next/prev token to go through pages. VIMEO: Pass the Page number</param>
         /// <param name="embedable">true = videos that can be embedded, false = any video</param>
         /// <returns>Strongly typed object that matches the returned JSON</returns>
-        public async Task<T> ListMine<T>(string query, Core.Resources.Videos.SortOrder sortOrder = Core.Resources.Videos.SortOrder.Relevance, int maxResultsPerPage = 50, string page = null, bool embedable = false)
+        public async Task<T> ListMine<T>(string query, Core.Resources.Videos.SortOrder sortOrder = Core.Resources.Videos.SortOrder.Relevance, int maxResultsPerPage = 50, string page = null, bool embedable = false, Core.Models.VideoMineQueryOptions queryOptions = null)
         {
             string srt = SortOrderToString(sortOrder);
             if (srt == "relevant")
@@ -169,13 +170,21 @@ namespace Videolizer.Core.Vimeo.Resources
                 queryparams.Add("filter_embeddable", "true");
             }
 
-            return await Get<T>($"me/{resourceType}", queryparams);
+            string endpoint = $"me/{resourceType}";
+
+            if(queryOptions?.FolderId != null)
+            {
+                //filter to specific folder/project
+                endpoint = $"me/projects/{queryOptions.FolderId}/{resourceType}";
+            }
+
+            return await Get<T>(endpoint, queryparams);
         }
 
 
-        public async Task<Core.Models.PagedResults<VideolizerVideo>> ListMine(string query, SortOrder sortOrder = SortOrder.Relevance, int maxResultsPerPage = 50, string page = null, bool embedable = false)
+        public async Task<Core.Models.PagedResults<VideolizerVideo>> ListMine(string query, SortOrder sortOrder = SortOrder.Relevance, int maxResultsPerPage = 50, string page = null, bool embedable = false, Core.Models.VideoMineQueryOptions queryOptions = null)
         {
-            var videoQuery = await ListMine<PagedResults<Video>>(query, sortOrder, maxResultsPerPage, page, embedable);
+            var videoQuery = await ListMine<PagedResults<Video>>(query, sortOrder, maxResultsPerPage, page, embedable, queryOptions);
 
             Core.Models.PagedResults<VideolizerVideo> retVal = new Core.Models.PagedResults<VideolizerVideo>()
             {

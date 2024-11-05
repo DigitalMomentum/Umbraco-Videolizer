@@ -14,5 +14,9 @@
     <div class="form-control">
         <input type="checkbox" ng-model="model.value.searchMyVideos" id="privateVimeoSearch" ng-disabled="!model.value.isConnected || !model.value.enableSearch" /> <label for="privateVimeoSearch">Search your videos</label>
     </div>
+    <div class="form-control">
+        <label for="privateVimeoSearchFolder">Limit Private Search to a folder ID</label><br/>
+        <input type="number" ng-model="model.value.folderId" id="privateVimeoSearchFolder" ng-disabled="!model.value.isConnected || !model.value.enableSearch || !model.value.searchMyVideos" />
+    </div>
 
 </div>
