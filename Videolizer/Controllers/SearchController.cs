@@ -12,7 +12,8 @@ using Videolizer.Core.Models;
 using Videolizer.Helpers;
 
 namespace Videolizer.Controllers {
-	[IsBackOffice]
+    [Umbraco.Web.Mvc.PluginController("Videolizer")]
+    [IsBackOffice]
 	public class SearchController : UmbracoAuthorizedApiController {
 
 

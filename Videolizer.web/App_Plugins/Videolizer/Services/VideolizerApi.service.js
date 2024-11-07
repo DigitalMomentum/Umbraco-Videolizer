@@ -4,7 +4,7 @@
         this.search = function (searchTerm, provider, myVideos, channelId, itemsPerPage, folderId, callback) {
 
 
-            var ApiUrl = "/Umbraco/BackOffice/Api/Search/Query?providerType=" + provider;
+            var ApiUrl = "/Umbraco/BackOffice/Videolizer/Search/Query?providerType=" + provider;
 
             ApiUrl += "&itemsPerPage=" + itemsPerPage;
             ApiUrl += '&query=' + searchTerm;
@@ -45,7 +45,7 @@
 		this.GetVideoByUrl = function (url, callback) {
 
 
-			var ApiUrl = "/Umbraco/BackOffice/Api/Search/GetVideoByUrl?url=" + url;
+            var ApiUrl = "/Umbraco/BackOffice/Videolizer/Search/GetVideoByUrl?url=" + url;
 
 			var req = {
 				method: 'GET',

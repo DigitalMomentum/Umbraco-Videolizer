@@ -82,7 +82,6 @@ angular.module('umbraco')
 
             $scope.search = function () {
                 $scope.errorStr = null;
-                debugger;
                 $scope.results = [];
                 var searchTerm = $scope.model.searchTerm;
                 videolizerApi.search(searchTerm, $scope.model.searchType.provider, isSearchingForMine(), null, 20, $scope.dialogData.config.vimeo.folderId, function (data) {
