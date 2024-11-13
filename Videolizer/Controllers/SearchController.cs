@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -38,7 +39,16 @@ namespace Videolizer.Controllers {
 
 				if (myVideos) {
 
-					return await videos.ListMine(query, sortOrder, itemsPerPage, queryOptions:  new Core.Models.VideoMineQueryOptions()
+					if (folderId == null)
+					{
+						if (ConfigurationManager.AppSettings["Videolizer:DefaultFolderId"] != null)
+						{
+							//If it
+							folderId = long.Parse(ConfigurationManager.AppSettings["Videolizer:DefaultFolderId"]);
+						}
+					}
+
+                        return await videos.ListMine(query, sortOrder, itemsPerPage, queryOptions:  new Core.Models.VideoMineQueryOptions()
 					{
 						FolderId = folderId
                     });
